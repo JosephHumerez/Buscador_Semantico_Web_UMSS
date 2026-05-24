@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabuscador Semántico SO</title>
+    <style>
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 40px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        h1 { text-align: center; color: #2c3e50; font-weight: 700; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #6c757d; margin-bottom: 25px; font-size: 14px; }
+        .search-box { display: flex; gap: 10px; margin-bottom: 30px; }
+        input[type="text"] { flex: 1; padding: 12px 15px; font-size: 16px; border: 2px solid #e9ecef; border-radius: 8px; outline: none; transition: border-color 0.3s; }
+        input[type="text"]:focus { border-color: #007bff; }
+        button { padding: 12px 25px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        button:hover { background-color: #0056b3; }
+        
+        .results { display: grid; gap: 20px; }
+        .result-card { background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; border-left: 6px solid #0d6efd; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .result-card h3 { margin: 0 0 15px 0; color: #0d6efd; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        .attr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+        .attr-item { background: #f8f9fa; padding: 8px 12px; border-radius: 6px; font-size: 14px; }
+        .attr-name { font-weight: 600; color: #495057; }
+        .attr-value { color: #212529; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Buscador Semántico OWL</h1>
+        <p class="subtitle">Realiza preguntas complejas o busca por palabras clave independientes.</p>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Ej: ¿Qué SO tiene journaling y usa ext4?">
+            <button onclick="buscarSO()">Consultar</button>
+        </div>
+
+        <div class="results" id="resultsContainer"></div>
+    </div>
+
+    <script>
+        function formatearTexto(texto) {
+            if (texto === "true") return "Sí";
+            if (texto === "false") return "No";
+            return texto.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        async function buscarSO() {
+            const query = document.getElementById('searchInput').value;
+            const container = document.getElementById('resultsContainer');
+            container.innerHTML = '<div style="text-align:center;"><i>Ejecutando motor de inferencia... ⏳</i></div>';
+
+            try {
+                const response = await fetch(`http://localhost:5000/buscar?q=${query}`);
+                
+                let data;
+                try {
+                    data = await response.json();
+                } catch(e) {
+                    container.innerHTML = '<p style="text-align:center; color:red;">❌ Servidor Flask inalcanzable.</p>';
+                    return;
+                }
+
+                // Atrapar errores del Backend (SPARQL)
+                if (data.error) {
+                    container.innerHTML = `<p style="text-align:center; color:red;">❌ Error interno (SPARQL): ${data.error}</p>`;
+                    return;
+                }
+
+                container.innerHTML = '';
+                
+                if (data.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; color:#6c757d;">No se encontraron instancias que coincidan con la búsqueda.</p>';
+                    return;
+                }
+
+                data.forEach(so => {
+                    const card = document.createElement('div');
+                    card.className = 'result-card';
+                    
+                    let title = formatearTexto(so.id_instancia);
+                    let attrHTML = '<div class="attr-grid">';
+                    
+                    for (const [key, values] of Object.entries(so.atributos)) {
+                        let cleanKey = formatearTexto(key);
+                        let cleanVals = values.map(v => formatearTexto(v)).join(', ');
+                        attrHTML += `<div class="attr-item"><span class="attr-name">${cleanKey}:</span> <span class="attr-value">${cleanVals}</span></div>`;
+                    }
+                    
+                    attrHTML += '</div>';
+                    card.innerHTML = `<h3>🖥️ ${title}</h3>${attrHTML}`;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                container.innerHTML = '<p style="text-align:center; color:red;">❌ Error general de conexión.</p>';
+            }
+        }
+
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                buscarSO();
+            }
+        });
+    </script>
+</body>
+</html>

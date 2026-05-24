@@ -1,0 +1,3109 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2">
+    <Prefix name="" IRI="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Componente_Software_Base"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Distribucion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EntidadTecnologica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kernel_Nucleo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Licencia_Software"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Modulo_Seguridad"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Repositorio_De_Software"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sistema_Archivos"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sistema_Operativo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#administra_recurso"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#es_variante_de"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#esta_formateado_con"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#integra_modulo_seguridad"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#se_conecta_a_infraestructura"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#arquitectura_soportada"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#capacidad_disponible_mb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#capacidad_total_mb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#clave_gpg"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#consumo_memoria_kb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#desarrollador"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#descripcion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#es_kernel_modificado"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#es_open_source"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#esta_cifrado"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#estado_conexion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#estado_ejecucion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#familia_base"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#fecha_creacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#formato_archivos"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#gestor_red_default"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#id_entidad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#lenguaje_programacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#libreria_grafica_nativa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#logo_url"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metodo_memoria_virtual"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#modulo_seguridad_mac_integrado"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nombre"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nombre_clave"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#permite_gestion_prioridad_cpu"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#permite_modificacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#proposito"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#protocolo_red"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#protocolo_seguridad_default"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rama"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#requiere_autenticacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ruta_ejecutable"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#soporta_journaling"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#soporta_placas_desarrollo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tamaño_maximo_archivo_gb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_componente"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_estructura"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_instalador_default"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_lanzamiento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_licencia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_recurso"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#url_servidor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#version_kernel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#version_so"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#APFS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#APFS_Encrypted"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#APT_Main_Repo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Android_14"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Apache_License_2_0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AppArmor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#App_Store_iOS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Apple_EULA_iOS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Apple_SLA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Arch_User_Repository_AUR"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#B_Tree_APFS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Btrfs"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Btrfs_Subvolume"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#COMMAND_COM"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Disquetes_Fisicos_Instalacion"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Explorador_De_Archivos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ext4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#F2FS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FAT16"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FAT_File_Allocation_Table"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Finder_macOS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GNOME_Shell"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GNU_GPL_v2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Google_Play_Store"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Inodo_Ext4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Keychain_Apple"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Linux_Kernel_6_8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Linux_Kernel_Android"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Linux_Kernel_Zen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MFT_Master_File_Table"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MSDOS_SYS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mac_App_Store"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Memoria_Convencional_640KB"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Microsoft_EULA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Microsoft_EULA_DOS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Microsoft_Store"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NTFS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NVMe_Storage_iOS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pagefile_sys"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Particion_Swap_Linux"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SELinux"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SQLite_Database_Android"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SpringBoard"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Swapfile_macOS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Systemd_Init"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tmpfs_RAM_Disk"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TrustedBSD_MAC"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Windows_NT_10_0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#XNU_Darwin"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#XNU_Darwin_Mobile"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ZRAM_Partition"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Zygote_Process"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#exFAT"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#iOS_17"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Componente_Software_Base"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Distribucion"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kernel_Nucleo"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Licencia_Software"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modulo_Seguridad"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Repositorio_De_Software"/>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sistema_Archivos"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sistema_Operativo"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#APFS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#APFS_Encrypted"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#APT_Main_Repo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Operativo"/>
+        <NamedIndividual IRI="#Android_14"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Licencia_Software"/>
+        <NamedIndividual IRI="#Apache_License_2_0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Modulo_Seguridad"/>
+        <NamedIndividual IRI="#AppArmor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#App_Store_iOS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Licencia_Software"/>
+        <NamedIndividual IRI="#Apple_EULA_iOS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Licencia_Software"/>
+        <NamedIndividual IRI="#Apple_SLA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Distribucion"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#Arch_User_Repository_AUR"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#B_Tree_APFS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#Btrfs"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#Btrfs_Subvolume"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#COMMAND_COM"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#Disquetes_Fisicos_Instalacion"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#Explorador_De_Archivos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#F2FS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#FAT_File_Allocation_Table"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#Finder_macOS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#GNOME_Shell"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Licencia_Software"/>
+        <NamedIndividual IRI="#GNU_GPL_v2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#Google_Play_Store"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#Inodo_Ext4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#Keychain_Apple"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#Linux_Kernel_6_8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#Linux_Kernel_Android"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#Linux_Kernel_Zen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#MFT_Master_File_Table"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#MSDOS_SYS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Operativo"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#Mac_App_Store"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#Memoria_Convencional_640KB"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Licencia_Software"/>
+        <NamedIndividual IRI="#Microsoft_EULA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Licencia_Software"/>
+        <NamedIndividual IRI="#Microsoft_EULA_DOS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Repositorio_De_Software"/>
+        <NamedIndividual IRI="#Microsoft_Store"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#NVMe_Storage_iOS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#Pagefile_sys"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#Particion_Swap_Linux"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Modulo_Seguridad"/>
+        <NamedIndividual IRI="#SELinux"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+        <NamedIndividual IRI="#SQLite_Database_Android"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#SpringBoard"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#Swapfile_macOS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#Systemd_Init"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#Tmpfs_RAM_Disk"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Modulo_Seguridad"/>
+        <NamedIndividual IRI="#TrustedBSD_MAC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Distribucion"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Operativo"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#Windows_NT_10_0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#XNU_Darwin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Kernel_Nucleo"/>
+        <NamedIndividual IRI="#XNU_Darwin_Mobile"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+        <NamedIndividual IRI="#ZRAM_Partition"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Componente_Software_Base"/>
+        <NamedIndividual IRI="#Zygote_Process"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Archivos"/>
+        <NamedIndividual IRI="#exFAT"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Operativo"/>
+        <NamedIndividual IRI="#iOS_17"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sistema_Operativo"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#ZRAM_Partition"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#Zygote_Process"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#integra_modulo_seguridad"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#SELinux"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#Linux_Kernel_Android"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#Google_Play_Store"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#F2FS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#exFAT"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#F2FS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#F2FS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#SQLite_Database_Android"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <NamedIndividual IRI="#Apache_License_2_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Tmpfs_RAM_Disk"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Systemd_Init"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Linux_Kernel_Zen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Arch_User_Repository_AUR"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Btrfs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Btrfs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Btrfs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#Btrfs_Subvolume"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <NamedIndividual IRI="#GNU_GPL_v2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#Memoria_Convencional_640KB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#COMMAND_COM"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#MSDOS_SYS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#Disquetes_Fisicos_Instalacion"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#FAT_File_Allocation_Table"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <NamedIndividual IRI="#Microsoft_EULA_DOS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#Particion_Swap_Linux"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#GNOME_Shell"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#Linux_Kernel_6_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#APT_Main_Repo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#exFAT"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#Inodo_Ext4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <NamedIndividual IRI="#GNU_GPL_v2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#Pagefile_sys"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#Explorador_De_Archivos"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#Windows_NT_10_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#Microsoft_Store"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#exFAT"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#NTFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#MFT_Master_File_Table"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <NamedIndividual IRI="#Microsoft_EULA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#NVMe_Storage_iOS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#SpringBoard"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#XNU_Darwin_Mobile"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#App_Store_iOS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#APFS_Encrypted"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#exFAT"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#APFS_Encrypted"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#APFS_Encrypted"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#Keychain_Apple"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <NamedIndividual IRI="#Apple_EULA_iOS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#Swapfile_macOS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#Finder_macOS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#integra_modulo_seguridad"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#TrustedBSD_MAC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#XNU_Darwin"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#Mac_App_Store"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#APFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#exFAT"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#APFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#FAT16"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#APFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#B_Tree_APFS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <NamedIndividual IRI="#Apple_SLA"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#soporta_journaling"/>
+        <NamedIndividual IRI="#APFS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#soporta_journaling"/>
+        <NamedIndividual IRI="#APFS_Encrypted"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>arm64, x86_64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Google</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Sistema operativo móvil líder en el mercado.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Material You</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_kernel_modificado"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#esta_cifrado"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>LINUX</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Google Play Store</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#id_entidad"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>AND-14</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Android</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre_clave"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Upside Down Cake</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_modificacion"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1500</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_licencia"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>Apache 2.0 / GPL</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#Android_14"/>
+        <Literal>14</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#Apple_SLA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#Apple_SLA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>amd64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Comunidad Arch Linux</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Distribución Linux minimalista y de actualización continua.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Independiente</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Pacman</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Arch Linux</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_modificacion"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">250</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_lanzamiento"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Rolling Release</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#Arch_Linux_Rolling"/>
+        <Literal>Rolling</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#soporta_journaling"/>
+        <NamedIndividual IRI="#Btrfs"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#soporta_journaling"/>
+        <NamedIndividual IRI="#Ext4"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#GNU_GPL_v2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#GNU_GPL_v2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>x86 (16-bit)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>Microsoft Corporation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>Sistema operativo clásico basado en línea de comandos.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>CLI</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>DOS</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>MS-DOS</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#MS_DOS_6_22"/>
+        <Literal>6.22</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#Microsoft_EULA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#Microsoft_EULA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#soporta_journaling"/>
+        <NamedIndividual IRI="#NTFS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>amd64, arm64, riscv64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Canonical Ltd.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Distribución Linux basada en Debian enfocada en la facilidad de uso.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>GNOME</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_kernel_modificado"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#esta_cifrado"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>LINUX</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>APT y Snap</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_red_default"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>NetworkManager</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#id_entidad"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>UBT-2404-LTS</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#lenguaje_programacion"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>C, C++, Python</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#logo_url"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#metodo_memoria_virtual"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Swapfile</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#modulo_seguridad_mac_integrado"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>AppArmor</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Ubuntu</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre_clave"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Noble Numbat</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_gestion_prioridad_cpu"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_modificacion"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#proposito"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Escritorio y Servidor</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#protocolo_red"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>TCP/IP</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#protocolo_seguridad_default"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>TLS/SSL</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1200</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4096</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rama"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Main</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#requiere_autenticacion"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#soporta_placas_desarrollo"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">25</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Monolítico</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_instalador_default"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>Gráfico basado en Flutter</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_lanzamiento"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>LTS</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_licencia"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>GPL</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#url_servidor"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>https://ubuntu.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_kernel"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>6.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#Ubuntu_24_04_LTS"/>
+        <Literal>24.04</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>amd64, arm64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Microsoft Corporation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Sistema operativo privativo de la familia NT.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Windows Desktop</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_kernel_modificado"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#esta_cifrado"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Windows NT</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Winget</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#id_entidad"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>WIN-11-PRO</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#libreria_grafica_nativa"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>DirectX 12</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Windows 11</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_gestion_prioridad_cpu"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_modificacion"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#proposito"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Escritorio General</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4096</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4096</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Híbrido</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_licencia"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>Comercial Privativa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#url_servidor"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>https://microsoft.com</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#Windows_11_Pro"/>
+        <Literal>11.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#XNU_Darwin"/>
+        <Literal>UNIX</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>arm64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>Apple Inc.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>Sistema operativo móvil exclusivo para iPhone.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>SpringBoard</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#esta_cifrado"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>Darwin</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>App Store</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#id_entidad"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>IOS-17</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>iOS</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_modificacion"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1200</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_licencia"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>Privativa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#iOS_17"/>
+        <Literal>17.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>arm64, amd64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#desarrollador"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Apple Inc.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#descripcion"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Sistema operativo oficial para computadoras Mac.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Aqua</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#es_open_source"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#esta_cifrado"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#familia_base"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Darwin / UNIX</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Mac App Store</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#id_entidad"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>MAC-OS-14</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>macOS</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombre_clave"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Sonoma</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_modificacion"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#proposito"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Escritorio Premium</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">8192</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">30</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Híbrido</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_licencia"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>Apple SLA</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#url_servidor"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>https://apple.com/macos</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#version_so"/>
+        <NamedIndividual IRI="#macOS_Sonoma"/>
+        <Literal>14.0</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#ejecuta_componente"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#es_variante_de"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#esta_formateado_con"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#se_conecta_a_infraestructura"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#es_variante_de"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#esta_formateado_con"/>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#integra_modulo_seguridad"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#se_conecta_a_infraestructura"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <Class IRI="#Distribucion"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#administra_recurso"/>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#es_variante_de"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#esta_formateado_con"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#integra_modulo_seguridad"/>
+        <Class IRI="#Modulo_Seguridad"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#se_basa_en_kernel"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#se_conecta_a_infraestructura"/>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#se_descarga_desde"/>
+        <Class IRI="#Repositorio_De_Software"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#soporta_escritura_nativa_fs"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#soporta_lectura_nativa_fs"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tiene_sistema_archivos_por_defecto"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#utiliza_estructura_datos"/>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#utiliza_licencia"/>
+        <Class IRI="#Licencia_Software"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class IRI="#Componente_Software_Base"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#capacidad_disponible_mb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#capacidad_total_mb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#clave_gpg"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#consumo_memoria_kb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#desarrollador"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#descripcion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#es_kernel_modificado"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#es_open_source"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#esta_cifrado"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#estado_conexion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#estado_ejecucion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#familia_base"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#fecha_creacion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#formato_archivos"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#gestor_red_default"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#id_entidad"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#lenguaje_programacion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#libreria_grafica_nativa"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#logo_url"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#metodo_memoria_virtual"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#modulo_seguridad_mac_integrado"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#nombre"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#nombre_clave"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#permite_gestion_prioridad_cpu"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#permite_modificacion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#proposito"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#protocolo_red"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#protocolo_seguridad_default"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#rama"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#requiere_autenticacion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ruta_ejecutable"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#soporta_journaling"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#soporta_placas_desarrollo"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tamaño_maximo_archivo_gb"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_componente"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_estructura"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_instalador_default"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_lanzamiento"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_licencia"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tipo_recurso"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#url_servidor"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#version_kernel"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#version_so"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#capacidad_disponible_mb"/>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#capacidad_total_mb"/>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#clave_gpg"/>
+        <Class IRI="#Repositorio_De_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#consumo_memoria_kb"/>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#desarrollador"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#descripcion"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <Class IRI="#Licencia_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#es_kernel_modificado"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#es_open_source"/>
+        <Class IRI="#Licencia_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#esta_cifrado"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#estado_conexion"/>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#estado_ejecucion"/>
+        <Class IRI="#Componente_Software_Base"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#familia_base"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#fecha_creacion"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#formato_archivos"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <Class IRI="#Distribucion"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#gestor_red_default"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#id_entidad"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lenguaje_programacion"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#libreria_grafica_nativa"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#logo_url"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#metodo_memoria_virtual"/>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#modulo_seguridad_mac_integrado"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nombre"/>
+        <Class IRI="#EntidadTecnologica"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nombre_clave"/>
+        <Class IRI="#Distribucion"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#permite_gestion_prioridad_cpu"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#permite_modificacion"/>
+        <Class IRI="#Licencia_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#proposito"/>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#protocolo_red"/>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#protocolo_seguridad_default"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#rama"/>
+        <Class IRI="#Repositorio_De_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#requiere_autenticacion"/>
+        <Class IRI="#Repositorio_De_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+        <Class IRI="#Licencia_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ruta_ejecutable"/>
+        <Class IRI="#Componente_Software_Base"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#soporta_journaling"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#soporta_placas_desarrollo"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tamaño_maximo_archivo_gb"/>
+        <Class IRI="#Sistema_Archivos"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_componente"/>
+        <Class IRI="#Componente_Software_Base"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_estructura"/>
+        <Class IRI="#Estructura_De_Datos_Interna"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_instalador_default"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_lanzamiento"/>
+        <Class IRI="#Distribucion"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_licencia"/>
+        <Class IRI="#Licencia_Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipo_recurso"/>
+        <Class IRI="#Recurso_Memoria_Almacenamiento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#url_servidor"/>
+        <Class IRI="#Infraestructura_De_Distribucion"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#version_kernel"/>
+        <Class IRI="#Kernel_Nucleo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#version_so"/>
+        <Class IRI="#Sistema_Operativo"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#arquitectura_soportada"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#capacidad_disponible_mb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#capacidad_total_mb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cifrado_disco_por_defecto"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#clave_gpg"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#consumo_memoria_kb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cumple_estandar_posix"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#desarrollador"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#descripcion"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ejecuta_binarios_exe_nativamente"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#entorno_escritorio_default"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#es_comercial_de_pago"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#es_gratuito_freeware"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#es_kernel_modificado"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#es_open_source"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#esta_cifrado"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#estado_conexion"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#estado_ejecucion"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#familia_base"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#fecha_creacion"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#formato_archivos"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#gestor_paquetes_default"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#gestor_red_default"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#id_entidad"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#incluye_subsistema_compatibilidad"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#lenguaje_programacion"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#libreria_grafica_nativa"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#logo_url"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#metodo_memoria_virtual"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#modulo_seguridad_mac_integrado"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nombre"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nombre_clave"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#orientado_a_principiantes"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#permite_gestion_prioridad_cpu"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#permite_modificacion"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#permite_reemplazo_entorno_escritorio"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#proposito"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#protocolo_red"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#protocolo_seguridad_default"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ram_en_reposo_mb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ram_minima_recomendada_mb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#rama"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#requiere_autenticacion"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#restringe_hardware_especifico"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#restringe_instalacion_a_tienda"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ruta_ejecutable"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#soporta_journaling"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#soporta_placas_desarrollo"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tamaño_instalacion_gb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tamaño_maximo_archivo_gb"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tiene_asistente_instalacion"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tiene_sandboxing_nativo"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_arquitectura_nucleo"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_componente"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_estructura"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_instalador_default"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_lanzamiento"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_licencia"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_recurso"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#url_servidor"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#version_kernel"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#version_so"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#administra_recurso</IRI>
+        <Literal>Conecta el SO con la RAM gestionada, las particiones Swap, o discos físicos</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#es_variante_de</IRI>
+        <Literal>Para indicar que Ubuntu es variante de Debian, o Windows 11 de Windows 10.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#esta_formateado_con</IRI>
+        <Literal>Para enlazar directamente que una partición física de disco tiene un formato ext4, independientemente del SO.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#se_conecta_a_infraestructura</IRI>
+        <Literal>Relación más general para servidores NTP (hora), servidores DNS por defecto, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#se_descarga_desde</IRI>
+        <Literal>De dónde saca los paquetes de instalación</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#soporta_lectura_nativa_fs</IRI>
+        <Literal>Formatos que puede leer sin instalar nada extra</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tiene_sistema_archivos_por_defecto</IRI>
+        <Literal>El formato que usa al instalarse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#utiliza_estructura_datos</IRI>
+        <Literal>Para indicar qué usa el kernel internamente</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:topObjectProperty</AbbreviatedIRI>
+        <Literal>Para conectar el SO con sus demonios (ej. systemd), controladores o librerías gráficas.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
