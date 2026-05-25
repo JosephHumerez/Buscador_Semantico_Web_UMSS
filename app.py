@@ -130,88 +130,102 @@ def buscar():
             if 'Sistema_Operativo' in clases or 'Distribucion' in clases:
                 atributos_os = {}
                 
-                # 1. Armamos el diccionario de propiedades del SO
                 for p, valores in props.items():
                     if p == 'tipo_clase': continue
                     if p not in atributos_os: atributos_os[p] = set()
+                    
                     for v in valores:
                         atributos_os[p].add(v)
+                        
                         if v in entidades:
                             for sub_p, sub_vals in entidades[v].items():
                                 if sub_p == 'tipo_clase': continue
                                 if sub_p not in atributos_os: atributos_os[sub_p] = set()
                                 for sub_v in sub_vals:
                                     atributos_os[sub_p].add(sub_v)
+                
+                # --- NUEVA CONSTRUCCIÓN INTELIGENTE DE ATRIBUTOS ---
+                texto_completo = subj.replace('_', ' ').lower() + " "
+                
+                for p_name, vals in atributos_os.items():
+                    nombre_limpio = p_name.replace('_', ' ').lower()
+                    
+                    for v in vals:
+                        v_str = str(v).replace('_', ' ').lower()
+                        
+                        # VALIDACIÓN ESTRICTA DE BOOLEANOS
+                        if v_str == "false":
+                            # Solo agregamos las propiedades 'false' al texto si el usuario
+                            # buscó explícitamente la palabra 'false'
+                            if "false" in palabras_clave:
+                                texto_completo += f"{nombre_limpio} false "
+                        elif v_str == "true":
+                            # Las propiedades 'true' siempre se agregan
+                            texto_completo += f"{nombre_limpio} true "
+                        else:
+                            # Valores normales (ej: ext4, amd64, google)
+                            texto_completo += f"{nombre_limpio} {v_str} "
+                            
+                texto_completo = remover_acentos(texto_completo)
 
                 # =======================================================
-                # 🧠 NUEVO MOTOR DE EVALUACIÓN ESTRUCTURAL (EL DEFINITIVO)
+                # 🛑 NUEVO: FILTRO DE VETO ESTRICTO (MATA FALSOS POSITIVOS)
                 # =======================================================
-                
-                # Ignoramos los booleanos literales en las palabras a buscar, 
-                # porque la lógica ya evaluará los "true" o "false" internamente.
-                palabras_utiles = [kw for kw in palabras_clave if kw not in ["true", "false"]]
-                
-                puntuacion = 0
                 descartado = False
-                nombre_so = subj.replace('_', ' ').lower()
-                
-                for kw in palabras_utiles:
-                    kw_encontrada = False
-                    
-                    # A) ¿La palabra buscada es parte del nombre del SO? (ej: "ubuntu")
-                    if kw in nombre_so:
-                        kw_encontrada = True
-                        
-                    # B) Analizar Propiedades y sus Valores Reales
-                    for p_name, vals in atributos_os.items():
-                        nombre_propiedad = p_name.replace('_', ' ').lower()
-                        
-                        # CASO 1: La palabra hace referencia a una propiedad (ej: "posix" en "cumple_estandar_posix")
-                        if kw in nombre_propiedad:
-                            for v in vals:
-                                val_str = str(v).lower()
-                                
-                                if val_str == "false":
-                                    # Si es FALSE, evaluamos si el usuario preguntó en negativo (ej: "que NO sea posix")
-                                    if "no" in palabras_clave or "cerrado" in palabras_clave:
-                                        kw_encontrada = True # Gana punto porque buscaba algo que NO lo tuviera
-                                    else:
-                                        descartado = True # 🛑 VETO LETAL: Lo descarta por completo
-                                        break
-                                elif val_str == "true":
-                                    kw_encontrada = True # Gana punto porque lo cumple
-                                    
-                        if descartado: break
-                        
-                        # CASO 2: La palabra hace referencia a un Valor Técnico (ej: "ext4", "amd64", "apple")
-                        for v in vals:
-                            val_str = str(v).replace('_', ' ').lower()
-                            if val_str not in ["true", "false"]: # Ignoramos booleanos aquí
-                                if kw in val_str:
-                                    kw_encontrada = True
-                                # Tolerancia a pequeños errores de tipeo (ej: 'androit' -> 'android')
-                                elif difflib.SequenceMatcher(None, kw, val_str).ratio() > 0.85:
-                                    kw_encontrada = True
-                                    
-                    if descartado: break
-                    if kw_encontrada: puntuacion += 1
+                for p_name, vals in atributos_os.items():
+                    for v in vals:
+                        if str(v).lower() == "false":
+                            # Extrae palabras de la propiedad (ej: 'cumple_estandar_posix' -> ['cumple', 'estandar', 'posix'])
+                            palabras_propiedad = p_name.replace('_', ' ').lower().split()
+                            
+                            # Filtramos solo palabras útiles (> 2 letras) para no confundir 'es', 'de', etc.
+                            palabras_importantes = [w for w in palabras_propiedad if len(w) > 2]
+                            
+                            # Si el usuario preguntó por alguna de estas palabras clave...
+                            if any(w in palabras_clave for w in palabras_importantes):
+                                # ...y NO escribió explícitamente "no" o "false" en su pregunta
+                                if "no" not in palabras_clave and "false" not in palabras_clave:
+                                    descartado = True
+                                    break
+                    if descartado:
+                        break
                         
                 if descartado:
-                    continue # ⛔ Salta al siguiente SO inmediatamente (Adiós MS-DOS)
-                    
-                # C) Calcular la nota final
-                porcentaje_match = puntuacion / len(palabras_utiles) if len(palabras_utiles) > 0 else 0
+                    continue # ⛔ Expulsa este SO inmediatamente, pasa al siguiente
+                # =======================================================
+
+                # --- NUEVO SISTEMA DE PUNTUACIÓN (SCORING) ---
+                puntuacion = 0
+                palabras_del_so = texto_completo.split()
                 
-                # Si cumple más del 40% de lo que pidió, lo mostramos
-                if porcentaje_match >= 0.40:
+                for kw in palabras_clave:
+                    # 1. Coincidencia exacta (Vale 1 punto entero)
+                    if kw in texto_completo:
+                        puntuacion += 1.0
+                    else:
+                        # 2. Coincidencia difusa / Inteligente
+                        # Compara la palabra clave con todas las palabras del SO para ver si se parecen
+                        # Ej: Si busca "ubunto", se parece un 85% a "ubuntu"
+                        mejor_similitud = max([difflib.SequenceMatcher(None, kw, p).ratio() for p in palabras_del_so] + [0])
+                        
+                        # Si la palabra se parece al menos un 70%, le damos puntaje parcial
+                        if mejor_similitud > 0.80:
+                            puntuacion += mejor_similitud
+
+                # 3. Calcular el porcentaje total de coincidencia
+                porcentaje_match = 0
+                if len(palabras_clave) > 0:
+                    porcentaje_match = puntuacion / len(palabras_clave)
+                
+                # 4. Decisión más inteligente:
+                # En lugar de exigir el 100%, si cumple al menos el 40% de lo que pidió el usuario, lo mostramos
+                if porcentaje_match >= 0.40: 
                     resultados.append({
                         "id_instancia": subj,
                         "atributos": {k: list(v) for k, v in atributos_os.items()},
-                        "relevancia": round(porcentaje_match * 100, 1)
+                        "relevancia": round(porcentaje_match * 100, 1) # Guardamos el % para mostrarlo luego
                     })
-                # =======================================================
                     
-        # Ordenamos del mejor puntaje al peor
         resultados.sort(key=lambda x: (-x["relevancia"], x["id_instancia"]))
         return jsonify(resultados)
 
