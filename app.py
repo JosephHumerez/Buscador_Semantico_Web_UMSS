@@ -183,7 +183,7 @@ def buscar():
                         "relevancia": round(porcentaje_match * 100, 1) # Guardamos el % para mostrarlo luego
                     })
                     
-        resultados.sort(key=lambda x: x["id_instancia"])
+        resultados.sort(key=lambda x: (-x["relevancia"], x["id_instancia"]))
         return jsonify(resultados)
 
     except Exception as e:
