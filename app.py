@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 import re
 import unicodedata
 import os
+import difflib
 
 app = Flask(__name__)
 CORS(app) 
@@ -38,7 +39,16 @@ def extraer_palabras_clave(frase):
         "subsistemas": "subsistema compatibilidad true",
         "wsl": "subsistema compatibilidad true",
         "cifrar el disco": "cifrado disco true",
-        "reemplazar completamente": "reemplazo entorno true"
+        "reemplazar completamente": "reemplazo entorno true",
+        "nube": "servidor red empresarial",
+        "hosting": "servidor web red",
+        "programacion": "desarrollo compilador codigo",
+        "apple": "macos ios mac",
+        "microsoft": "windows ms dos",
+        "celular": "movil smartphone android ios",
+        "ligero": "rapido poco recursos ram",
+        "viejo": "antiguo ms dos 16-bit",
+        "seguro": "seguridad cifrado selinux apparmor"
     }
     
     # Reemplazamos las frases humanas por lógica de la ontología
