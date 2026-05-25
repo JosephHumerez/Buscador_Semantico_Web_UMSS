@@ -151,16 +151,36 @@ def buscar():
                     
                 texto_completo = remover_acentos(texto_completo.lower())
                 
-                cumple_todas = True
+                # --- NUEVO SISTEMA DE PUNTUACIÓN (SCORING) ---
+                puntuacion = 0
+                palabras_del_so = texto_completo.split()
+                
                 for kw in palabras_clave:
-                    if kw not in texto_completo:
-                        cumple_todas = False
-                        break
+                    # 1. Coincidencia exacta (Vale 1 punto entero)
+                    if kw in texto_completo:
+                        puntuacion += 1.0
+                    else:
+                        # 2. Coincidencia difusa / Inteligente
+                        # Compara la palabra clave con todas las palabras del SO para ver si se parecen
+                        # Ej: Si busca "ubunto", se parece un 85% a "ubuntu"
+                        mejor_similitud = max([difflib.SequenceMatcher(None, kw, p).ratio() for p in palabras_del_so] + [0])
                         
-                if cumple_todas:
+                        # Si la palabra se parece al menos un 70%, le damos puntaje parcial
+                        if mejor_similitud > 0.70:
+                            puntuacion += mejor_similitud
+
+                # 3. Calcular el porcentaje total de coincidencia
+                porcentaje_match = 0
+                if len(palabras_clave) > 0:
+                    porcentaje_match = puntuacion / len(palabras_clave)
+                
+                # 4. Decisión más inteligente:
+                # En lugar de exigir el 100%, si cumple al menos el 40% de lo que pidió el usuario, lo mostramos
+                if porcentaje_match >= 0.40: 
                     resultados.append({
                         "id_instancia": subj,
-                        "atributos": {k: list(v) for k, v in atributos_os.items()}
+                        "atributos": {k: list(v) for k, v in atributos_os.items()},
+                        "relevancia": round(porcentaje_match * 100, 1) # Guardamos el % para mostrarlo luego
                     })
                     
         resultados.sort(key=lambda x: x["id_instancia"])
