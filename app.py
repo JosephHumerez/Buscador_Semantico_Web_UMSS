@@ -144,6 +144,7 @@ def buscar():
                                 for sub_v in sub_vals:
                                     atributos_os[sub_p].add(sub_v)
                 
+                # --- NUEVA CONSTRUCCIÓN INTELIGENTE DE ATRIBUTOS ---
                 texto_completo = subj.replace('_', ' ').lower() + " "
                 
                 for p_name, vals in atributos_os.items():
@@ -166,7 +167,33 @@ def buscar():
                             texto_completo += f"{nombre_limpio} {v_str} "
                             
                 texto_completo = remover_acentos(texto_completo)
-                
+
+                # =======================================================
+                # 🛑 NUEVO: FILTRO DE VETO ESTRICTO (MATA FALSOS POSITIVOS)
+                # =======================================================
+                descartado = False
+                for p_name, vals in atributos_os.items():
+                    for v in vals:
+                        if str(v).lower() == "false":
+                            # Extrae palabras de la propiedad (ej: 'cumple_estandar_posix' -> ['cumple', 'estandar', 'posix'])
+                            palabras_propiedad = p_name.replace('_', ' ').lower().split()
+                            
+                            # Filtramos solo palabras útiles (> 2 letras) para no confundir 'es', 'de', etc.
+                            palabras_importantes = [w for w in palabras_propiedad if len(w) > 2]
+                            
+                            # Si el usuario preguntó por alguna de estas palabras clave...
+                            if any(w in palabras_clave for w in palabras_importantes):
+                                # ...y NO escribió explícitamente "no" o "false" en su pregunta
+                                if "no" not in palabras_clave and "false" not in palabras_clave:
+                                    descartado = True
+                                    break
+                    if descartado:
+                        break
+                        
+                if descartado:
+                    continue # ⛔ Expulsa este SO inmediatamente, pasa al siguiente
+                # =======================================================
+
                 # --- NUEVO SISTEMA DE PUNTUACIÓN (SCORING) ---
                 puntuacion = 0
                 palabras_del_so = texto_completo.split()
@@ -182,7 +209,7 @@ def buscar():
                         mejor_similitud = max([difflib.SequenceMatcher(None, kw, p).ratio() for p in palabras_del_so] + [0])
                         
                         # Si la palabra se parece al menos un 70%, le damos puntaje parcial
-                        if mejor_similitud > 0.70:
+                        if mejor_similitud > 0.80:
                             puntuacion += mejor_similitud
 
                 # 3. Calcular el porcentaje total de coincidencia
