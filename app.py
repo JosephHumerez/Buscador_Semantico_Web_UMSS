@@ -169,7 +169,7 @@ def buscar():
                 texto_completo = remover_acentos(texto_completo)
 
                 # =======================================================
-                # 🛑 NUEVO: FILTRO DE VETO ESTRICTO (MATA FALSOS POSITIVOS)
+                # NUEVO: FILTRO DE VETO ESTRICTO (MATA FALSOS POSITIVOS)
                 # =======================================================
                 descartado = False
                 for p_name, vals in atributos_os.items():
@@ -191,7 +191,7 @@ def buscar():
                         break
                         
                 if descartado:
-                    continue # ⛔ Expulsa este SO inmediatamente, pasa al siguiente
+                    continue 
                 # =======================================================
 
                 # --- NUEVO SISTEMA DE PUNTUACIÓN (SCORING) ---
