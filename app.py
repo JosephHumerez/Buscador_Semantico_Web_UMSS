@@ -144,12 +144,28 @@ def buscar():
                                 for sub_v in sub_vals:
                                     atributos_os[sub_p].add(sub_v)
                 
-                texto_completo = subj.replace('_', ' ') + " "
+                texto_completo = subj.replace('_', ' ').lower() + " "
+                
                 for p_name, vals in atributos_os.items():
-                    texto_completo += p_name.replace('_', ' ') + " "
-                    texto_completo += " ".join([str(v).replace('_', ' ') for v in vals]) + " "
+                    nombre_limpio = p_name.replace('_', ' ').lower()
                     
-                texto_completo = remover_acentos(texto_completo.lower())
+                    for v in vals:
+                        v_str = str(v).replace('_', ' ').lower()
+                        
+                        # VALIDACIÓN ESTRICTA DE BOOLEANOS
+                        if v_str == "false":
+                            # Solo agregamos las propiedades 'false' al texto si el usuario
+                            # buscó explícitamente la palabra 'false'
+                            if "false" in palabras_clave:
+                                texto_completo += f"{nombre_limpio} false "
+                        elif v_str == "true":
+                            # Las propiedades 'true' siempre se agregan
+                            texto_completo += f"{nombre_limpio} true "
+                        else:
+                            # Valores normales (ej: ext4, amd64, google)
+                            texto_completo += f"{nombre_limpio} {v_str} "
+                            
+                texto_completo = remover_acentos(texto_completo)
                 
                 # --- NUEVO SISTEMA DE PUNTUACIÓN (SCORING) ---
                 puntuacion = 0
