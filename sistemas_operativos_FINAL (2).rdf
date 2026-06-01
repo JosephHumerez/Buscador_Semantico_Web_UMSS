@@ -1,0 +1,1676 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#"
+     xml:base="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#administra_recurso -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#administra_recurso">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+        <rdfs:comment>Conecta el SO con la RAM gestionada, las particiones Swap, o discos físicos</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ejecuta_componente -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ejecuta_componente">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_variante_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_variante_de">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:comment>Para indicar que Ubuntu es variante de Debian, o Windows 11 de Windows 10.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#esta_formateado_con -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#esta_formateado_con">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:comment>Para enlazar directamente que una partición física de disco tiene un formato ext4, independientemente del SO.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#integra_modulo_seguridad -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#integra_modulo_seguridad">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Modulo_Seguridad"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#se_basa_en_kernel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#se_basa_en_kernel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#se_conecta_a_infraestructura -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#se_conecta_a_infraestructura">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion"/>
+        <rdfs:comment>Relación más general para servidores NTP (hora), servidores DNS por defecto, etc.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#se_descarga_desde -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#se_descarga_desde">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+        <rdfs:comment>De dónde saca los paquetes de instalación</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_escritura_nativa_fs -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_escritura_nativa_fs">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_lectura_nativa_fs -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_lectura_nativa_fs">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:comment>Formatos que puede leer sin instalar nada extra</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tiene_sistema_archivos_por_defecto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tiene_sistema_archivos_por_defecto">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:comment>El formato que usa al instalarse</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#utiliza_estructura_datos -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#utiliza_estructura_datos">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+        <rdfs:comment>Para indicar qué usa el kernel internamente</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#utiliza_licencia -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#utiliza_licencia">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+        <rdfs:comment>Para conectar el SO con sus demonios (ej. systemd), controladores o librerías gráficas.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#arquitectura_soportada -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#arquitectura_soportada">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#capacidad_disponible_mb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#capacidad_disponible_mb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#capacidad_total_mb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#capacidad_total_mb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#cifrado_disco_por_defecto -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#cifrado_disco_por_defecto">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#clave_gpg -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#clave_gpg">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#consumo_memoria_kb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#consumo_memoria_kb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#cumple_estandar_posix -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#cumple_estandar_posix">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#desarrollador -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#desarrollador">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#descripcion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#descripcion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ejecuta_binarios_exe_nativamente -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ejecuta_binarios_exe_nativamente">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#entorno_escritorio_default -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#entorno_escritorio_default">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_comercial_de_pago -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_comercial_de_pago">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_gratuito_freeware -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_gratuito_freeware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_kernel_modificado -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_kernel_modificado">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_open_source -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#es_open_source">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#esta_cifrado -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#esta_cifrado">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#estado_conexion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#estado_conexion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#estado_ejecucion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#estado_ejecucion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#familia_base -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#familia_base">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#fecha_creacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#fecha_creacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#formato_archivos -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#formato_archivos">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#gestor_paquetes_default -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#gestor_paquetes_default">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#gestor_red_default -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#gestor_red_default">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#id_entidad -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#id_entidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#incluye_subsistema_compatibilidad -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#incluye_subsistema_compatibilidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#lenguaje_programacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#lenguaje_programacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#libreria_grafica_nativa -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#libreria_grafica_nativa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#logo_url -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#logo_url">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#metodo_memoria_virtual -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#metodo_memoria_virtual">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#modulo_seguridad_mac_integrado -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#modulo_seguridad_mac_integrado">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#nombre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#nombre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#nombre_clave -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#nombre_clave">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#orientado_a_principiantes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#orientado_a_principiantes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#permite_gestion_prioridad_cpu -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#permite_gestion_prioridad_cpu">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#permite_modificacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#permite_modificacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#permite_reemplazo_entorno_escritorio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#permite_reemplazo_entorno_escritorio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#proposito -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#proposito">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#protocolo_red -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#protocolo_red">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#protocolo_seguridad_default -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#protocolo_seguridad_default">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ram_en_reposo_mb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ram_en_reposo_mb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ram_minima_recomendada_mb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ram_minima_recomendada_mb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#rama -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#rama">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#requiere_autenticacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#requiere_autenticacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#restringe_hardware_especifico -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#restringe_hardware_especifico">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#restringe_instalacion_a_tienda -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#restringe_instalacion_a_tienda">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ruta_ejecutable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ruta_ejecutable">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_journaling -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_journaling">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_placas_desarrollo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#soporta_placas_desarrollo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tamaño_instalacion_gb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tamaño_instalacion_gb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tamaño_maximo_archivo_gb -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tamaño_maximo_archivo_gb">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tiene_asistente_instalacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tiene_asistente_instalacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tiene_sandboxing_nativo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tiene_sandboxing_nativo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_arquitectura_nucleo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_arquitectura_nucleo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_componente -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_componente">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_estructura -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_estructura">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_instalador_default -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_instalador_default">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_lanzamiento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_lanzamiento">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_licencia -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_licencia">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_recurso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#tipo_recurso">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#url_servidor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#url_servidor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#version_kernel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#version_kernel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#version_so -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#version_so">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Modulo_Seguridad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Modulo_Seguridad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Infraestructura_De_Distribucion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#EntidadTecnologica"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS_Encrypted -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS_Encrypted">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Android_14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Android_14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZRAM_Partition"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Zygote_Process"/>
+        <integra_modulo_seguridad rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SELinux"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Android"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Google_Play_Store"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#F2FS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#F2FS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#F2FS"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SQLite_Database_Android"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apache_License_2_0"/>
+        <arquitectura_soportada>arm64, x86_64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cumple_estandar_posix>
+        <desarrollador>Google</desarrollador>
+        <descripcion>Sistema operativo móvil líder en el mercado.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>Material You</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>Google Play Store</gestor_paquetes_default>
+        <id_entidad>AND-14</id_entidad>
+        <nombre>Android</nombre>
+        <nombre_clave>Upside Down Cake</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</ram_en_reposo_mb>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</tamaño_instalacion_gb>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_sandboxing_nativo>
+        <tipo_licencia>Apache 2.0 / GPL</tipo_licencia>
+        <version_so>14</version_so>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apache_License_2_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apache_License_2_0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#AppArmor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#AppArmor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Modulo_Seguridad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#App_Store_iOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#App_Store_iOS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apple_EULA_iOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apple_EULA_iOS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apple_SLA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apple_SLA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Arch_Linux_Rolling -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Arch_Linux_Rolling">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Tmpfs_RAM_Disk"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Systemd_Init"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Zen"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Arch_User_Repository_AUR"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64</arquitectura_soportada>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Comunidad Arch Linux</desarrollador>
+        <descripcion>Distribución Linux minimalista y de actualización continua.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <familia_base>Independiente</familia_base>
+        <gestor_paquetes_default>Pacman</gestor_paquetes_default>
+        <nombre>Arch Linux</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</ram_en_reposo_mb>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</tamaño_instalacion_gb>
+        <tipo_lanzamiento>Rolling Release</tipo_lanzamiento>
+        <version_so>Rolling</version_so>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Arch_User_Repository_AUR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Arch_User_Repository_AUR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#B_Tree_APFS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#B_Tree_APFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#COMMAND_COM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#COMMAND_COM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Disquetes_Fisicos_Instalacion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Disquetes_Fisicos_Instalacion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Explorador_De_Archivos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Explorador_De_Archivos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#F2FS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#F2FS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT_File_Allocation_Table -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT_File_Allocation_Table">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Finder_macOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Finder_macOS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNOME_Shell -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNOME_Shell">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Google_Play_Store -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Google_Play_Store">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Keychain_Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Keychain_Apple">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Android -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Android">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Zen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Zen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MFT_Master_File_Table -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MFT_Master_File_Table">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MSDOS_SYS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MSDOS_SYS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MS_DOS_6_22 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MS_DOS_6_22">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Memoria_Convencional_640KB"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#COMMAND_COM"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MSDOS_SYS"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Disquetes_Fisicos_Instalacion"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT_File_Allocation_Table"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA_DOS"/>
+        <arquitectura_soportada>x86 (16-bit)</arquitectura_soportada>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cumple_estandar_posix>
+        <desarrollador>Microsoft Corporation</desarrollador>
+        <descripcion>Sistema operativo clásico basado en línea de comandos.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>CLI</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+        <familia_base>DOS</familia_base>
+        <nombre>MS-DOS</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ram_en_reposo_mb>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</tamaño_instalacion_gb>
+        <version_so>6.22</version_so>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Mac_App_Store -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Mac_App_Store">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Memoria_Convencional_640KB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Memoria_Convencional_640KB">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA_DOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA_DOS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_Store -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_Store">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NVMe_Storage_iOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NVMe_Storage_iOS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Pagefile_sys -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Pagefile_sys">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SELinux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SELinux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Modulo_Seguridad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SQLite_Database_Android -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SQLite_Database_Android">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SpringBoard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SpringBoard">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Swapfile_macOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Swapfile_macOS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Systemd_Init -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Systemd_Init">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Tmpfs_RAM_Disk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Tmpfs_RAM_Disk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#TrustedBSD_MAC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#TrustedBSD_MAC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Modulo_Seguridad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ubuntu_24_04_LTS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ubuntu_24_04_LTS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNOME_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_8"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64, riscv64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Canonical Ltd.</desarrollador>
+        <descripcion>Distribución Linux basada en Debian enfocada en la facilidad de uso.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>GNOME</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>APT y Snap</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>UBT-2404-LTS</id_entidad>
+        <incluye_subsistema_compatibilidad rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</incluye_subsistema_compatibilidad>
+        <lenguaje_programacion>C, C++, Python</lenguaje_programacion>
+        <logo_url>https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png</logo_url>
+        <metodo_memoria_virtual>Swapfile</metodo_memoria_virtual>
+        <modulo_seguridad_mac_integrado>AppArmor</modulo_seguridad_mac_integrado>
+        <nombre>Ubuntu</nombre>
+        <nombre_clave>Noble Numbat</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio y Servidor</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <protocolo_seguridad_default>TLS/SSL</protocolo_seguridad_default>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096</ram_minima_recomendada_mb>
+        <rama>Main</rama>
+        <requiere_autenticacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiere_autenticacion>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <soporta_placas_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_placas_desarrollo>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Gráfico basado en Flutter</tipo_instalador_default>
+        <tipo_lanzamiento>LTS</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://ubuntu.com</url_servidor>
+        <version_kernel>6.8</version_kernel>
+        <version_so>24.04</version_so>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_11_Pro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_11_Pro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Pagefile_sys"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Explorador_De_Archivos"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_NT_10_0"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_Store"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MFT_Master_File_Table"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA"/>
+        <arquitectura_soportada>amd64, arm64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cumple_estandar_posix>
+        <desarrollador>Microsoft Corporation</desarrollador>
+        <descripcion>Sistema operativo privativo de la familia NT.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>Windows Desktop</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</esta_cifrado>
+        <familia_base>Windows NT</familia_base>
+        <gestor_paquetes_default>Winget</gestor_paquetes_default>
+        <id_entidad>WIN-11-PRO</id_entidad>
+        <incluye_subsistema_compatibilidad rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</incluye_subsistema_compatibilidad>
+        <libreria_grafica_nativa>DirectX 12</libreria_grafica_nativa>
+        <nombre>Windows 11</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio General</proposito>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Híbrido</tipo_arquitectura_nucleo>
+        <tipo_licencia>Comercial Privativa</tipo_licencia>
+        <url_servidor>https://microsoft.com</url_servidor>
+        <version_so>11.0</version_so>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_NT_10_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_NT_10_0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XNU_Darwin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XNU_Darwin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+        <familia_base>UNIX</familia_base>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XNU_Darwin_Mobile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XNU_Darwin_Mobile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZRAM_Partition -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZRAM_Partition">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Zygote_Process -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Zygote_Process">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#iOS_17 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#iOS_17">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NVMe_Storage_iOS"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SpringBoard"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XNU_Darwin_Mobile"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#App_Store_iOS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS_Encrypted"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS_Encrypted"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS_Encrypted"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Keychain_Apple"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apple_EULA_iOS"/>
+        <arquitectura_soportada>arm64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Apple Inc.</desarrollador>
+        <descripcion>Sistema operativo móvil exclusivo para iPhone.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>SpringBoard</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</esta_cifrado>
+        <familia_base>Darwin</familia_base>
+        <gestor_paquetes_default>App Store</gestor_paquetes_default>
+        <id_entidad>IOS-17</id_entidad>
+        <nombre>iOS</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_modificacion>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</ram_en_reposo_mb>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</tamaño_instalacion_gb>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_sandboxing_nativo>
+        <tipo_licencia>Privativa</tipo_licencia>
+        <version_so>17.0</version_so>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#macOS_Sonoma -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#macOS_Sonoma">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Swapfile_macOS"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Finder_macOS"/>
+        <integra_modulo_seguridad rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#TrustedBSD_MAC"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XNU_Darwin"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Mac_App_Store"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APFS"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#B_Tree_APFS"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Apple_SLA"/>
+        <arquitectura_soportada>arm64, amd64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Apple Inc.</desarrollador>
+        <descripcion>Sistema operativo oficial para computadoras Mac.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>Aqua</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_gratuito_freeware>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</esta_cifrado>
+        <familia_base>Darwin / UNIX</familia_base>
+        <gestor_paquetes_default>Mac App Store</gestor_paquetes_default>
+        <id_entidad>MAC-OS-14</id_entidad>
+        <incluye_subsistema_compatibilidad rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</incluye_subsistema_compatibilidad>
+        <nombre>macOS</nombre>
+        <nombre_clave>Sonoma</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio Premium</proposito>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3000</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8192</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Híbrido</tipo_arquitectura_nucleo>
+        <tipo_licencia>Apple SLA</tipo_licencia>
+        <url_servidor>https://apple.com/macos</url_servidor>
+        <version_so>14.0</version_so>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

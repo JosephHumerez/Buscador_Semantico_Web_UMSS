@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buscador Semántico — SO</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:       #0c0d10;
+  --bg2:      #13151a;
+  --bg3:      #181b22;
+  --card:     #151820;
+  --border:   #252a38;
+  --border2:  #2e3548;
+  --text:     #dde2f0;
+  --text2:    #7b87a8;
+  --text3:    #444d66;
+  --accent:   #5b8fff;
+  --acc2:     #7aaeff;
+  --acc-dim:  #0d1e40;
+  --acc-bdr:  #1a3060;
+  --green:    #3ecf8e;
+  --grn-dim:  #071e12;
+  --grn-bdr:  #0f3326;
+  --amber:    #f5a623;
+  --amb-dim:  #1f1200;
+  --red:      #f06060;
+  --red-dim:  #200a0a;
+  --purple:   #a78bfa;
+  --pur-dim:  #1a1040;
+}
+
+body{font-family:'Syne',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0}
+.page{max-width:840px;margin:0 auto;padding:56px 24px 120px}
+
+/* ── Hero ── */
+.hero{margin-bottom:44px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px
+}
+.hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);flex-shrink:0}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2.5s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+h1{font-size:clamp(30px,5vw,50px);font-weight:800;line-height:1.06;letter-spacing:-1.5px;color:#fff;margin-bottom:10px}
+h1 .hi{color:var(--accent)}
+.hero-sub{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.06em}
+
+/* ── Search ── */
+.search-area{margin-bottom:16px}
+.search-box{
+  display:flex;align-items:center;background:var(--bg3);
+  border:1px solid var(--border2);border-radius:14px;
+  padding:5px 5px 5px 18px;gap:10px;
+  transition:border-color .2s,box-shadow .2s
+}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,143,255,.1)}
+.search-icon{color:var(--text3);flex-shrink:0;display:flex}
+.search-icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+input{flex:1;border:none;outline:none;font-size:15px;font-family:'Syne',inherit;font-weight:500;background:transparent;color:var(--text);padding:11px 0;letter-spacing:-.2px;caret-color:var(--accent)}
+input::placeholder{color:var(--text3);font-weight:400}
+#btn{
+  background:var(--accent);color:#fff;border:none;border-radius:10px;
+  padding:10px 22px;font-size:13px;font-weight:700;font-family:'Syne',inherit;
+  letter-spacing:.03em;cursor:pointer;white-space:nowrap;
+  transition:background .15s,transform .1s;flex-shrink:0
+}
+#btn:hover{background:var(--acc2)}
+#btn:active{transform:scale(.97)}
+
+/* ── Chips ── */
+.chips-wrap{margin-bottom:40px}
+.chips-label{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-size:11px;font-family:'DM Mono',monospace;border:1px solid var(--border2);
+  border-radius:100px;padding:5px 13px;cursor:pointer;color:var(--text2);
+  background:transparent;letter-spacing:.03em;
+  transition:color .15s,border-color .15s,background .15s
+}
+.chip:hover{color:var(--accent);border-color:var(--acc-bdr);background:var(--acc-dim)}
+
+/* ── Meta line ── */
+.meta-line{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-bottom:20px;letter-spacing:.04em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.meta-line strong{color:var(--accent);font-weight:500}
+.badge-intent{font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--border2);border-radius:5px;padding:2px 8px;color:var(--text3);background:var(--bg3);letter-spacing:.06em}
+
+/* ── Divider ── */
+.divider{height:1px;background:var(--border);margin:0 0 28px}
+
+/* ── CARD BASE ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:16px;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card-head{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--border);gap:12px}
+.card-title-row{display:flex;align-items:center;gap:12px}
+.os-icon{width:38px;height:38px;border-radius:9px;background:var(--acc-dim);border:1px solid var(--acc-bdr);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.card-title{font-size:17px;font-weight:700;letter-spacing:-.4px;color:#fff}
+.badge-modo{font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--acc-bdr);border-radius:5px;padding:3px 9px;color:var(--accent);background:var(--acc-dim);letter-spacing:.06em;white-space:nowrap;flex-shrink:0}
+
+/* ── Section head ── */
+.sec-head{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 22px;color:var(--text3);background:var(--bg2);border-bottom:1px solid var(--border)}
+
+/* ── Props ── */
+.props{width:100%;border-collapse:collapse}
+.props tr{border-bottom:1px solid var(--border);transition:background .1s}
+.props tr:last-child{border-bottom:none}
+.props tr:hover{background:var(--bg3)}
+.props th,.props td{padding:9px 22px;font-size:13px;text-align:left}
+.props th{color:var(--text3);font-weight:400;width:42%;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em}
+.props td{color:var(--text);font-weight:500}
+.val-si{color:var(--green) !important}
+.val-no{color:var(--red) !important}
+
+/* ── Comparación ── */
+.cmp-wrap{overflow-x:auto}
+.cmp-table{width:100%;border-collapse:collapse;min-width:400px}
+.cmp-table th{padding:9px 16px;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;background:var(--bg2);color:var(--text3);border-bottom:1px solid var(--border);text-align:left}
+.cmp-table th.col-so{color:var(--accent);font-size:13px;font-family:'Syne',inherit;font-weight:700;letter-spacing:0;text-transform:none}
+.cmp-table td{padding:8px 16px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top}
+.cmp-table td:first-child{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.04em}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr:hover td{background:var(--bg3)}
+
+/* ── Ranking ── */
+.ranking-box{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
+.ranking-head{padding:16px 22px;border-bottom:1px solid var(--border)}
+.ranking-title{font-size:15px;font-weight:700;color:var(--text)}
+.ranking-sub{font-size:11px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.04em;margin-top:3px}
+.rank-list{list-style:none}
+.rank-item{display:flex;align-items:center;gap:14px;padding:11px 22px;border-bottom:1px solid var(--border)}
+.rank-item:last-child{border-bottom:none}
+.rank-num{font-size:17px;font-weight:800;color:var(--text3);width:26px;text-align:center;flex-shrink:0}
+.rank-num.top1{color:var(--amber)}
+.rank-num.top2{color:var(--text2)}
+.rank-num.top3{color:var(--text3)}
+.rank-name{font-weight:600;font-size:14px;flex:1}
+.rank-val{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);white-space:nowrap}
+
+/* ── DBpedia section ── */
+.dbp-wrap{border-top:1px solid var(--grn-bdr);background:var(--grn-dim)}
+.dbp-head{
+  font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 22px;color:var(--green);border-bottom:1px solid var(--grn-bdr);
+  display:flex;align-items:center;justify-content:space-between;gap:8px
+}
+.dbp-head-left{display:flex;align-items:center;gap:8px}
+.dbp-pulse{width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+.dbp-top{display:flex;gap:16px;padding:16px 22px;border-bottom:1px solid var(--grn-bdr);align-items:flex-start}
+.dbp-logo-wrap{flex-shrink:0}
+.dbp-logo{width:64px;height:64px;object-fit:contain;border-radius:9px;background:var(--bg3);padding:7px;border:1px solid var(--grn-bdr)}
+.dbp-abstract-wrap{flex:1;min-width:0}
+.dbp-resumen{font-size:13px;line-height:1.75;color:var(--text2)}
+/* Se incrementa el line-clamp para mostrar la información extendida enciclopédica sin cortes abruptos */
+.dbp-resumen--clamped{display:-webkit-box;-webkit-line-clamp:20;-webkit-box-orient:vertical;overflow:hidden}
+.dbp-ver-mas{display:inline-block;margin-top:6px;background:none;border:none;color:var(--green);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;padding:0;letter-spacing:.04em;transition:opacity .15s}
+.dbp-ver-mas:hover{opacity:.7}
+.dbp-links{display:flex;flex-wrap:wrap;gap:8px;padding:10px 22px;border-bottom:1px solid var(--grn-bdr)}
+.dbp-link{font-size:11px;font-family:'DM Mono',monospace;color:var(--green);text-decoration:none;border:1px solid var(--grn-bdr);border-radius:6px;padding:4px 10px;transition:background .15s}
+.dbp-link:hover{background:rgba(62,207,142,.07)}
+.dbp-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}
+.meta-item{padding:10px 22px;border-right:1px solid var(--grn-bdr);border-bottom:1px solid var(--grn-bdr)}
+.meta-item:last-child{border-right:none}
+.meta-key{font-size:10px;font-family:'DM Mono',monospace;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.meta-val{font-size:13px;font-weight:600;word-break:break-word;color:var(--text);line-height:1.45}
+.meta-val a{color:var(--green);font-size:12px;text-decoration:none}
+.meta-val a:hover{text-decoration:underline}
+.dbp-notfound{padding:10px 22px;font-size:11px;font-family:'DM Mono',monospace;color:var(--text3)}
+.dbp-loading{padding:12px 22px;font-size:11px;color:var(--text3);display:flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;letter-spacing:.04em}
+.mini-spin{width:12px;height:12px;border:1.5px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Definición card especial ── */
+.def-card{background:var(--card);border:1px solid var(--acc-bdr);border-radius:16px;overflow:hidden;margin-bottom:16px;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
+.def-header{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--acc-bdr);background:var(--acc-dim)}
+.def-icon{width:42px;height:42px;border-radius:10px;background:rgba(91,143,255,.15);border:1px solid var(--acc-bdr);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.def-title{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.def-badge{margin-left:auto;font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--acc-bdr);border-radius:5px;padding:3px 9px;color:var(--accent);background:var(--acc-dim);letter-spacing:.06em;white-space:nowrap;flex-shrink:0}
+.def-body-wrap{padding:18px 22px;border-bottom:1px solid var(--border)}
+.def-txt{font-size:14px;line-height:1.8;color:var(--text2)}
+.def-txt--clamped{display:-webkit-box;-webkit-line-clamp:25;-webkit-box-orient:vertical;overflow:hidden}
+.def-ver-mas{display:inline-block;margin-top:8px;background:none;border:none;color:var(--accent);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;padding:0;letter-spacing:.04em}
+.def-ver-mas:hover{opacity:.7}
+.def-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));border-top:1px solid var(--border)}
+.def-meta-item{padding:10px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.def-meta-item:last-child{border-right:none}
+.def-meta-key{font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.def-meta-val{font-size:13px;font-weight:600;color:var(--text);word-break:break-word;line-height:1.45}
+.def-meta-val a{color:var(--accent);font-size:12px;text-decoration:none}
+.def-meta-val a:hover{text-decoration:underline}
+.def-links{display:flex;flex-wrap:wrap;gap:8px;padding:10px 22px;border-bottom:1px solid var(--border)}
+.def-link{font-size:11px;font-family:'DM Mono',monospace;color:var(--accent);text-decoration:none;border:1px solid var(--acc-bdr);border-radius:6px;padding:4px 10px;transition:background .15s}
+.def-link:hover{background:var(--acc-dim)}
+.def-loading{padding:22px;display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text3)}
+.def-spin{width:14px;height:14px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+.def-notfound{padding:18px 22px;font-size:13px;color:var(--text3);font-family:'DM Mono',monospace;line-height:1.6}
+
+/* ── Stat box ── */
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:52px 24px;text-align:center;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both;position:relative;overflow:hidden}
+.stat-box::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(91,143,255,.06) 0%,transparent 70%);pointer-events:none}
+.stat-num{font-size:80px;font-weight:800;letter-spacing:-4px;line-height:1;color:var(--accent)}
+.stat-label{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.6}
+
+/* ── Empty / loading / error ── */
+.empty{text-align:center;padding:72px 20px;color:var(--text3)}
+.empty-glyph{font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.14em;margin-bottom:12px;opacity:.4}
+.empty-text{font-size:15px;color:var(--text3);font-weight:500}
+.loading-state{text-align:center;padding:72px 20px}
+.spinner-ring{width:26px;height:26px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
+.loading-text{font-size:12px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.08em}
+.error-msg{border:1px solid #3a1818;background:#1a0c0c;border-radius:12px;padding:14px 18px;font-size:13px;color:#f07070;font-family:'DM Mono',monospace;display:flex;align-items:center;gap:10px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <span class="live-dot"></span>
+      Ontología Fuseki + DBpedia — Linked Open Data
+    </div>
+    <h1>Buscador de<br><span class="hi">Sistemas Operativos</span></h1>
+    <p class="hero-sub">sparql · semantic_search · consultas_complejas · definiciones</p>
+  </div>
+
+  <div class="search-area">
+    <div class="search-box">
+      <span class="search-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </span>
+      <input id="q" type="text"
+        placeholder="qué es Solaris · linux vs windows · cuántos son open source · más ligero en RAM…"
+        autocomplete="off" spellcheck="false">
+      <button id="btn" onclick="buscar()">Buscar</button>
+    </div>
+  </div>
+
+  <div class="chips-wrap">
+    <div class="chips-label">Búsquedas sugeridas</div>
+    <div class="chips">
+      <span class="chip" onclick="q('todos los SO')">📋 Todos</span>
+      <span class="chip" onclick="q('qué es Linux')">📖 ¿Qué es Linux?</span>
+      <span class="chip" onclick="q('solaris')">☀️ Solaris</span>
+      <span class="chip" onclick="q('qué es Android')">🤖 ¿Qué es Android?</span>
+      <span class="chip" onclick="q('código abierto')">🔓 Open Source</span>
+      <span class="chip" onclick="q('gratuito')">💸 Gratuitos</span>
+      <span class="chip" onclick="q('linux vs windows')">⚖️ Linux vs Windows</span>
+      <span class="chip" onclick="q('macOS vs Android')">⚖️ macOS vs Android</span>
+      <span class="chip" onclick="q('ubuntu vs debian')">⚖️ Ubuntu vs Debian</span>
+      <span class="chip" onclick="q('cuántos SO móviles hay')">📱 ¿Cuántos móviles?</span>
+      <span class="chip" onclick="q('qué sistemas usan kernel Linux')">⚙️ Kernel Linux</span>
+      <span class="chip" onclick="q('más ligero en RAM')">🪶 Menor RAM</span>
+      <span class="chip" onclick="q('qué SOs tienen sandboxing')">🔒 Sandboxing</span>
+      <span class="chip" onclick="q('qué SOs son para servidor')">🖥️ Servidores</span>
+      <span class="chip" onclick="q('cifrado de disco')">🔐 Cifrado</span>
+      <span class="chip" onclick="q('orientados a principiantes')">🌱 Principiantes</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div id="out">
+    <div class="empty">
+      <div class="empty-glyph">— ∅ —</div>
+      <div class="empty-text">Escribe una búsqueda para comenzar</div>
+    </div>
+  </div>
+
+</div>
+<script>
+const inp = document.getElementById('q');
+const out = document.getElementById('out');
+inp.addEventListener('keydown', e => { if(e.key==='Enter') buscar(); });
+function q(t){ inp.value=t; buscar(); }
+
+function icono(n){
+  n=n.toLowerCase();
+  if(n.includes('windows')) return '🪟';
+  if(n.includes('ubuntu'))  return '🟠';
+  if(n.includes('debian'))  return '🌀';
+  if(n.includes('arch'))    return '⚙️';
+  if(n.includes('fedora'))  return '🎩';
+  if(n.includes('mint'))    return '🌿';
+  if(n.includes('android')) return '🤖';
+  if(n.includes('mac')||n.includes('darwin')) return '🍎';
+  if(n.includes('ios'))     return '📱';
+  if(n.includes('chrome'))  return '🌐';
+  if(n.includes('dos'))     return '💾';
+  if(n.includes('freebsd')) return '😈';
+  if(n.includes('haiku'))   return '🎵';
+  if(n.includes('solaris')) return '☀️';
+  if(n.includes('linux'))   return '🐧';
+  return '💻';
+}
+
+function labelModo(m){
+  return {
+    comparar:'comparación',booleano_true:'filtro·activo',booleano_false:'filtro·exclusión',
+    nombre:'búsqueda',todos:'catálogo',filtro_propiedad:'filtro·propiedad',
+    filtro_kernel:'filtro·kernel',ranking:'ranking',contar:'conteo',definicion:'definición'
+  }[m]||m||'';
+}
+
+async function consultarDBpedia(nombre) {
+  try {
+    const res  = await fetch('/dbpedia?nombre=' + encodeURIComponent(nombre));
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.ok ? data.datos : null;
+  } catch (e) {
+    console.warn('[DBpedia proxy]', e.message);
+    return null;
+  }
+}
+
+async function llenarDBpedia(e, idx){
+  const slot = document.getElementById('dbp-' + idx);
+  if (!slot) return;
+
+  const datos = await consultarDBpedia(e.nombre_dbpedia || e.titulo);
+
+  if (!datos) {
+    slot.innerHTML = `<div class="dbp-notfound">⚪ Sin datos en DBpedia para este sistema operativo.</div>`;
+    return;
+  }
+
+  let html = `<div class="dbp-head"><div class="dbp-head-left"><div class="dbp-pulse"></div>dbpedia — linked open data</div></div>`;
+
+  const hasLogo = datos.logo && datos.logo.startsWith('http');
+  if (datos.resumen || hasLogo) {
+    html += `<div class="dbp-top">`;
+    if (hasLogo) html += `<div class="dbp-logo-wrap"><img class="dbp-logo" src="${datos.logo}" alt="logo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`;
+    if (datos.resumen) {
+      const largo = datos.resumen.length > 350;
+      html += `<div class="dbp-abstract-wrap">
+        <div class="dbp-resumen${largo ? ' dbp-resumen--clamped' : ''}" id="abs-${idx}">${datos.resumen}</div>
+        ${largo ? `<button class="dbp-ver-mas" onclick="document.getElementById('abs-${idx}').classList.remove('dbp-resumen--clamped');this.style.display='none'">ver más ↓</button>` : ''}
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  const links = [];
+  if (datos.web) links.push(`<a class="dbp-link" href="${datos.web}" target="_blank" rel="noopener">🌐 Sitio oficial</a>`);
+  if (datos.uri) links.push(`<a class="dbp-link" href="${datos.uri}" target="_blank" rel="noopener">🔗 DBpedia</a>`);
+  if (links.length) html += `<div class="dbp-links">${links.join('')}</div>`;
+
+  const campos = [
+    ['Desarrollador', datos.desarrollador], ['Año lanzamiento', datos.anio],
+    ['Versión actual', datos.version],      ['Licencia', datos.licencia],
+    ['Tipo de kernel', datos.tipoKernel],   ['Familia', datos.familia],
+    ['Plataformas', datos.plataformas],     ['Lenguaje', datos.lenguaje],
+    ['Predecesores', datos.predecesores],   ['Sucesores', datos.sucesores],
+    ['Influencias', datos.influencias],
+  ].filter(([, v]) => !!v);
+
+  if (campos.length) {
+    html += `<div class="dbp-meta">`;
+    campos.forEach(([k, v]) => {
+      html += `<div class="meta-item"><div class="meta-key">${k}</div><div class="meta-val">${v}</div></div>`;
+    });
+    html += `</div>`;
+  }
+
+  slot.innerHTML = html;
+}
+
+async function renderDefinicion(termino, resultadosOnto) {
+  if (resultadosOnto && resultadosOnto.length) {
+    resultadosOnto.forEach((e, i) => { out.appendChild(crearTarjeta(e, i)); });
+    resultadosOnto.forEach((e, i) => { llenarDBpedia(e, i); });
+    return;
+  }
+
+  const card = document.createElement('div');
+  card.className = 'def-card';
+  card.innerHTML = `
+    <div class="def-header">
+      <div class="def-icon">${icono(termino)}</div>
+      <div class="def-title">${termino.charAt(0).toUpperCase() + termino.slice(1)}</div>
+      <div class="def-badge">definición · dbpedia</div>
+    </div>
+    <div id="def-inner"><div class="def-loading"><div class="def-spin"></div>consultando dbpedia…</div></div>`;
+  out.appendChild(card);
+
+  const datos = await consultarDBpedia(termino);
+  const inner = document.getElementById('def-inner');
+  if (!inner) return;
+
+  if (!datos) {
+    inner.innerHTML = `<div class="def-notfound">No se encontró información en DBpedia para "<strong>${termino}</strong>".<br>Intenta escribir el nombre en inglés o verifica la ortografía.</div>`;
+    return;
+  }
+
+  let html = '';
+  if (datos.resumen) {
+    const largo = datos.resumen.length > 500;
+    html += `<div class="def-body-wrap">
+      <div class="def-txt${largo ? ' def-txt--clamped' : ''}" id="def-txt">${datos.resumen}</div>
+      ${largo ? `<button class="def-ver-mas" onclick="document.getElementById('def-txt').classList.remove('def-txt--clamped');this.style.display='none'">leer más ↓</button>` : ''}
+    </div>`;
+  }
+
+  const links = [];
+  if (datos.web) links.push(`<a class="def-link" href="${datos.web}" target="_blank" rel="noopener">🌐 Sitio oficial</a>`);
+  if (datos.uri) links.push(`<a class="def-link" href="${datos.uri}" target="_blank" rel="noopener">🔗 Ver en DBpedia</a>`);
+  if (links.length) html += `<div class="def-links">${links.join('')}</div>`;
+
+  const campos = [
+    ['Desarrollador', datos.desarrollador], ['Año lanzamiento', datos.anio],
+    ['Versión actual', datos.version],      ['Licencia', datos.licencia],
+    ['Tipo de kernel', datos.tipoKernel],   ['Familia', datos.familia],
+    ['Plataformas', datos.plataformas],     ['Lenguaje', datos.lenguaje],
+    ['Predecesores', datos.predecesores],   ['Sucesores', datos.sucesores],
+    ['Influencias', datos.influencias],
+  ].filter(([, v]) => !!v);
+
+  if (campos.length) {
+    html += `<div class="def-meta">`;
+    campos.forEach(([k, v]) => {
+      html += `<div class="def-meta-item"><div class="def-meta-key">${k}</div><div class="def-meta-val">${v}</div></div>`;
+    });
+    html += `</div>`;
+  }
+
+  inner.innerHTML = html || `<div class="def-notfound">Datos parciales encontrados en DBpedia.</div>`;
+}
+
+function crearTarjeta(e, idx) {
+  const div = document.createElement('div');
+  div.className = 'card';
+  div.style.animationDelay = `${idx * 50}ms`;
+  let html = `
+  <div class="card-head">
+    <div class="card-title-row">
+      <div class="os-icon">${icono(e.titulo)}</div>
+      <div class="card-title">${e.titulo}</div>
+    </div>
+    ${e.modo ? `<span class="badge-modo">${labelModo(e.modo)}</span>` : ''}
+  </div>
+  <div class="sec-head">ontología local — fuseki</div>
+  <table class="props"><tbody>`;
+
+  if (!e.atributos.length) {
+    html += `<tr><td colspan="2" style="color:var(--text3);padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px">sin propiedades registradas</td></tr>`;
+  } else {
+    e.artifacts = [];
+    e.atributos.forEach(a => {
+      const cls = a.Valor === 'Sí' ? 'val-si' : a.Valor === 'No' ? 'val-no' : '';
+      html += `<tr><th>${a.Atributo}</th><td class="${cls}">${a.Valor}</td></tr>`;
+    });
+  }
+
+  html += `</tbody></table>
+  <div class="dbp-wrap" id="dbp-${idx}">
+    <div class="dbp-loading"><div class="mini-spin"></div>consultando dbpedia…</div>
+  </div>`;
+  div.innerHTML = html;
+  return div;
+}
+
+function crearTablaComparacion(resultados) {
+  const allAttrs = new Set();
+  resultados.forEach(e => e.atributos.forEach(a => allAttrs.add(a.Atributo)));
+  const mapa = {};
+  allAttrs.forEach(a => { mapa[a] = {}; });
+  resultados.forEach(e => { e.atributos.forEach(a => { mapa[a.Atributo][e.titulo] = a.Valor; }); });
+
+  let html = `<div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Atributo</th>`;
+  resultados.forEach(e => { html += `<th class="col-so">${icono(e.titulo)} ${e.titulo}</th>`; });
+  html += `</tr></thead><tbody>`;
+  [...allAttrs].forEach(a => {
+    html += `<tr><td>${a}</td>`;
+    resultados.forEach(e => {
+      const v = mapa[a][e.titulo] || '—';
+      const cls = v === 'Sí' ? 'val-si' : v === 'No' ? 'val-no' : '';
+      html += `<td class="${cls}">${v}</td>`;
+    });
+    html += `</tr>`;
+  });
+  html += `</tbody></table></div>`;
+  return html;
+}
+
+function renderComparacion(resultados) {
+  const wrap = document.createElement('div');
+  wrap.className = 'card';
+  let html = `
+  <div class="card-head">
+    <div class="card-title-row"><div class="os-icon">⚖️</div><div class="card-title">Comparación lado a lado</div></div>
+    <span class="badge-modo">comparación</span>
+  </div>
+  <div class="sec-head">atributos de la ontología — fuseki</div>`;
+  html += crearTablaComparacion(resultados);
+  wrap.innerHTML = html;
+
+  const dbpWrap = document.createElement('div');
+  resultados.forEach((e, i) => {
+    const blk = document.createElement('div');
+    blk.innerHTML = `
+      <div class="sec-head" style="background:var(--grn-dim);color:var(--green);border-top:1px solid var(--grn-bdr)">
+        ${icono(e.titulo)} ${e.titulo} — dbpedia enrichment
+      </div>
+      <div class="dbp-wrap" id="dbp-${i}"><div class="dbp-loading"><div class="mini-spin"></div>consultando dbpedia…</div></div>`;
+    dbpWrap.appendChild(blk);
+  });
+  wrap.appendChild(dbpWrap);
+  return wrap;
+}
+
+function renderRanking(resultados, params) {
+  const campoLabel = { ram_en_reposo_mb: 'RAM en reposo (MB)', version_so: 'Versión' }[params?.campo] || params?.campo || 'valor';
+  const getVal = e => {
+    for (const a of e.atributos)
+      if (a.Atributo.toLowerCase().replace(/\s/g, '_').includes((params?.campo || '').replace(/_/g, ' ')))
+        return a.Valor;
+    return null;
+  };
+
+  const div = document.createElement('div');
+  div.className = 'ranking-box';
+  let html = `<div class="ranking-head">
+    <div class="ranking-title">📊 Ranking por ${campoLabel}</div>
+    <div class="ranking-sub">orden: ${params?.orden === 'ASC' ? 'menor → mayor' : 'mayor → menor'} · ${resultados.length} resultados</div>
+  </div><ul class="rank-list">`;
+
+  resultados.slice(0, 20).forEach((e, i) => {
+    const val = getVal(e);
+    const cls = i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
+    html += `<li class="rank-item">
+      <span class="rank-num ${cls}">${i + 1}</span>
+      <span class="rank-name">${icono(e.titulo)} ${e.titulo}</span>
+      ${val ? `<span class="rank-val">${val}</span>` : ''}
+    </li>`;
+  });
+  html += `</ul>`;
+  div.innerHTML = html;
+  return div;
+}
+
+async function buscar() {
+  const termino = inp.value.trim();
+  if (!termino) return;
+  out.innerHTML = `<div class="loading-state"><div class="spinner-ring"></div><div class="loading-text">buscando…</div></div>`;
+
+  try {
+    const res  = await fetch('/buscar?q=' + encodeURIComponent(termino));
+    const data = await res.json();
+
+    if (data.error) {
+      out.innerHTML = `<div class="error-msg">⚠ ${data.error}</div>`;
+      return;
+    }
+
+    if (data.tipo === 'conteo') {
+      out.innerHTML = `<div class="stat-box"><div class="stat-num">${data.total}</div><div class="stat-label">${data.mensaje}</div></div>`;
+      return;
+    }
+
+    if (data.tipo === 'definicion') {
+      out.innerHTML = `<p class="meta-line"><strong>definición</strong> · "<strong>${data.termino_buscar}</strong>" <span class="badge-intent">definición</span></p>`;
+      await renderDefinicion(data.termino_buscar, data.resultados);
+      return;
+    }
+
+    const total = (data.resultados || []).length;
+
+    if (total === 0) {
+      out.innerHTML = `<p class="meta-line">Sin resultados locales para "<strong>${termino}</strong>" — consultando DBpedia…</p>`;
+      await renderDefinicion(data.termino_buscar || termino, []);
+      return;
+    }
+
+    out.innerHTML = `<p class="meta-line">
+      <strong>${total}</strong> resultado${total !== 1 ? 's' : ''} · "<strong>${termino}</strong>"
+      <span class="badge-intent">${labelModo(data.intencion)}</span>
+    </p>`;
+
+    if (data.intencion === 'comparar' && total >= 2) {
+      out.appendChild(renderComparacion(data.resultados));
+      data.resultados.forEach((e, i) => llenarDBpedia(e, i));
+      return;
+    }
+
+    if (data.intencion === 'ranking') {
+      out.appendChild(renderRanking(data.resultados, data.params));
+      return;
+    }
+
+    data.resultados.forEach((e, i) => { out.appendChild(crearTarjeta(e, i)); });
+    data.resultados.forEach((e, i) => { llenarDBpedia(e, i); });
+
+  } catch (err) {
+    out.innerHTML = `<div class="error-msg">⚠ Error al conectar con el servidor: ${err.message}</div>`;
+  }
+}
+</script>
+</body>
+</html>
