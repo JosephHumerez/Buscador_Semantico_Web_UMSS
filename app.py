@@ -20,7 +20,16 @@ STOP_WORDS = {
     "muestra","hay","tienen","pueden","operativos","al","del","en",
     "por","más","mas","entre","cuando","donde","cómo","cuándo","dónde",
     "qué","información","info","sobre","define","explica","cuéntame",
-    "dime","háblame","habla","explícame","significa","significado"
+    "dime","háblame","habla","explícame","significa","significado",
+    # EN
+    "what","is","are","the","a","an","of","for","and","or","in","on","at",
+    "tell","me","about","explain","define","show","find","search","how",
+    # PT
+    "o","a","os","as","um","uma","de","para","que","com","é","são","me",
+    "qual","quais","mostrar","buscar","encontrar","sobre","explica","define",
+    # FR
+    "le","la","les","un","une","des","est","sont","de","du","pour","que",
+    "quoi","quel","quelle","montre","cherche","trouve","sur","explique","définit",
 }
 
 PREFIX_STR = (
@@ -33,20 +42,31 @@ PREFIX_STR = (
 CLASE_FILTRO = "FILTER (?tipo IN (onto:Sistema_Operativo, onto:Distribucion))"
 
 PROP_MAP = {
-    "open_source":"es_open_source","abierto":"es_open_source","libre":"es_open_source",
+    "open_source":"es_open_source","abierto":"es_open_source","libre":"es_open_source","open":"es_open_source",
     "gratuito":"es_gratuito_freeware","gratis":"es_gratuito_freeware","freeware":"es_gratuito_freeware",
+    "free":"es_gratuito_freeware","gratuit":"es_gratuito_freeware","gratuito":"es_gratuito_freeware",
     "pago":"es_comercial_de_pago","comercial":"es_comercial_de_pago","privativo":"es_comercial_de_pago",
+    "paid":"es_comercial_de_pago","commercial":"es_comercial_de_pago","proprietary":"es_comercial_de_pago",
     "posix":"cumple_estandar_posix","modificable":"permite_modificacion",
-    "sandboxing":"tiene_sandboxing_nativo","principiantes":"orientado_a_principiantes",
-    "principiante":"orientado_a_principiantes","movil":"proposito","móvil":"proposito",
-    "servidor":"proposito","escritorio":"proposito","multiplataforma":"arquitectura_soportada",
+    "sandboxing":"tiene_sandboxing_nativo","sandbox":"tiene_sandboxing_nativo",
+    "principiantes":"orientado_a_principiantes","principiante":"orientado_a_principiantes",
+    "beginner":"orientado_a_principiantes","beginners":"orientado_a_principiantes",
+    "iniciante":"orientado_a_principiantes","débutant":"orientado_a_principiantes",
+    "movil":"proposito","móvil":"proposito","mobile":"proposito","móvel":"proposito",
+    "servidor":"proposito","server":"proposito","serveur":"proposito","escritorio":"proposito",
+    "desktop":"proposito","bureau":"proposito",
+    "multiplataforma":"arquitectura_soportada","multiplatform":"arquitectura_soportada",
     "kernel_modificado":"es_kernel_modificado","cifrado":"cifrado_disco_por_defecto",
+    "encryption":"cifrado_disco_por_defecto","chiffrement":"cifrado_disco_por_defecto",
     "kernel":"se_basa_en_kernel","nucleo":"se_basa_en_kernel","núcleo":"se_basa_en_kernel",
-    "licencia":"utiliza_licencia","arquitectura":"arquitectura_soportada",
+    "licencia":"utiliza_licencia","license":"utiliza_licencia","licence":"utiliza_licencia",
+    "arquitectura":"arquitectura_soportada","architecture":"arquitectura_soportada",
     "entorno":"entorno_escritorio_default","gestor":"gestor_paquetes_default",
-    "paquetes":"gestor_paquetes_default","desarrollador":"desarrollador","empresa":"desarrollador",
-    "version":"version_so","versión":"version_so","familia":"familia_base",
-    "proposito":"proposito","propósito":"proposito",
+    "paquetes":"gestor_paquetes_default","packages":"gestor_paquetes_default",
+    "desarrollador":"desarrollador","developer":"desarrollador","développeur":"desarrollador",
+    "version":"version_so","versión":"version_so","version":"version_so",
+    "familia":"familia_base","family":"familia_base","famille":"familia_base",
+    "proposito":"proposito","propósito":"proposito","purpose":"proposito",
 }
 
 DBP_HEADERS = {
@@ -61,7 +81,58 @@ def run_fuseki(query):
     return fuseki.query().convert()["results"]["bindings"]
 
 
-# ─── Mapeos Flexibles para DBpedia ────────────────────────────────────────────
+# ─── Detección de idioma ───────────────────────────────────────────────────────
+
+def detectar_idioma(texto):
+    tl = texto.lower()
+    if re.search(r'\b(what is|what are|how|explain|tell me|compare|vs|versus|show|find|search|which)\b', tl):
+        return "en"
+    if re.search(r'\b(qu[eé] [eé]|como|qual|quais|mostrar|buscar|comparar|versus|explica)\b', tl):
+        if re.search(r'\b(qual|quais|buscar|mostrar|sistema operacional)\b', tl):
+            return "pt"
+        return "es"
+    if re.search(r'\b(qu\'est|c\'est|quoi|quel|quelle|montre|cherche|compare|versus|expliquer)\b', tl):
+        return "fr"
+    return "es"
+
+
+# ─── Normalización multilingüe de intención ───────────────────────────────────
+
+CMP_PATTERNS = re.compile(
+    r'(.+?)\s+(?:vs\.?|versus|contra|vs\.?\s|'
+    r'comparar\s+con|comparado\s+con|diferencia\s+entre|'
+    r'compare\s+with|compared\s+to|difference\s+between|'
+    r'comparar\s+com|diferença\s+entre|'
+    r'comparer\s+avec|comparé\s+à|différence\s+entre)\s+(.+)',
+    re.IGNORECASE
+)
+
+COUNT_PATTERNS = re.compile(
+    r'cu[aá]ntos|cu[aá]ntas|cantidad\s+de|total\s+de|n[uú]mero\s+de|'
+    r'how\s+many|count\s+of|total\s+of|number\s+of|'
+    r'quantos|quantas|quantidade\s+de|total\s+de|n[uú]mero\s+de|'
+    r'combien|nombre\s+de|total\s+de',
+    re.IGNORECASE
+)
+
+DEF_PATTERNS = re.compile(
+    r'qu[eé]\s+es|qu[eé]\s+son|define|definici[oó]n\s+de|explic|cu[eé]ntame|h[aá]blame|significa|'
+    r'what\s+is|what\s+are|explain|definition\s+of|tell\s+me\s+about|describe|'
+    r'o\s+que\s+[eé]|o\s+que\s+s[aã]o|explica|defini[çc][aã]o\s+de|fala\s+sobre|'
+    r"qu'est.ce\s+que|c'est\s+quoi|expliquer|définition\s+de|parle\s+de|qu'est",
+    re.IGNORECASE
+)
+
+RANK_PATTERNS = re.compile(
+    r'\b(m[aá]s|menos|menor|mayor)\b.{0,40}\b(ram|memoria|consumo|r[aá]pido|ligero|seguro|popular)\b|'
+    r'\b(most|least|lightest|fastest|lowest|highest)\b.{0,40}\b(ram|memory|usage|fast|light)|'
+    r'\b(mais|menos|menor|maior)\b.{0,40}\b(ram|mem[oó]ria|consumo|r[aá]pido|leve)|'
+    r'\b(plus|moins|le\s+plus|le\s+moins)\b.{0,40}\b(ram|mémoire|consommation|rapide|léger)',
+    re.IGNORECASE
+)
+
+
+# ─── DBpedia helpers ──────────────────────────────────────────────────────────
 
 def _uri_candidatos(nombre):
     n = nombre.lower().strip()
@@ -88,6 +159,21 @@ def _uri_candidatos(nombre):
     if "solaris" in n: return ["Oracle_Solaris", "Solaris_(operating_system)", "Solaris"]
     if "dos"     in n: return ["MS-DOS", "DOS"]
     if "linux"   in n: return ["Linux"]
+    if "raspberry" in n: return ["Raspberry_Pi_OS", "Raspbian"]
+    if "kali"    in n: return ["Kali_Linux"]
+    if "manjaro" in n: return ["Manjaro_Linux"]
+    if "opensuse" in n or "suse" in n: return ["OpenSUSE", "SUSE_Linux"]
+    if "alpine"  in n: return ["Alpine_Linux"]
+    if "gentoo"  in n: return ["Gentoo_Linux"]
+    if "nixos"   in n: return ["NixOS"]
+    if "void"    in n: return ["Void_Linux"]
+    if "tails"   in n: return ["Tails_(operating_system)"]
+    if "qubes"   in n: return ["Qubes_OS"]
+    if "plan 9"  in n: return ["Plan_9_from_Bell_Labs"]
+    if "minix"   in n: return ["MINIX"]
+    if "reactos" in n: return ["ReactOS"]
+    if "beos"    in n or "be os" in n: return ["BeOS"]
+    if "amiga"   in n: return ["AmigaOS"]
     return [clean, f"{clean}_(operating_system)", clean.split("_")[0]]
 
 
@@ -109,7 +195,7 @@ def _lookup_uri(nombre):
             res   = (doc.get("resource") or [None])[0]
             if res and (
                 any(w for w in nl.split() if len(w) > 2 and w in label)
-                or "operating" in cats or "linux" in cats or "solaris" in label
+                or "operating" in cats or "linux" in cats
             ):
                 return res
         return (docs[0].get("resource") or [None])[0] if docs else None
@@ -118,92 +204,88 @@ def _lookup_uri(nombre):
         return None
 
 
-def _sparql_basico(bind_clause):
-    """Query semántica robusta que extrae propiedades unificando namespaces ontológicos y literales."""
+def _sparql_basico(bind_clause, lang="es"):
+    lang2 = "en" if lang != "en" else "es" 
     return f"""
 PREFIX dbo:  <http://dbpedia.org/ontology/>
 PREFIX dbp:  <http://dbpedia.org/property/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT
-  (SAMPLE(?absEs) AS ?resumen)
-  (SAMPLE(?absEn) AS ?resumenEn)
-  (SAMPLE(?lblFinal) AS ?nombre)
+  (SAMPLE(?absLang) AS ?resumen)
+  (SAMPLE(?absEn)   AS ?resumenEn)
+  (SAMPLE(?lbl)     AS ?nombre)
   (GROUP_CONCAT(DISTINCT ?devFinal; separator="||") AS ?desarrolladores)
-  (SAMPLE(?fecha) AS ?anio)
+  (SAMPLE(?fecha)   AS ?anio)
   (GROUP_CONCAT(DISTINCT ?licFinal; separator="||") AS ?licencias)
-  (SAMPLE(?page)  AS ?web)
-  (SAMPLE(?logoV) AS ?logo)
-  (SAMPLE(?r)     AS ?uri)
+  (SAMPLE(?page)    AS ?web)
+  (SAMPLE(?logoV)   AS ?logo)
+  (SAMPLE(?r)       AS ?uri)
 WHERE {{
   {bind_clause}
-  OPTIONAL {{ 
-    ?r rdfs:label ?lblRaw . 
-    BIND(LANG(?lblRaw) AS ?lblLang)
-    FILTER(?lblLang = "es" || ?lblLang = "en" || ?lblLang = "")
-  }}
-  BIND(COALESCE(?lblRaw, STR(?r)) AS ?lblFinal)
-  
-  OPTIONAL {{ ?r dbo:abstract ?absEs . FILTER(LANG(?absEs)="es") }}
-  OPTIONAL {{ ?r dbo:abstract ?absEn . FILTER(LANG(?absEn)="en") }}
-  
-  OPTIONAL {{ 
-    ?r dbo:developer|dbp:developer|dbo:company|dbp:company ?dev . 
-    OPTIONAL {{ ?dev rdfs:label ?devL . FILTER(LANG(?devL)="en" || LANG(?devL)="es") }}
+  OPTIONAL {{ ?r rdfs:label ?lbl . FILTER(LANG(?lbl)="{lang}" || LANG(?lbl)="en") }}
+  OPTIONAL {{ ?r dbo:abstract ?absLang . FILTER(LANG(?absLang)="{lang}") }}
+  OPTIONAL {{ ?r dbo:abstract ?absEn   . FILTER(LANG(?absEn)="en") }}
+  OPTIONAL {{
+    ?r dbo:developer|dbp:developer ?dev .
+    OPTIONAL {{ ?dev rdfs:label ?devL . FILTER(LANG(?devL)="en" || LANG(?devL)="{lang}") }}
     BIND(COALESCE(?devL, STR(?dev)) AS ?devFinal)
   }}
-  OPTIONAL {{ ?r dbo:releaseDate|dbp:releaseDate|dbo:introductionDate|dbp:introductionDate ?fecha }}
-  OPTIONAL {{ 
-    ?r dbo:license|dbp:license ?lic . 
-    OPTIONAL {{ ?lic rdfs:label ?licL . FILTER(LANG(?licL)="en" || LANG(?licL)="es") }}
+  OPTIONAL {{ ?r dbo:releaseDate|dbp:releaseDate ?fecha }}
+  OPTIONAL {{
+    ?r dbo:license|dbp:license ?lic .
+    OPTIONAL {{ ?lic rdfs:label ?licL . FILTER(LANG(?licL)="en" || LANG(?licL)="{lang}") }}
     BIND(COALESCE(?licL, STR(?lic)) AS ?licFinal)
   }}
-  OPTIONAL {{ ?r foaf:homepage|dbp:website|dbo:website ?page }}
+  OPTIONAL {{ ?r foaf:homepage|dbp:website ?page }}
   OPTIONAL {{ ?r dbp:logo|dbo:logo ?logoV }}
 }}"""
 
 
-def _sparql_extra(uri):
-    """Recupera la totalidad de especificaciones técnicas estructurales cruzando ontologías."""
+def _sparql_extra(uri, lang="es"):
     return f"""
 PREFIX dbo:  <http://dbpedia.org/ontology/>
 PREFIX dbp:  <http://dbpedia.org/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT
   (GROUP_CONCAT(DISTINCT ?famFinal;  separator="||") AS ?familias)
-  (GROUP_CONCAT(DISTINCT ?kernelFinal; separator="||") AS ?kernels)
-  (SAMPLE(?verFinal)                                   AS ?version)
+  (GROUP_CONCAT(DISTINCT ?kFinal;    separator="||") AS ?kernels)
+  (SAMPLE(?verFinal)                                 AS ?version)
   (GROUP_CONCAT(DISTINCT ?ktFinal;   separator="||") AS ?tiposKernel)
   (GROUP_CONCAT(DISTINCT ?predFinal; separator="||") AS ?predecesores)
   (GROUP_CONCAT(DISTINCT ?sucFinal;  separator="||") AS ?sucesores)
+  (GROUP_CONCAT(DISTINCT ?platFinal; separator="||") AS ?plataformas)
+  (GROUP_CONCAT(DISTINCT ?langFinal; separator="||") AS ?lenguajes)
 WHERE {{
   BIND(<{uri}> AS ?r)
-  OPTIONAL {{ 
-    ?r dbo:family|dbp:family ?fam . 
-    OPTIONAL {{ ?fam rdfs:label ?famL . FILTER(LANG(?famL)="en" || LANG(?famL)="es") }}
+  OPTIONAL {{
+    ?r dbo:family|dbp:family ?fam .
+    OPTIONAL {{ ?fam rdfs:label ?famL . FILTER(LANG(?famL)="en" || LANG(?famL)="{lang}") }}
     BIND(COALESCE(?famL, STR(?fam)) AS ?famFinal)
   }}
-  OPTIONAL {{ 
-    ?r dbo:kernel|dbp:kernel ?kv . 
-    OPTIONAL {{ ?kv rdfs:label ?kvL . FILTER(LANG(?kvL)="en" || LANG(?kvL)="es") }}
-    BIND(COALESCE(?kvL, STR(?kv)) AS ?kernelFinal)
+  OPTIONAL {{
+    ?r dbo:kernel|dbp:kernel ?kv .
+    OPTIONAL {{ ?kv rdfs:label ?kvL . FILTER(LANG(?kvL)="en" || LANG(?kvL)="{lang}") }}
+    BIND(COALESCE(?kvL, STR(?kv)) AS ?kFinal)
   }}
-  OPTIONAL {{ ?r dbo:latestReleaseVersion|dbp:latestReleaseVersion|dbp:version|dbo:version ?verRaw . BIND(STR(?verRaw) AS ?verFinal) }}
-  OPTIONAL {{ 
-    ?r dbo:kernelType|dbp:kernelType ?kt . 
-    OPTIONAL {{ ?kt rdfs:label ?ktL . FILTER(LANG(?ktL)="en" || LANG(?ktL)="es") }}
+  OPTIONAL {{ ?r dbo:latestReleaseVersion|dbp:latestReleaseVersion|dbp:version ?verRaw . BIND(STR(?verRaw) AS ?verFinal) }}
+  OPTIONAL {{
+    ?r dbo:kernelType|dbp:kernelType ?kt .
+    OPTIONAL {{ ?kt rdfs:label ?ktL . FILTER(LANG(?ktL)="en" || LANG(?ktL)="{lang}") }}
     BIND(COALESCE(?ktL, STR(?kt)) AS ?ktFinal)
   }}
-  OPTIONAL {{ 
-    ?r dbo:predecessor|dbp:predecessor ?pred. 
-    OPTIONAL {{ ?pred rdfs:label ?predL. FILTER(LANG(?predL)="en" || LANG(?predL)="es") }}
+  OPTIONAL {{
+    ?r dbo:predecessor|dbp:predecessor ?pred .
+    OPTIONAL {{ ?pred rdfs:label ?predL . FILTER(LANG(?predL)="en" || LANG(?predL)="{lang}") }}
     BIND(COALESCE(?predL, STR(?pred)) AS ?predFinal)
   }}
-  OPTIONAL {{ 
-    ?r dbo:successor|dbp:successor ?suc . 
-    OPTIONAL {{ ?suc rdfs:label ?sucL. FILTER(LANG(?sucL)="en" || LANG(?sucL)="es") }}
+  OPTIONAL {{
+    ?r dbo:successor|dbp:successor ?suc .
+    OPTIONAL {{ ?suc rdfs:label ?sucL . FILTER(LANG(?sucL)="en" || LANG(?sucL)="{lang}") }}
     BIND(COALESCE(?sucL, STR(?suc)) AS ?sucFinal)
   }}
+  OPTIONAL {{ ?r dbp:supportedPlatforms ?plat . BIND(STR(?plat) AS ?platFinal) }}
+  OPTIONAL {{ ?r dbp:programmingLanguage ?lang . BIND(STR(?lang) AS ?langFinal) }}
 }}"""
 
 
@@ -216,12 +298,20 @@ def _run_dbpedia_sparql(query, timeout=25):
             timeout=timeout
         )
         if not resp.ok:
+            app.logger.warning(f"[SPARQL] HTTP {resp.status_code}")
             return None
         bindings = resp.json().get("results", {}).get("bindings", [])
         return bindings[0] if bindings else None
     except Exception as e:
         app.logger.warning(f"[SPARQL] {e}")
         return None
+
+
+def _clean_val(v):
+    if not v: return None
+    if v.startswith("http"):
+        v = v.split("#")[-1] if "#" in v else v.split("/")[-1]
+    return v.replace("_", " ").strip()
 
 
 def _parsear_row(row):
@@ -231,78 +321,95 @@ def _parsear_row(row):
     def g(k):
         return row[k]["value"] if k in row else None
 
-    def clean_val(v):
-        """Limpia URIs crudas de recursos transformándolas en etiquetas legibles."""
-        if not v: return None
-        if "http" in v:
-            if "#" in v: return v.split("#")[-1].replace("_", " ")
-            return v.split("/")[-1].replace("_", " ")
-        return v.replace("_", " ")
-
     def gsplit(k, lim=6):
         v = g(k)
-        if not v:
-            return None
-        parts = list(dict.fromkeys(clean_val(x.strip()) for x in v.split("||") if x.strip()))
-        return ", ".join(parts[:lim]) or None
+        if not v: return None
+        parts = list(dict.fromkeys(_clean_val(x) for x in v.split("||") if x.strip()))
+        return ", ".join(p for p in parts if p)[:200] or None
 
     anio = g("anio")
     result = {
-        "resumen":      g("resumen") or g("resumenEn"),
-        "nombre":       g("nombre"),
-        "uri":          g("uri"),
-        "desarrollador":gsplit("desarrolladores"),
-        "anio":         anio[:4] if anio else None,
-        "licencia":     gsplit("licencias"),
-        "web":          g("web"),
-        "familia":      gsplit("familias"),
-        "kernel":       gsplit("kernels"),
-        "version":      g("version"),
-        "plataformas":  gsplit("plataformas"),
-        "lenguaje":     gsplit("lenguajes"),
-        "tipoKernel":   gsplit("tiposKernel"),
-        "predecesores": gsplit("predecesores"),
-        "sucesores":    gsplit("sucesores"),
-        "influencias":  gsplit("influencias"),
-        "logo":         g("logo"),
+        "resumen":       g("resumen") or g("resumenEn"),
+        "nombre":        g("nombre"),
+        "uri":           g("uri"),
+        "desarrollador": gsplit("desarrolladores"),
+        "anio":          anio[:4] if anio else None,
+        "licencia":      gsplit("licencias"),
+        "web":           g("web"),
+        "familia":       gsplit("familias"),
+        "kernel":        gsplit("kernels"),
+        "version":       g("version"),
+        "plataformas":   gsplit("plataformas"),
+        "lenguaje":      gsplit("lenguajes"),
+        "tipoKernel":    gsplit("tiposKernel"),
+        "predecesores":  gsplit("predecesores"),
+        "sucesores":     gsplit("sucesores"),
+        "logo":          g("logo"),
     }
     clean = {k: v for k, v in result.items() if v}
     return clean if clean else None
 
 
-def consultar_dbpedia(nombre):
-    global _dbp_cache
-    clave = nombre.lower().strip()
+def _enriquecer_con_extra(datos, lang="es"):
+    uri = datos.get("uri")
+    if not uri:
+        return
+    try:
+        row = _run_dbpedia_sparql(_sparql_extra(uri, lang), timeout=20)
+        if not row:
+            return
+
+        def gsplit_row(k, lim=6):
+            v = row[k]["value"] if k in row else None
+            if not v: return None
+            parts = list(dict.fromkeys(_clean_val(x) for x in v.split("||") if x.strip()))
+            return ", ".join(p for p in parts if p)[:200] or None
+
+        extras = {
+            "familia":      gsplit_row("familias"),
+            "kernel":       gsplit_row("kernels"),
+            "version":      row["version"]["value"] if "version" in row else None,
+            "tipoKernel":   gsplit_row("tiposKernel"),
+            "predecesores": gsplit_row("predecesores"),
+            "sucesores":    gsplit_row("sucesores"),
+            "plataformas":  gsplit_row("plataformas"),
+            "lenguaje":     gsplit_row("lenguajes"),
+        }
+        for k, v in extras.items():
+            if v and not datos.get(k):
+                datos[k] = v
+    except Exception as e:
+        app.logger.warning(f"[extra] {e}")
+
+
+def consultar_dbpedia(nombre, lang="es"):
+    clave = f"{lang}:{nombre.lower().strip()}"
     if clave in _dbp_cache:
         return _dbp_cache[clave]
-
-    datos = _consultar_dbpedia_interno(nombre)
-    _dbp_cache[clave] = datos 
+    datos = _consultar_dbpedia_interno(nombre, lang)
+    _dbp_cache[clave] = datos
     return datos
 
 
-def _consultar_dbpedia_interno(nombre):
-    # ── Estrategia 1: Lookup Directo ──────────────────────────────────────────
+def _consultar_dbpedia_interno(nombre, lang="es"):
     uri_lookup = _lookup_uri(nombre)
     if uri_lookup:
-        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri_lookup}> AS ?r)"))
+        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri_lookup}> AS ?r)", lang))
         datos = _parsear_row(row)
         if datos:
             datos["uri"] = datos.get("uri") or uri_lookup
-            _enriquecer_con_extra(datos)
+            _enriquecer_con_extra(datos, lang)
             return datos
 
-    # ── Estrategia 2: URIs Candidatas Estructurales ───────────────────────────
-    for cand in _uri_candidatos(nombre)[:4]:
+    for cand in _uri_candidatos(nombre)[:5]:
         uri = f"http://dbpedia.org/resource/{requests.utils.quote(cand, safe='')}"
-        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri}> AS ?r)"))
+        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri}> AS ?r)", lang))
         datos = _parsear_row(row)
         if datos:
             datos["uri"] = datos.get("uri") or uri
-            _enriquecer_con_extra(datos)
+            _enriquecer_con_extra(datos, lang)
             return datos
 
-    # ── Estrategia 3: Indexación Difusa en Software ───────────────────────────
     nom_clean = re.sub(r"[^\w\s]", "", nombre)
     query_tl = f"""
 PREFIX dbo:  <http://dbpedia.org/ontology/>
@@ -311,22 +418,29 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dbp:  <http://dbpedia.org/property/>
 SELECT DISTINCT ?r
   (SAMPLE(?lbl)   AS ?nombre)
-  (SAMPLE(?absEs) AS ?resumen)
-  (SAMPLE(?absEn) AS ?resumenEn)
-  (GROUP_CONCAT(DISTINCT ?devLbl; separator="||") AS ?desarrolladores)
+  (SAMPLE(?absLang) AS ?resumen)
+  (SAMPLE(?absEn)   AS ?resumenEn)
+  (GROUP_CONCAT(DISTINCT ?devFinal; separator="||") AS ?desarrolladores)
   (SAMPLE(?fecha) AS ?anio)
-  (GROUP_CONCAT(DISTINCT ?licLbl; separator="||") AS ?licencias)
+  (GROUP_CONCAT(DISTINCT ?licFinal; separator="||") AS ?licencias)
   (SAMPLE(?page)  AS ?web)
   (SAMPLE(?logoV) AS ?logo)
 WHERE {{
-  ?r rdf:type ?type .
-  FILTER(?type IN (dbo:OperatingSystem, dbo:Software))
+  ?r rdf:type ?type . FILTER(?type IN (dbo:OperatingSystem, dbo:Software))
   ?r rdfs:label ?lbl . FILTER(regex(?lbl, "{nom_clean}", "i"))
-  OPTIONAL {{ ?r dbo:abstract ?absEs . FILTER(LANG(?absEs)="es") }}
-  OPTIONAL {{ ?r dbo:abstract ?absEn . FILTER(LANG(?absEn)="en") }}
-  OPTIONAL {{ ?r dbo:developer|dbp:developer ?dev . ?dev rdfs:label ?devLbl . }}
-  OPTIONAL {{ ?r dbo:releaseDate|dbp:releaseDate ?fecha }}
-  OPTIONAL {{ ?r dbo:license|dbp:license ?lic . ?lic rdfs:label ?licLbl . }}
+  OPTIONAL {{ ?r dbo:abstract ?absLang . FILTER(LANG(?absLang)="{lang}") }}
+  OPTIONAL {{ ?r dbo:abstract ?absEn   . FILTER(LANG(?absEn)="en") }}
+  OPTIONAL {{
+    ?r dbo:developer|dbp:developer ?dev .
+    OPTIONAL {{ ?dev rdfs:label ?devL . FILTER(LANG(?devL)="en") }}
+    BIND(COALESCE(?devL, STR(?dev)) AS ?devFinal)
+  }}
+  OPTIONAL {{ ?r dbo:releaseDate ?fecha }}
+  OPTIONAL {{
+    ?r dbo:license ?lic .
+    OPTIONAL {{ ?lic rdfs:label ?licL . FILTER(LANG(?licL)="en") }}
+    BIND(COALESCE(?licL, STR(?lic)) AS ?licFinal)
+  }}
   OPTIONAL {{ ?r foaf:homepage ?page }}
   OPTIONAL {{ ?r dbp:logo ?logoV }}
 }} GROUP BY ?r LIMIT 1"""
@@ -336,118 +450,74 @@ WHERE {{
     if datos2:
         if not datos2.get("uri") and row2 and "r" in row2:
             datos2["uri"] = row2["r"]["value"]
-        _enriquecer_con_extra(datos2)
+        _enriquecer_con_extra(datos2, lang)
         return datos2
 
     return None
 
 
-def _enriquecer_con_extra(datos):
-    uri = datos.get("uri")
-    if not uri:
-        return
-    try:
-        row = _run_dbpedia_sparql(_sparql_extra(uri), timeout=20)
-        if not row:
-            return
-        
-        def clean_val(v):
-            if not v: return None
-            if "http" in v:
-                if "#" in v: return v.split("#")[-1].replace("_", " ")
-                return v.split("/")[-1].replace("_", " ")
-            return v.replace("_", " ")
-
-        def gsplit_row(k, lim=6):
-            v = row[k]["value"] if k in row else None
-            if not v:
-                return None
-            parts = list(dict.fromkeys(clean_val(x.strip()) for x in v.split("||") if x.strip()))
-            return ", ".join(parts[:lim]) or None
-            
-        extras = {
-            "familia":      gsplit_row("familias"),
-            "kernel":       gsplit_row("kernels"),
-            "version":      row["version"]["value"] if "version" in row else None,
-            "tipoKernel":   gsplit_row("tiposKernel"),
-            "predecesores": gsplit_row("predecesores"),
-            "sucesores":    gsplit_row("sucesores"),
-        }
-        for k, v in extras.items():
-            if v and not datos.get(k):
-                datos[k] = v
-    except Exception as e:
-        app.logger.warning(f"[extra] {e}")
-
-
-# ─── Detección de intención ────────────────────────────────────────────────────
+# ─── Detección de intención (multilingüe) ─────────────────────────────────────
 
 def detectar_intencion(texto):
     tl = texto.lower().strip()
     palabras_raw = set(re.sub(r'[^\w\s]', '', tl).split())
     palabras = palabras_raw - STOP_WORDS
+    lang = detectar_idioma(tl)
 
-    m = re.search(
-        r'(.+?)\s+(?:vs\.?|versus|contra|comparar\s+con|comparado\s+con|diferencia\s+entre)\s+(.+)', tl)
+    m = CMP_PATTERNS.search(tl)
     if m:
-        return "comparar", {"a": m.group(1).strip(), "b": m.group(2).strip()}
+        return "comparar", {"a": m.group(1).strip(), "b": m.group(2).strip(), "lang": lang}
 
-    if re.search(r'cu[aá]ntos|cu[aá]ntas|cantidad\s+de|total\s+de|n[uú]mero\s+de', tl):
-        return "contar", {"palabras": list(palabras)}
+    if COUNT_PATTERNS.search(tl):
+        return "contar", {"palabras": list(palabras), "lang": lang}
 
-    m_def = re.search(
-        r'(?:qu[eé]\s+es|qu[eé]\s+son|define\s+(?:el|la|los|las)?\s*|'
-        r'definici[oó]n\s+(?:de|del)?\s*|'
-        r'explic[aa]\s+(?:me\s+)?(?:qu[eé]\s+es\s+)?|'
-        r'cu[eé]ntame\s+(?:sobre\s+|(?:qu[eé]\s+es\s+))?|'
-        r'h[aá]blame\s+(?:de|sobre)\s+|'
-        r'qu[eé]\s+significa\s+|'
-        r'significado\s+de\s+)',
-        tl
-    )
+    m_def = DEF_PATTERNS.search(tl)
     if m_def:
         termino_def = tl[m_def.end():].strip()
-        termino_def = re.sub(r'^(?:el|la|los|las|un|una)\s+', '', termino_def).strip()
+        termino_def = re.sub(r'^(?:el|la|los|las|un|una|the|a|an|o|a|os|as|le|la|les|un|une)\s+', '', termino_def).strip()
         if termino_def:
-            return "definicion", {"termino": termino_def}
+            return "definicion", {"termino": termino_def, "lang": lang}
 
-    m_rank = re.search(
-        r'\b(m[aá]s|menos|menor|mayor)\b.{0,40}\b(ram|memoria|consumo|r[aá]pido|ligero|seguro|popular)\b|'
-        r'\b(m[aá]s\s+ligero|m[aá]s\s+seguro|m[aá]s\s+r[aá]pido|menos\s+ram)',
-        tl
-    )
+    m_rank = RANK_PATTERNS.search(tl)
     if m_rank:
-        direccion = "ASC" if re.search(r'\bmenos\b|\bmenor\b|\bm[aá]s\s+ligero\b', tl) else "DESC"
-        campo = "ram_en_reposo_mb" if re.search(r'ram|memoria|ligero|consumo', tl) else "version_so"
-        return "ranking", {"campo": campo, "orden": direccion, "palabras": list(palabras)}
+        es_asc = bool(re.search(r'\b(menos|menor|lightest|least|lowest|menos|menor|plus\s+l[eé]ger|moins)\b', tl))
+        direccion = "ASC" if es_asc else "DESC"
+        campo = "ram_en_reposo_mb" if re.search(r'ram|mem[oó]ria|memory|mémoire|ligero|light|leve|léger', tl) else "version_so"
+        return "ranking", {"campo": campo, "orden": direccion, "palabras": list(palabras), "lang": lang}
 
-    m_k = re.search(r'kernel\s+(\w[\w\s]*?)(?:\s+(?:en|de|para|que)|\s*$)', tl)
+    m_k = re.search(r'kernel\s+(\w[\w\s]*?)(?:\s+(?:en|de|para|que|in|on|for|with|com|sur|avec)|\s*$)', tl)
     if m_k:
-        return "filtro_kernel", {"kernel": m_k.group(1).strip()}
+        return "filtro_kernel", {"kernel": m_k.group(1).strip(), "lang": lang}
 
     m_prop = re.search(
         r'qu[eé]\s+(?:so|sistemas?)(?:\s+\w+)?\s+(?:tienen?|usan?|soportan?|incluyen?|permiten?)\s+(.+)|'
-        r'(?:so|sistemas?)\s+(?:con|que\s+tengan?|que\s+usen?)\s+(.+)',
+        r'(?:so|sistemas?)\s+(?:con|que\s+tengan?|que\s+usen?)\s+(.+)|'
+        r'which\s+(?:os|systems?)\s+(?:have|use|support|include)\s+(.+)|'
+        r'(?:os|systems?)\s+(?:with|that\s+have|that\s+use)\s+(.+)',
         tl
     )
     if m_prop:
-        obj = (m_prop.group(1) or m_prop.group(2) or "").strip()
+        obj = next((g for g in m_prop.groups() if g), "").strip()
         palabras_obj = set(re.sub(r'[^\w\s]', '', obj.lower()).split()) - STOP_WORDS
-        return "filtro_propiedad", {"palabras": list(palabras_obj), "objeto": obj}
+        return "filtro_propiedad", {"palabras": list(palabras_obj), "objeto": obj, "lang": lang}
 
-    if re.search(r'\bno\s+(?:son|es|libre|gratuito)|privativo|cerrado|de\s+pago|sin\s+costo', tl):
-        return "booleano_false", {"palabras": list(palabras)}
+    if re.search(r'\bno\s+(?:son|es|libre|gratuito)|privativo|cerrado|de\s+pago|'
+                 r'not\s+(?:free|open)|proprietary|closed|paid|'
+                 r'não\s+(?:livre|gratuito)|propriét', tl):
+        return "booleano_false", {"palabras": list(palabras), "lang": lang}
 
-    bool_kw = {"abierto","open","gratuito","gratis","libre","multiplataforma",
-               "multiusuario","multitarea","movil","móvil","escritorio","servidor",
-               "posix","sandboxing","principiantes","principiante","cifrado","freeware"}
+    bool_kw = {"abierto","open","gratuito","gratis","libre","free","multiplataforma",
+               "multiusuario","multitarea","movil","móvil","mobile","escritorio","desktop",
+               "servidor","server","posix","sandboxing","sandbox","principiantes","beginner",
+               "cifrado","encryption","freeware","gratuit","bureau","serveur","débutant",
+               "móvel","gratuito","aberto","iniciante"}
     if palabras & bool_kw:
-        return "booleano_true", {"palabras": list(palabras)}
+        return "booleano_true", {"palabras": list(palabras), "lang": lang}
 
-    return "nombre", {"palabras": list(palabras), "termino": texto}
+    return "nombre", {"palabras": list(palabras), "termino": texto, "lang": lang}
 
 
-# ─── Constructores SPARQL (Fuseki) ────────────────────────────────────────────
+# ─── Constructores SPARQL (Fuseki) ──────────────────────────────────────────────
 
 def query_todos():
     return f"""
@@ -498,7 +568,7 @@ SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
 
 def query_filtro_propiedad(palabras, objeto):
     filtros_valor = " || ".join(
-        [f'regex(str(?objVal), "{p}", "i") || regex(str(?obj), "{p}", "i")' for p in palabras]
+        [f'regex(str(?obj), "{p}", "i")' for p in palabras]
     ) if palabras else f'regex(str(?obj), "{objeto}", "i")'
     return f"""
 {PREFIX_STR}
@@ -567,7 +637,7 @@ ORDER BY {orden}(xsd:decimal(?campoVal))
 LIMIT 1000"""
 
 
-# ─── Procesamiento de resultados Fuseki ───────────────────────────────────────
+# ─── Procesamiento Fuseki ─────────────────────────────────────────────────────
 
 def agrupar_bindings(bindings):
     datos = {}
@@ -604,7 +674,7 @@ def armar_resultado(titulo, attrs, modo):
     }
 
 
-# ─── Rutas ─────────────────────────────────────────────────────────────────────
+# ─── Rutas ────────────────────────────────────────────────────────────────────
 
 @app.route('/')
 def home():
@@ -612,88 +682,36 @@ def home():
 
 
 @app.route('/dbpedia')
-def dbpedia():
+def dbpedia_route():
     nombre = request.args.get('nombre', '').strip()
+    lang   = request.args.get('lang', 'es').strip()
     if not nombre:
         return jsonify({"error": "Falta el parámetro 'nombre'"}), 400
     try:
-        datos = consultar_dbpedia(nombre)
-        if datos:
-            return jsonify({"ok": True, "datos": datos})
-        return jsonify({"ok": False, "datos": None})
+        datos = consultar_dbpedia(nombre, lang)
+        return jsonify({"ok": bool(datos), "datos": datos})
     except Exception as e:
         app.logger.error(f"[/dbpedia] {e}")
         return jsonify({"ok": False, "error": str(e)}), 500
 
 
-@app.route('/dbpedia-test')
-def dbpedia_test():
-    import traceback
-    resultados = {}
-
+@app.route('/dbpedia/comparar')
+def dbpedia_comparar():
+    a    = request.args.get('a', '').strip()
+    b    = request.args.get('b', '').strip()
+    lang = request.args.get('lang', 'es').strip()
+    if not a or not b:
+        return jsonify({"error": "Faltan parámetros 'a' y 'b'"}), 400
     try:
-        import requests as req_test
-        resultados["requests_instalado"] = True
-        resultados["requests_version"] = req_test.__version__
-    except ImportError as e:
-        resultados["requests_instalado"] = False
-        resultados["requests_error"] = str(e)
-        return jsonify(resultados)
-
-    try:
-        r = req_test.get("https://httpbin.org/get", timeout=6)
-        resultados["internet_ok"] = r.status_code == 200
+        datos_a = consultar_dbpedia(a, lang)
+        datos_b = consultar_dbpedia(b, lang)
+        return jsonify({
+            "ok": bool(datos_a or datos_b),
+            "a": {"nombre": a, "datos": datos_a},
+            "b": {"nombre": b, "datos": datos_b},
+        })
     except Exception as e:
-        resultados["internet_ok"] = False
-        resultados["internet_error"] = str(e)
-
-    try:
-        r = req_test.get(
-            "https://lookup.dbpedia.org/api/search",
-            params={"query": "Linux operating system", "format": "json", "maxResults": 2},
-            headers={"Accept": "application/json"},
-            timeout=8
-        )
-        resultados["lookup_status"] = r.status_code
-        resultados["lookup_ok"] = r.ok
-        if r.ok:
-            docs = r.json().get("docs", [])
-            resultados["lookup_primer_recurso"] = docs[0].get("resource", [None])[0] if docs else None
-    except Exception as e:
-        resultados["lookup_ok"] = False
-        resultados["lookup_error"] = str(e)
-        resultados["lookup_traceback"] = traceback.format_exc()
-
-    try:
-        query = "SELECT ?s WHERE { <http://dbpedia.org/resource/Linux> ?p ?s } LIMIT 3"
-        r = req_test.get(
-            "https://dbpedia.org/sparql",
-            params={"query": query, "format": "application/sparql-results+json"},
-            headers={"Accept": "application/sparql-results+json",
-                     "User-Agent": "BuscadorSO/1.0"},
-            timeout=10
-        )
-        resultados["sparql_status"] = r.status_code
-        resultados["sparql_ok"] = r.ok
-        if r.ok:
-            bindings = r.json().get("results", {}).get("bindings", [])
-            resultados["sparql_bindings_count"] = len(bindings)
-    except Exception as e:
-        resultados["sparql_ok"] = False
-        resultados["sparql_error"] = str(e)
-        resultados["sparql_traceback"] = traceback.format_exc()
-
-    try:
-        datos = consultar_dbpedia("Linux")
-        resultados["consultar_dbpedia_ok"] = datos is not None
-        if datos:
-            resultados["consultar_dbpedia_campos"] = list(datos.keys())
-    except Exception as e:
-        resultados["consultar_dbpedia_ok"] = False
-        resultados["consultar_dbpedia_error"] = str(e)
-        resultados["consultar_dbpedia_traceback"] = traceback.format_exc()
-
-    return jsonify(resultados)
+        return jsonify({"ok": False, "error": str(e)}), 500
 
 
 @app.route('/buscar')
@@ -704,12 +722,13 @@ def buscar():
 
     tl = termino.lower()
     palabras_router = set(re.sub(r'[^\w\s]', '', tl).split())
+    lang = detectar_idioma(tl)
 
-    if "todos" in palabras_router or (
-        ("so" in palabras_router or "sistemas" in palabras_router)
+    if "todos" in palabras_router or "all" in palabras_router or (
+        re.search(r'\b(so|sistemas?|systems?|systèmes?|sistemas?)\b', tl)
         and len(palabras_router - STOP_WORDS) <= 3
     ):
-        intencion, params = "todos", {}
+        intencion, params = "todos", {"lang": lang}
     else:
         intencion, params = detectar_intencion(termino)
 
@@ -717,9 +736,15 @@ def buscar():
         if intencion == "contar":
             rows = run_fuseki(query_contar(params.get("palabras", [])))
             total = int(rows[0]["total"]["value"]) if rows and "total" in rows[0] else 0
+            msgs = {
+                "es": f"Se encontraron {total} sistemas operativos.",
+                "en": f"Found {total} operating systems.",
+                "pt": f"Foram encontrados {total} sistemas operacionais.",
+                "fr": f"{total} systèmes d'exploitation trouvés.",
+            }
             return jsonify({
                 "tipo": "conteo", "total": total, "intencion": "contar",
-                "mensaje": f"Se encontraron {total} sistemas operativos que coinciden con tu búsqueda."
+                "mensaje": msgs.get(lang, msgs["es"])
             })
 
         if intencion == "definicion":
@@ -735,13 +760,27 @@ def buscar():
                 "tipo":           "definicion",
                 "intencion":      "definicion",
                 "termino_buscar": termino_def,
+                "lang":           lang,
                 "resultados":     resultados
+            })
+
+        if intencion == "comparar":
+            q = query_comparar(params["a"], params["b"])
+            bindings = run_fuseki(q)
+            agrupado = agrupar_bindings(bindings) if bindings else {}
+            resultados = [armar_resultado(t, a, "comparar") for t, a in agrupado.items()]
+            return jsonify({
+                "tipo":       "comparar",
+                "intencion":  "comparar",
+                "params":     params,
+                "lang":       lang,
+                "resultados": resultados,
+                "termino_a":  params["a"],
+                "termino_b":  params["b"],
             })
 
         if intencion == "todos":
             q = query_todos()
-        elif intencion == "comparar":
-            q = query_comparar(params["a"], params["b"])
         elif intencion == "ranking":
             q = query_ranking(params["campo"], params["orden"], params.get("palabras", []))
         elif intencion == "filtro_kernel":
@@ -755,7 +794,6 @@ def buscar():
             q = query_nombre(termino, params.get("palabras", []))
 
         bindings = run_fuseki(q)
-
         if not bindings and intencion not in ("todos",):
             bindings = run_fuseki(query_nombre(termino, params.get("palabras", [])))
 
@@ -764,8 +802,9 @@ def buscar():
 
         return jsonify({
             "tipo":           "resultados",
-            "intencion":      "intencion",
+            "intencion":      intencion,
             "params":         params,
+            "lang":           lang,
             "termino_buscar": termino,
             "resultados":     resultados
         })
