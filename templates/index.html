@@ -7,92 +7,59 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --bg:       #0c0d10;
-  --bg2:      #13151a;
-  --bg3:      #181b22;
-  --card:     #151820;
-  --border:   #252a38;
-  --border2:  #2e3548;
-  --text:     #dde2f0;
-  --text2:    #7b87a8;
-  --text3:    #444d66;
-  --accent:   #5b8fff;
-  --acc2:     #7aaeff;
-  --acc-dim:  #0d1e40;
-  --acc-bdr:  #1a3060;
-  --green:    #3ecf8e;
-  --grn-dim:  #071e12;
-  --grn-bdr:  #0f3326;
-  --amber:    #f5a623;
-  --amb-dim:  #1f1200;
-  --red:      #f06060;
-  --red-dim:  #200a0a;
-  --purple:   #a78bfa;
-  --pur-dim:  #1a1040;
+  --bg:#0c0d10;--bg2:#13151a;--bg3:#181b22;--card:#151820;
+  --border:#252a38;--border2:#2e3548;--text:#dde2f0;--text2:#7b87a8;--text3:#444d66;
+  --accent:#5b8fff;--acc2:#7aaeff;--acc-dim:#0d1e40;--acc-bdr:#1a3060;
+  --green:#3ecf8e;--grn-dim:#071e12;--grn-bdr:#0f3326;
+  --amber:#f5a623;--red:#f06060;--purple:#a78bfa;
 }
-
-body{font-family:'Syne',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0}
-.page{max-width:840px;margin:0 auto;padding:56px 24px 120px}
+body{font-family:'Syne',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px 120px}
 
 /* ── Hero ── */
-.hero{margin-bottom:44px;padding-bottom:36px;border-bottom:1px solid var(--border)}
-.hero-eyebrow{
-  font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);
-  letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;
-  display:flex;align-items:center;gap:10px
-}
+.hero{margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);flex-shrink:0}
 .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2.5s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-h1{font-size:clamp(30px,5vw,50px);font-weight:800;line-height:1.06;letter-spacing:-1.5px;color:#fff;margin-bottom:10px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.06;letter-spacing:-1.5px;color:#fff;margin-bottom:8px}
 h1 .hi{color:var(--accent)}
 .hero-sub{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.06em}
 
+/* ── Lang selector ── */
+.lang-bar{display:flex;gap:6px;margin-bottom:14px;align-items:center}
+.lang-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-right:4px}
+.lang-btn{font-family:'DM Mono',monospace;font-size:11px;border:1px solid var(--border2);border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--text3);background:transparent;transition:all .15s}
+.lang-btn:hover{color:var(--accent);border-color:var(--acc-bdr)}
+.lang-btn.active{color:var(--accent);border-color:var(--acc-bdr);background:var(--acc-dim);font-weight:700}
+
 /* ── Search ── */
-.search-area{margin-bottom:16px}
-.search-box{
-  display:flex;align-items:center;background:var(--bg3);
-  border:1px solid var(--border2);border-radius:14px;
-  padding:5px 5px 5px 18px;gap:10px;
-  transition:border-color .2s,box-shadow .2s
-}
+.search-area{margin-bottom:14px}
+.search-box{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:14px;padding:5px 5px 5px 18px;gap:10px;transition:border-color .2s,box-shadow .2s}
 .search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,143,255,.1)}
 .search-icon{color:var(--text3);flex-shrink:0;display:flex}
 .search-icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-input{flex:1;border:none;outline:none;font-size:15px;font-family:'Syne',inherit;font-weight:500;background:transparent;color:var(--text);padding:11px 0;letter-spacing:-.2px;caret-color:var(--accent)}
+input{flex:1;border:none;outline:none;font-size:15px;font-family:'Syne',inherit;font-weight:500;background:transparent;color:var(--text);padding:11px 0;caret-color:var(--accent)}
 input::placeholder{color:var(--text3);font-weight:400}
-#btn{
-  background:var(--accent);color:#fff;border:none;border-radius:10px;
-  padding:10px 22px;font-size:13px;font-weight:700;font-family:'Syne',inherit;
-  letter-spacing:.03em;cursor:pointer;white-space:nowrap;
-  transition:background .15s,transform .1s;flex-shrink:0
-}
+#btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:10px 22px;font-size:13px;font-weight:700;font-family:'Syne',inherit;cursor:pointer;white-space:nowrap;transition:background .15s,transform .1s;flex-shrink:0}
 #btn:hover{background:var(--acc2)}
 #btn:active{transform:scale(.97)}
 
 /* ── Chips ── */
-.chips-wrap{margin-bottom:40px}
-.chips-label{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.chips-wrap{margin-bottom:36px}
+.chips-label{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{
-  font-size:11px;font-family:'DM Mono',monospace;border:1px solid var(--border2);
-  border-radius:100px;padding:5px 13px;cursor:pointer;color:var(--text2);
-  background:transparent;letter-spacing:.03em;
-  transition:color .15s,border-color .15s,background .15s
-}
+.chip{font-size:11px;font-family:'DM Mono',monospace;border:1px solid var(--border2);border-radius:100px;padding:5px 13px;cursor:pointer;color:var(--text2);background:transparent;transition:all .15s}
 .chip:hover{color:var(--accent);border-color:var(--acc-bdr);background:var(--acc-dim)}
 
 /* ── Meta line ── */
-.meta-line{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-bottom:20px;letter-spacing:.04em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.meta-line{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-bottom:18px;letter-spacing:.04em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .meta-line strong{color:var(--accent);font-weight:500}
 .badge-intent{font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--border2);border-radius:5px;padding:2px 8px;color:var(--text3);background:var(--bg3);letter-spacing:.06em}
+.divider{height:1px;background:var(--border);margin:0 0 24px}
 
-/* ── Divider ── */
-.divider{height:1px;background:var(--border);margin:0 0 28px}
-
-/* ── CARD BASE ── */
+/* ── CARD BASE (Fuseki) ── */
 .card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:16px;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
 @keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .card-head{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--border);gap:12px}
@@ -100,11 +67,7 @@ input::placeholder{color:var(--text3);font-weight:400}
 .os-icon{width:38px;height:38px;border-radius:9px;background:var(--acc-dim);border:1px solid var(--acc-bdr);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
 .card-title{font-size:17px;font-weight:700;letter-spacing:-.4px;color:#fff}
 .badge-modo{font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--acc-bdr);border-radius:5px;padding:3px 9px;color:var(--accent);background:var(--acc-dim);letter-spacing:.06em;white-space:nowrap;flex-shrink:0}
-
-/* ── Section head ── */
 .sec-head{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 22px;color:var(--text3);background:var(--bg2);border-bottom:1px solid var(--border)}
-
-/* ── Props ── */
 .props{width:100%;border-collapse:collapse}
 .props tr{border-bottom:1px solid var(--border);transition:background .1s}
 .props tr:last-child{border-bottom:none}
@@ -112,91 +75,106 @@ input::placeholder{color:var(--text3);font-weight:400}
 .props th,.props td{padding:9px 22px;font-size:13px;text-align:left}
 .props th{color:var(--text3);font-weight:400;width:42%;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em}
 .props td{color:var(--text);font-weight:500}
-.val-si{color:var(--green) !important}
-.val-no{color:var(--red) !important}
+.val-si{color:var(--green)!important}
+.val-no{color:var(--red)!important}
 
-/* ── Comparación ── */
+/* ── DBpedia enrichment dentro de card ── */
+.dbp-wrap{border-top:1px solid var(--grn-bdr);background:var(--grn-dim)}
+.dbp-head{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;padding:8px 22px;color:var(--green);border-bottom:1px solid var(--grn-bdr);display:flex;align-items:center;gap:8px}
+.dbp-pulse{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.dbp-top{display:flex;gap:16px;padding:16px 22px;border-bottom:1px solid var(--grn-bdr);align-items:flex-start}
+.dbp-logo{width:60px;height:60px;object-fit:contain;border-radius:9px;background:var(--bg3);padding:7px;border:1px solid var(--grn-bdr);flex-shrink:0}
+.dbp-abstract-wrap{flex:1;min-width:0}
+.dbp-resumen{font-size:13px;line-height:1.75;color:var(--text2)}
+/* FIX: Muestra todo el texto para las tarjetas regulares o un límite altísimo */
+.dbp-resumen--clamped{display:-webkit-box;-webkit-line-clamp:30;-webkit-box-orient:vertical;overflow:hidden}
+.ver-mas-btn{display:inline-flex;align-items:center;gap:4px;margin-top:8px;background:var(--grn-dim);border:1px solid var(--grn-bdr);color:var(--green);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;padding:4px 10px;border-radius:6px;transition:background .15s}
+.ver-mas-btn:hover{background:rgba(62,207,142,.1)}
+.dbp-links{display:flex;flex-wrap:wrap;gap:8px;padding:10px 22px;border-bottom:1px solid var(--grn-bdr)}
+.dbp-link{font-size:11px;font-family:'DM Mono',monospace;color:var(--green);text-decoration:none;border:1px solid var(--grn-bdr);border-radius:6px;padding:4px 10px;transition:background .15s}
+.dbp-link:hover{background:rgba(62,207,142,.07)}
+.dbp-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.meta-item{padding:10px 22px;border-right:1px solid var(--grn-bdr);border-bottom:1px solid var(--grn-bdr)}
+.meta-key{font-size:10px;font-family:'DM Mono',monospace;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.meta-val{font-size:13px;font-weight:600;word-break:break-word;color:var(--text);line-height:1.45}
+.dbp-notfound{padding:10px 22px;font-size:11px;font-family:'DM Mono',monospace;color:var(--text3)}
+.dbp-loading{padding:12px 22px;font-size:11px;color:var(--text3);display:flex;align-items:center;gap:9px;font-family:'DM Mono',monospace}
+.mini-spin{width:12px;height:12px;border:1.5px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── DEF CARD (definición completa) ── */
+.def-card{background:var(--card);border:1px solid var(--acc-bdr);border-radius:16px;overflow:hidden;margin-bottom:16px;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
+.def-header{display:flex;align-items:center;gap:14px;padding:20px 24px;border-bottom:1px solid var(--acc-bdr);background:var(--acc-dim)}
+.def-header-icon{width:52px;height:52px;border-radius:11px;background:rgba(91,143,255,.12);border:1px solid var(--acc-bdr);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.def-header-logo{width:52px;height:52px;object-fit:contain;border-radius:11px;border:1px solid var(--acc-bdr);background:rgba(91,143,255,.06);padding:6px;flex-shrink:0}
+.def-header-text{flex:1;min-width:0}
+.def-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.1}
+.def-subtitle{font-size:11px;font-family:'DM Mono',monospace;color:var(--acc2);margin-top:5px;letter-spacing:.04em}
+.def-badge{font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--acc-bdr);border-radius:5px;padding:3px 9px;color:var(--accent);background:rgba(91,143,255,.08);letter-spacing:.06em;white-space:nowrap;flex-shrink:0;align-self:flex-start}
+/* abstract */
+.def-abstract{padding:20px 24px;border-bottom:1px solid var(--border)}
+.def-abstract-label{font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
+.def-txt{font-size:14px;line-height:1.85;color:var(--text2)}
+/* FIX: Límite muy alto para no ocultar la info */
+.def-txt--clamped{display:-webkit-box;-webkit-line-clamp:40;-webkit-box-orient:vertical;overflow:hidden}
+.def-ver-mas{display:inline-flex;align-items:center;gap:4px;margin-top:10px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--accent);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;padding:5px 12px;border-radius:6px;transition:background .15s}
+.def-ver-mas:hover{background:rgba(91,143,255,.15)}
+/* links */
+.def-links{display:flex;flex-wrap:wrap;gap:8px;padding:12px 24px;border-bottom:1px solid var(--border);background:var(--bg2)}
+.def-link{font-size:11px;font-family:'DM Mono',monospace;color:var(--accent);text-decoration:none;border:1px solid var(--acc-bdr);border-radius:6px;padding:5px 12px;transition:background .15s;display:inline-flex;align-items:center;gap:5px}
+.def-link:hover{background:var(--acc-dim)}
+/* meta grid */
+.def-section-label{font-size:10px;font-family:'DM Mono',monospace;color:var(--text3);text-transform:uppercase;letter-spacing:.14em;padding:8px 24px 6px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.def-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.def-meta-item{padding:12px 24px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .1s}
+.def-meta-item:hover{background:var(--bg3)}
+.def-meta-key{font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.def-meta-val{font-size:13px;font-weight:600;color:var(--text);word-break:break-word;line-height:1.5}
+/* fuseki dentro de def-card */
+.def-fuseki-section{border-top:1px solid var(--border)}
+/* estados */
+.def-loading{padding:28px 24px;display:flex;align-items:center;gap:12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text3)}
+.def-spin{width:14px;height:14px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+.def-notfound{padding:20px 24px;font-size:13px;color:var(--text3);font-family:'DM Mono',monospace;line-height:1.7}
+
+/* ── COMPARACIÓN DBpedia ── */
+.cmp-dbp-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:16px;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
+.cmp-dbp-head{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--border);gap:12px}
+.cmp-dbp-title{font-size:16px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px}
+.cmp-dbp-cols{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+.cmp-dbp-col{padding:0;border-right:1px solid var(--border)}
+.cmp-dbp-col:last-child{border-right:none}
+.cmp-col-head{padding:14px 20px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:15px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px}
+.cmp-table{width:100%;border-collapse:collapse}
+.cmp-table tr{border-bottom:1px solid var(--border)}
+.cmp-table tr:last-child{border-bottom:none}
+.cmp-table tr:hover{background:var(--bg3)}
+.cmp-table td{padding:9px 20px;font-size:13px}
+.cmp-table td:first-child{color:var(--text3);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em;width:45%}
+.cmp-table td:last-child{color:var(--text);font-weight:500}
+/* tabla comparación lado a lado */
+.cmp-side-table{width:100%;border-collapse:collapse;min-width:400px}
+.cmp-side-table th{padding:9px 16px;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;background:var(--bg2);color:var(--text3);border-bottom:1px solid var(--border);text-align:left}
+.cmp-side-table th.col-so{color:var(--accent);font-size:13px;font-family:'Syne',inherit;font-weight:700;letter-spacing:0;text-transform:none}
+.cmp-side-table td{padding:8px 16px;font-size:13px;border-bottom:1px solid var(--border)}
+.cmp-side-table td:first-child{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)}
+.cmp-side-table tr:last-child td{border-bottom:none}
+.cmp-side-table tr:hover td{background:var(--bg3)}
 .cmp-wrap{overflow-x:auto}
-.cmp-table{width:100%;border-collapse:collapse;min-width:400px}
-.cmp-table th{padding:9px 16px;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;background:var(--bg2);color:var(--text3);border-bottom:1px solid var(--border);text-align:left}
-.cmp-table th.col-so{color:var(--accent);font-size:13px;font-family:'Syne',inherit;font-weight:700;letter-spacing:0;text-transform:none}
-.cmp-table td{padding:8px 16px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top}
-.cmp-table td:first-child{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.04em}
-.cmp-table tr:last-child td{border-bottom:none}
-.cmp-table tr:hover td{background:var(--bg3)}
 
 /* ── Ranking ── */
-.ranking-box{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
+.ranking-box{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both;margin-bottom:16px}
 .ranking-head{padding:16px 22px;border-bottom:1px solid var(--border)}
 .ranking-title{font-size:15px;font-weight:700;color:var(--text)}
-.ranking-sub{font-size:11px;font-family:'DM Mono',monospace;color:var(--text3);letter-spacing:.04em;margin-top:3px}
+.ranking-sub{font-size:11px;font-family:'DM Mono',monospace;color:var(--text3);margin-top:3px}
 .rank-list{list-style:none}
 .rank-item{display:flex;align-items:center;gap:14px;padding:11px 22px;border-bottom:1px solid var(--border)}
 .rank-item:last-child{border-bottom:none}
 .rank-num{font-size:17px;font-weight:800;color:var(--text3);width:26px;text-align:center;flex-shrink:0}
 .rank-num.top1{color:var(--amber)}
 .rank-num.top2{color:var(--text2)}
-.rank-num.top3{color:var(--text3)}
 .rank-name{font-weight:600;font-size:14px;flex:1}
 .rank-val{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);white-space:nowrap}
-
-/* ── DBpedia section ── */
-.dbp-wrap{border-top:1px solid var(--grn-bdr);background:var(--grn-dim)}
-.dbp-head{
-  font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;
-  padding:8px 22px;color:var(--green);border-bottom:1px solid var(--grn-bdr);
-  display:flex;align-items:center;justify-content:space-between;gap:8px
-}
-.dbp-head-left{display:flex;align-items:center;gap:8px}
-.dbp-pulse{width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
-.dbp-top{display:flex;gap:16px;padding:16px 22px;border-bottom:1px solid var(--grn-bdr);align-items:flex-start}
-.dbp-logo-wrap{flex-shrink:0}
-.dbp-logo{width:64px;height:64px;object-fit:contain;border-radius:9px;background:var(--bg3);padding:7px;border:1px solid var(--grn-bdr)}
-.dbp-abstract-wrap{flex:1;min-width:0}
-.dbp-resumen{font-size:13px;line-height:1.75;color:var(--text2)}
-/* Se incrementa el line-clamp para mostrar la información extendida enciclopédica sin cortes abruptos */
-.dbp-resumen--clamped{display:-webkit-box;-webkit-line-clamp:20;-webkit-box-orient:vertical;overflow:hidden}
-.dbp-ver-mas{display:inline-block;margin-top:6px;background:none;border:none;color:var(--green);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;padding:0;letter-spacing:.04em;transition:opacity .15s}
-.dbp-ver-mas:hover{opacity:.7}
-.dbp-links{display:flex;flex-wrap:wrap;gap:8px;padding:10px 22px;border-bottom:1px solid var(--grn-bdr)}
-.dbp-link{font-size:11px;font-family:'DM Mono',monospace;color:var(--green);text-decoration:none;border:1px solid var(--grn-bdr);border-radius:6px;padding:4px 10px;transition:background .15s}
-.dbp-link:hover{background:rgba(62,207,142,.07)}
-.dbp-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}
-.meta-item{padding:10px 22px;border-right:1px solid var(--grn-bdr);border-bottom:1px solid var(--grn-bdr)}
-.meta-item:last-child{border-right:none}
-.meta-key{font-size:10px;font-family:'DM Mono',monospace;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.meta-val{font-size:13px;font-weight:600;word-break:break-word;color:var(--text);line-height:1.45}
-.meta-val a{color:var(--green);font-size:12px;text-decoration:none}
-.meta-val a:hover{text-decoration:underline}
-.dbp-notfound{padding:10px 22px;font-size:11px;font-family:'DM Mono',monospace;color:var(--text3)}
-.dbp-loading{padding:12px 22px;font-size:11px;color:var(--text3);display:flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;letter-spacing:.04em}
-.mini-spin{width:12px;height:12px;border:1.5px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ── Definición card especial ── */
-.def-card{background:var(--card);border:1px solid var(--acc-bdr);border-radius:16px;overflow:hidden;margin-bottom:16px;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both}
-.def-header{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--acc-bdr);background:var(--acc-dim)}
-.def-icon{width:42px;height:42px;border-radius:10px;background:rgba(91,143,255,.15);border:1px solid var(--acc-bdr);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.def-title{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.3px}
-.def-badge{margin-left:auto;font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--acc-bdr);border-radius:5px;padding:3px 9px;color:var(--accent);background:var(--acc-dim);letter-spacing:.06em;white-space:nowrap;flex-shrink:0}
-.def-body-wrap{padding:18px 22px;border-bottom:1px solid var(--border)}
-.def-txt{font-size:14px;line-height:1.8;color:var(--text2)}
-.def-txt--clamped{display:-webkit-box;-webkit-line-clamp:25;-webkit-box-orient:vertical;overflow:hidden}
-.def-ver-mas{display:inline-block;margin-top:8px;background:none;border:none;color:var(--accent);font-size:11px;font-family:'DM Mono',monospace;cursor:pointer;padding:0;letter-spacing:.04em}
-.def-ver-mas:hover{opacity:.7}
-.def-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));border-top:1px solid var(--border)}
-.def-meta-item{padding:10px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.def-meta-item:last-child{border-right:none}
-.def-meta-key{font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.def-meta-val{font-size:13px;font-weight:600;color:var(--text);word-break:break-word;line-height:1.45}
-.def-meta-val a{color:var(--accent);font-size:12px;text-decoration:none}
-.def-meta-val a:hover{text-decoration:underline}
-.def-links{display:flex;flex-wrap:wrap;gap:8px;padding:10px 22px;border-bottom:1px solid var(--border)}
-.def-link{font-size:11px;font-family:'DM Mono',monospace;color:var(--accent);text-decoration:none;border:1px solid var(--acc-bdr);border-radius:6px;padding:4px 10px;transition:background .15s}
-.def-link:hover{background:var(--acc-dim)}
-.def-loading{padding:22px;display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text3)}
-.def-spin{width:14px;height:14px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
-.def-notfound{padding:18px 22px;font-size:13px;color:var(--text3);font-family:'DM Mono',monospace;line-height:1.6}
 
 /* ── Stat box ── */
 .stat-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:52px 24px;text-align:center;animation:slideUp .32s cubic-bezier(.22,.68,0,1.1) both;position:relative;overflow:hidden}
@@ -218,66 +196,175 @@ input::placeholder{color:var(--text3);font-weight:400}
 <div class="page">
 
   <div class="hero">
-    <div class="hero-eyebrow">
-      <span class="live-dot"></span>
-      Ontología Fuseki + DBpedia — Linked Open Data
-    </div>
+    <div class="hero-eyebrow"><span class="live-dot"></span>Ontología Fuseki + DBpedia — Linked Open Data</div>
     <h1>Buscador de<br><span class="hi">Sistemas Operativos</span></h1>
-    <p class="hero-sub">sparql · semantic_search · consultas_complejas · definiciones</p>
+    <p class="hero-sub">sparql · semantic_search · multilingual · definiciones · comparaciones</p>
+  </div>
+
+  <div class="lang-bar">
+    <span class="lang-label">Lang</span>
+    <button class="lang-btn active" onclick="setLang('es')">🇪🇸 ES</button>
+    <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">🇧🇷 PT</button>
+    <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
   </div>
 
   <div class="search-area">
     <div class="search-box">
-      <span class="search-icon">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      </span>
-      <input id="q" type="text"
-        placeholder="qué es Solaris · linux vs windows · cuántos son open source · más ligero en RAM…"
-        autocomplete="off" spellcheck="false">
-      <button id="btn" onclick="buscar()">Buscar</button>
+      <span class="search-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <input id="q" type="text" autocomplete="off" spellcheck="false">
+      <button id="btn" onclick="buscar()" data-i18n="search">Buscar</button>
     </div>
   </div>
 
   <div class="chips-wrap">
-    <div class="chips-label">Búsquedas sugeridas</div>
-    <div class="chips">
-      <span class="chip" onclick="q('todos los SO')">📋 Todos</span>
-      <span class="chip" onclick="q('qué es Linux')">📖 ¿Qué es Linux?</span>
-      <span class="chip" onclick="q('solaris')">☀️ Solaris</span>
-      <span class="chip" onclick="q('qué es Android')">🤖 ¿Qué es Android?</span>
-      <span class="chip" onclick="q('código abierto')">🔓 Open Source</span>
-      <span class="chip" onclick="q('gratuito')">💸 Gratuitos</span>
-      <span class="chip" onclick="q('linux vs windows')">⚖️ Linux vs Windows</span>
-      <span class="chip" onclick="q('macOS vs Android')">⚖️ macOS vs Android</span>
-      <span class="chip" onclick="q('ubuntu vs debian')">⚖️ Ubuntu vs Debian</span>
-      <span class="chip" onclick="q('cuántos SO móviles hay')">📱 ¿Cuántos móviles?</span>
-      <span class="chip" onclick="q('qué sistemas usan kernel Linux')">⚙️ Kernel Linux</span>
-      <span class="chip" onclick="q('más ligero en RAM')">🪶 Menor RAM</span>
-      <span class="chip" onclick="q('qué SOs tienen sandboxing')">🔒 Sandboxing</span>
-      <span class="chip" onclick="q('qué SOs son para servidor')">🖥️ Servidores</span>
-      <span class="chip" onclick="q('cifrado de disco')">🔐 Cifrado</span>
-      <span class="chip" onclick="q('orientados a principiantes')">🌱 Principiantes</span>
-    </div>
+    <div class="chips-label" data-i18n="suggestions">Búsquedas sugeridas</div>
+    <div class="chips" id="chips-container"></div>
   </div>
 
   <div class="divider"></div>
-
   <div id="out">
     <div class="empty">
       <div class="empty-glyph">— ∅ —</div>
-      <div class="empty-text">Escribe una búsqueda para comenzar</div>
+      <div class="empty-text" data-i18n="empty">Escribe una búsqueda para comenzar</div>
     </div>
   </div>
-
 </div>
-<script>
-const inp = document.getElementById('q');
-const out = document.getElementById('out');
-inp.addEventListener('keydown', e => { if(e.key==='Enter') buscar(); });
-function q(t){ inp.value=t; buscar(); }
 
-function icono(n){
-  n=n.toLowerCase();
+<script>
+// ══════════════════════════════════════════════════════════════════════════════
+// I18N
+// ══════════════════════════════════════════════════════════════════════════════
+const I18N = {
+  es: {
+    search: 'Buscar', suggestions: 'Búsquedas sugeridas', empty: 'Escribe una búsqueda para comenzar',
+    placeholder: 'qué es Linux · linux vs windows · cuántos son open source · más ligero en RAM…',
+    loading: 'buscando…', no_results: 'Sin resultados en la ontología local',
+    consulting_dbpedia: 'consultando dbpedia…', no_dbpedia: 'Sin datos en DBpedia para este SO.',
+    not_found: 'No se encontró información para',
+    try_english: 'Intenta en inglés o verifica la ortografía.',
+    fuente_local: 'ontología local — fuseki', fuente_dbpedia: 'dbpedia — linked open data',
+    tech_specs: 'especificaciones técnicas', comparacion: 'Comparación',
+    resultados_label: (n,q) => `${n} resultado${n!==1?'s':''} para "${q}"`,
+    campos: { desarrollador:'Desarrollador', anio:'Año lanzamiento', version:'Versión actual',
+      licencia:'Licencia', tipoKernel:'Tipo kernel', familia:'Familia', plataformas:'Plataformas',
+      lenguaje:'Lenguaje prog.', predecesores:'Predecesores', sucesores:'Sucesores',
+      kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Sitio oficial' },
+    chips: [
+      ['📋','todos los SO','Todos'],['📖','qué es Linux','¿Qué es Linux?'],
+      ['📖','qué es FreeBSD','¿Qué es FreeBSD?'],['📖','qué es Solaris','¿Qué es Solaris?'],
+      ['📖','qué es Haiku','¿Qué es Haiku?'],['📖','qué es ReactOS','¿Qué es ReactOS?'],
+      ['🔓','código abierto','Open Source'],['💸','gratuito','Gratuitos'],
+      ['⚖️','linux vs windows','Linux vs Windows'],['⚖️','macOS vs Android','macOS vs Android'],
+      ['⚖️','ubuntu vs debian','Ubuntu vs Debian'],['⚖️','Solaris vs FreeBSD','Solaris vs FreeBSD'],
+      ['📱','cuántos SO móviles hay','¿Cuántos móviles?'],['⚙️','qué sistemas usan kernel Linux','Kernel Linux'],
+      ['🪶','más ligero en RAM','Menor RAM'],['🔒','qué SOs tienen sandboxing','Sandboxing'],
+    ]
+  },
+  en: {
+    search: 'Search', suggestions: 'Suggested searches', empty: 'Type something to start searching',
+    placeholder: 'what is Linux · linux vs windows · how many are open source · lightest in RAM…',
+    loading: 'searching…', no_results: 'No results in local ontology',
+    consulting_dbpedia: 'consulting dbpedia…', no_dbpedia: 'No DBpedia data for this OS.',
+    not_found: 'No information found for',
+    try_english: 'Try in English or check spelling.',
+    fuente_local: 'local ontology — fuseki', fuente_dbpedia: 'dbpedia — linked open data',
+    tech_specs: 'technical specifications', comparacion: 'Comparison',
+    resultados_label: (n,q) => `${n} result${n!==1?'s':''} for "${q}"`,
+    campos: { desarrollador:'Developer', anio:'Release year', version:'Latest version',
+      licencia:'License', tipoKernel:'Kernel type', familia:'Family', plataformas:'Platforms',
+      lenguaje:'Prog. language', predecesores:'Predecessors', sucesores:'Successors',
+      kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Official site' },
+    chips: [
+      ['📋','all','All OS'],['📖','what is Linux','What is Linux?'],
+      ['📖','what is FreeBSD','What is FreeBSD?'],['📖','what is Solaris','What is Solaris?'],
+      ['📖','what is Haiku OS','What is Haiku?'],['📖','what is ReactOS','What is ReactOS?'],
+      ['🔓','open source','Open Source'],['💸','free','Free'],
+      ['⚖️','linux vs windows','Linux vs Windows'],['⚖️','macOS vs Android','macOS vs Android'],
+      ['⚖️','ubuntu vs debian','Ubuntu vs Debian'],['⚖️','Solaris vs FreeBSD','Solaris vs FreeBSD'],
+      ['📱','how many mobile OS','How many mobile?'],['⚙️','which systems use Linux kernel','Linux kernel'],
+      ['🪶','lightest in RAM','Lightest RAM'],['🔒','which OS have sandboxing','Sandboxing'],
+    ]
+  },
+  pt: {
+    search: 'Buscar', suggestions: 'Buscas sugeridas', empty: 'Digite algo para começar',
+    placeholder: 'o que é Linux · linux vs windows · quantos são open source · mais leve em RAM…',
+    loading: 'buscando…', no_results: 'Sem resultados na ontologia local',
+    consulting_dbpedia: 'consultando dbpedia…', no_dbpedia: 'Sem dados DBpedia para este SO.',
+    not_found: 'Nenhuma informação encontrada para',
+    try_english: 'Tente em inglês ou verifique a ortografia.',
+    fuente_local: 'ontologia local — fuseki', fuente_dbpedia: 'dbpedia — linked open data',
+    tech_specs: 'especificações técnicas', comparacion: 'Comparação',
+    resultados_label: (n,q) => `${n} resultado${n!==1?'s':''} para "${q}"`,
+    campos: { desarrollador:'Desenvolvedor', anio:'Ano lançamento', version:'Versão atual',
+      licencia:'Licença', tipoKernel:'Tipo kernel', familia:'Família', plataformas:'Plataformas',
+      lenguaje:'Linguagem prog.', predecesores:'Predecessores', sucesores:'Sucessores',
+      kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Site oficial' },
+    chips: [
+      ['📋','todos os sistemas','Todos'],['📖','o que é Linux','O que é Linux?'],
+      ['📖','o que é FreeBSD','O que é FreeBSD?'],['📖','o que é Solaris','O que é Solaris?'],
+      ['📖','o que é Haiku','O que é Haiku?'],['📖','o que é ReactOS','O que é ReactOS?'],
+      ['🔓','código aberto','Open Source'],['💸','gratuito','Gratuitos'],
+      ['⚖️','linux vs windows','Linux vs Windows'],['⚖️','macOS vs Android','macOS vs Android'],
+      ['⚖️','ubuntu vs debian','Ubuntu vs Debian'],['⚖️','Solaris vs FreeBSD','Solaris vs FreeBSD'],
+      ['📱','quantos SO móveis','Quantos móveis?'],['⚙️','sistemas com kernel Linux','Kernel Linux'],
+      ['🪶','mais leve em RAM','Menor RAM'],['🔒','SOs com sandboxing','Sandboxing'],
+    ]
+  },
+  fr: {
+    search: 'Chercher', suggestions: 'Recherches suggérées', empty: 'Tapez quelque chose pour commencer',
+    placeholder: "qu'est-ce que Linux · linux vs windows · combien sont open source · plus léger en RAM…",
+    loading: 'recherche…', no_results: 'Aucun résultat dans l\'ontologie locale',
+    consulting_dbpedia: 'consultation dbpedia…', no_dbpedia: 'Pas de données DBpedia pour ce SO.',
+    not_found: 'Aucune information trouvée pour',
+    try_english: 'Essayez en anglais ou vérifiez l\'orthographe.',
+    fuente_local: 'ontologie locale — fuseki', fuente_dbpedia: 'dbpedia — linked open data',
+    tech_specs: 'spécifications techniques', comparacion: 'Comparaison',
+    resultados_label: (n,q) => `${n} résultat${n!==1?'s':''} pour "${q}"`,
+    campos: { desarrollador:'Développeur', anio:'Année sortie', version:'Dernière version',
+      licencia:'Licence', tipoKernel:'Type kernel', familia:'Famille', plataformas:'Plateformes',
+      lenguaje:'Langage prog.', predecesores:'Prédécesseurs', sucesores:'Successeurs',
+      kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Site officiel' },
+    chips: [
+      ['📋','tous les systèmes','Tous'],["📖","qu'est-ce que Linux","Qu'est-ce que Linux?"],
+      ["📖","qu'est-ce que FreeBSD","Qu'est-ce que FreeBSD?"],["📖","qu'est-ce que Solaris","Qu'est-ce que Solaris?"],
+      ["📖","qu'est-ce que Haiku","Qu'est-ce que Haiku?"],["📖","qu'est-ce que ReactOS","Qu'est-ce que ReactOS?"],
+      ['🔓','open source','Open Source'],['💸','gratuit','Gratuits'],
+      ['⚖️','linux vs windows','Linux vs Windows'],['⚖️','macOS vs Android','macOS vs Android'],
+      ['⚖️','ubuntu vs debian','Ubuntu vs Debian'],['⚖️','Solaris vs FreeBSD','Solaris vs FreeBSD'],
+      ['📱','combien de SO mobiles','Combien mobiles?'],['⚙️','systèmes avec kernel Linux','Kernel Linux'],
+      ['🪶','plus léger en RAM','Moins de RAM'],['🔒','SO avec sandboxing','Sandboxing'],
+    ]
+  },
+};
+
+let currentLang = 'es';
+const t = () => I18N[currentLang];
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.toLowerCase().includes(lang));
+  });
+  document.getElementById('q').placeholder = t().placeholder;
+  document.getElementById('btn').textContent = t().search;
+  document.querySelector('[data-i18n="suggestions"]').textContent = t().suggestions;
+  document.querySelector('[data-i18n="empty"]').textContent = t().empty;
+  renderChips();
+}
+
+function renderChips() {
+  const c = document.getElementById('chips-container');
+  c.innerHTML = t().chips.map(([e,q,l]) =>
+    `<span class="chip" onclick="doSearch('${q.replace(/'/g,"\\'")}')"> ${e} ${l}</span>`
+  ).join('');
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════════════════════════════════════════
+function icono(n) {
+  n = (n||'').toLowerCase();
   if(n.includes('windows')) return '🪟';
   if(n.includes('ubuntu'))  return '🟠';
   if(n.includes('debian'))  return '🌀';
@@ -290,88 +377,121 @@ function icono(n){
   if(n.includes('chrome'))  return '🌐';
   if(n.includes('dos'))     return '💾';
   if(n.includes('freebsd')) return '😈';
+  if(n.includes('openbsd')) return '🐡';
   if(n.includes('haiku'))   return '🎵';
   if(n.includes('solaris')) return '☀️';
+  if(n.includes('kali'))    return '🐉';
+  if(n.includes('manjaro')) return '🟢';
   if(n.includes('linux'))   return '🐧';
+  if(n.includes('react'))   return '⚛️';
+  if(n.includes('plan'))    return '🔔';
+  if(n.includes('minix'))   return '🔬';
+  if(n.includes('beos')||n.includes('haiku')) return '🎵';
   return '💻';
 }
 
-function labelModo(m){
-  return {
-    comparar:'comparación',booleano_true:'filtro·activo',booleano_false:'filtro·exclusión',
-    nombre:'búsqueda',todos:'catálogo',filtro_propiedad:'filtro·propiedad',
-    filtro_kernel:'filtro·kernel',ranking:'ranking',contar:'conteo',definicion:'definición'
-  }[m]||m||'';
+function labelModo(m) {
+  const map = {
+    comparar: t().comparacion, booleano_true:'filtro·activo', booleano_false:'filtro·exclusión',
+    nombre:'búsqueda', todos:'catálogo', filtro_propiedad:'filtro·propiedad',
+    filtro_kernel:'filtro·kernel', ranking:'ranking', contar:'conteo', definicion:'definición'
+  };
+  return map[m] || m || '';
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// DBPEDIA
+// ══════════════════════════════════════════════════════════════════════════════
 async function consultarDBpedia(nombre) {
   try {
-    const res  = await fetch('/dbpedia?nombre=' + encodeURIComponent(nombre));
+    const res  = await fetch(`/dbpedia?nombre=${encodeURIComponent(nombre)}&lang=${currentLang}`);
     if (!res.ok) return null;
     const data = await res.json();
     return data.ok ? data.datos : null;
-  } catch (e) {
+  } catch(e) {
     console.warn('[DBpedia proxy]', e.message);
     return null;
   }
 }
 
-async function llenarDBpedia(e, idx){
+async function compararDBpedia(a, b) {
+  try {
+    const res  = await fetch(`/dbpedia/comparar?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}&lang=${currentLang}`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch(e) {
+    return null;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// RENDER — ENRICHMENT DBpedia PARA FUSEKI
+// ══════════════════════════════════════════════════════════════════════════════
+async function llenarDBpedia(nombreDbp, idx) {
   const slot = document.getElementById('dbp-' + idx);
   if (!slot) return;
-
-  const datos = await consultarDBpedia(e.nombre_dbpedia || e.titulo);
-
+  const datos = await consultarDBpedia(nombreDbp);
   if (!datos) {
-    slot.innerHTML = `<div class="dbp-notfound">⚪ Sin datos en DBpedia para este sistema operativo.</div>`;
+    slot.innerHTML = `<div class="dbp-notfound">⚪ ${t().no_dbpedia}</div>`;
     return;
   }
+  slot.innerHTML = buildDBpediaHTML(datos, 'dbp', idx);
+}
 
-  let html = `<div class="dbp-head"><div class="dbp-head-left"><div class="dbp-pulse"></div>dbpedia — linked open data</div></div>`;
-
+function buildDBpediaHTML(datos, prefix, idx) {
+  const campos = t().campos;
+  let html = `<div class="dbp-head"><div class="dbp-pulse"></div>${t().fuente_dbpedia}</div>`;
   const hasLogo = datos.logo && datos.logo.startsWith('http');
   if (datos.resumen || hasLogo) {
     html += `<div class="dbp-top">`;
-    if (hasLogo) html += `<div class="dbp-logo-wrap"><img class="dbp-logo" src="${datos.logo}" alt="logo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`;
+    if (hasLogo) html += `<img class="dbp-logo" src="${datos.logo}" alt="logo" loading="lazy" onerror="this.style.display='none'">`;
     if (datos.resumen) {
       const largo = datos.resumen.length > 350;
+      const uid = `${prefix}-abs-${idx}`;
       html += `<div class="dbp-abstract-wrap">
-        <div class="dbp-resumen${largo ? ' dbp-resumen--clamped' : ''}" id="abs-${idx}">${datos.resumen}</div>
-        ${largo ? `<button class="dbp-ver-mas" onclick="document.getElementById('abs-${idx}').classList.remove('dbp-resumen--clamped');this.style.display='none'">ver más ↓</button>` : ''}
+        <div class="dbp-resumen${largo?' dbp-resumen--clamped':''}" id="${uid}">${datos.resumen}</div>
+        ${largo?`<button class="ver-mas-btn" onclick="expandir('${uid}',this)">▼ ver más</button>`:''}
       </div>`;
     }
     html += `</div>`;
   }
-
   const links = [];
-  if (datos.web) links.push(`<a class="dbp-link" href="${datos.web}" target="_blank" rel="noopener">🌐 Sitio oficial</a>`);
+  if (datos.web) links.push(`<a class="dbp-link" href="${datos.web}" target="_blank" rel="noopener">🌐 ${campos.web}</a>`);
   if (datos.uri) links.push(`<a class="dbp-link" href="${datos.uri}" target="_blank" rel="noopener">🔗 DBpedia</a>`);
   if (links.length) html += `<div class="dbp-links">${links.join('')}</div>`;
-
-  const campos = [
-    ['Desarrollador', datos.desarrollador], ['Año lanzamiento', datos.anio],
-    ['Versión actual', datos.version],      ['Licencia', datos.licencia],
-    ['Tipo de kernel', datos.tipoKernel],   ['Familia', datos.familia],
-    ['Plataformas', datos.plataformas],     ['Lenguaje', datos.lenguaje],
-    ['Predecesores', datos.predecesores],   ['Sucesores', datos.sucesores],
-    ['Influencias', datos.influencias],
-  ].filter(([, v]) => !!v);
-
-  if (campos.length) {
+  const meta = buildMetaCampos(datos);
+  if (meta.length) {
     html += `<div class="dbp-meta">`;
-    campos.forEach(([k, v]) => {
-      html += `<div class="meta-item"><div class="meta-key">${k}</div><div class="meta-val">${v}</div></div>`;
-    });
+    meta.forEach(([k,v]) => { html += `<div class="meta-item"><div class="meta-key">${k}</div><div class="meta-val">${v}</div></div>`; });
     html += `</div>`;
   }
-
-  slot.innerHTML = html;
+  return html;
 }
 
+function buildMetaCampos(datos) {
+  const c = t().campos;
+  return [
+    [c.desarrollador, datos.desarrollador], [c.anio, datos.anio],
+    [c.version, datos.version],             [c.licencia, datos.licencia],
+    [c.tipoKernel, datos.tipoKernel],       [c.familia, datos.familia],
+    [c.plataformas, datos.plataformas],     [c.lenguaje, datos.lenguaje],
+    [c.predecesores, datos.predecesores],   [c.sucesores, datos.sucesores],
+    [c.kernel, datos.kernel],
+  ].filter(([,v]) => !!v);
+}
+
+function expandir(uid, btn) {
+  document.getElementById(uid).classList.remove('dbp-resumen--clamped', 'def-txt--clamped');
+  btn.style.display = 'none';
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// RENDER — MODO DEFINICIÓN 
+// ══════════════════════════════════════════════════════════════════════════════
 async function renderDefinicion(termino, resultadosOnto) {
   if (resultadosOnto && resultadosOnto.length) {
-    resultadosOnto.forEach((e, i) => { out.appendChild(crearTarjeta(e, i)); });
-    resultadosOnto.forEach((e, i) => { llenarDBpedia(e, i); });
+    resultadosOnto.forEach((e,i) => { out.appendChild(crearTarjeta(e, i)); });
+    resultadosOnto.forEach((e,i) => { llenarDBpedia(e.nombre_dbpedia || e.titulo, i); });
     return;
   }
 
@@ -379,11 +499,14 @@ async function renderDefinicion(termino, resultadosOnto) {
   card.className = 'def-card';
   card.innerHTML = `
     <div class="def-header">
-      <div class="def-icon">${icono(termino)}</div>
-      <div class="def-title">${termino.charAt(0).toUpperCase() + termino.slice(1)}</div>
-      <div class="def-badge">definición · dbpedia</div>
+      <div class="def-header-icon">${icono(termino)}</div>
+      <div class="def-header-text">
+        <div class="def-title">${termino.charAt(0).toUpperCase()+termino.slice(1)}</div>
+        <div class="def-subtitle">DBpedia · Linked Open Data</div>
+      </div>
+      <div class="def-badge">definición</div>
     </div>
-    <div id="def-inner"><div class="def-loading"><div class="def-spin"></div>consultando dbpedia…</div></div>`;
+    <div id="def-inner"><div class="def-loading"><div class="def-spin"></div>${t().consulting_dbpedia}</div></div>`;
   out.appendChild(card);
 
   const datos = await consultarDBpedia(termino);
@@ -391,149 +514,228 @@ async function renderDefinicion(termino, resultadosOnto) {
   if (!inner) return;
 
   if (!datos) {
-    inner.innerHTML = `<div class="def-notfound">No se encontró información en DBpedia para "<strong>${termino}</strong>".<br>Intenta escribir el nombre en inglés o verifica la ortografía.</div>`;
+    inner.innerHTML = `<div class="def-notfound">${t().not_found} "<strong>${termino}</strong>".<br>${t().try_english}</div>`;
     return;
   }
 
+  if (datos.logo && datos.logo.startsWith('http')) {
+    card.querySelector('.def-header-icon').outerHTML = `<img class="def-header-logo" src="${datos.logo}" alt="logo" onerror="this.outerHTML='<div class=\\'def-header-icon\\'>${icono(termino)}</div>'">`;
+  }
+  if (datos.nombre) {
+    card.querySelector('.def-title').textContent = datos.nombre;
+  }
+
+  const campos = t().campos;
   let html = '';
+
   if (datos.resumen) {
-    const largo = datos.resumen.length > 500;
-    html += `<div class="def-body-wrap">
-      <div class="def-txt${largo ? ' def-txt--clamped' : ''}" id="def-txt">${datos.resumen}</div>
-      ${largo ? `<button class="def-ver-mas" onclick="document.getElementById('def-txt').classList.remove('def-txt--clamped');this.style.display='none'">leer más ↓</button>` : ''}
+    const largo = datos.resumen.length > 600;
+    html += `<div class="def-abstract">
+      <div class="def-abstract-label">📖 ${t().fuente_dbpedia}</div>
+      <div class="def-txt${largo?' def-txt--clamped':''}" id="def-txt">${datos.resumen}</div>
+      ${largo?`<button class="def-ver-mas" onclick="expandir('def-txt',this)">▼ leer más</button>`:''}
     </div>`;
   }
 
   const links = [];
-  if (datos.web) links.push(`<a class="def-link" href="${datos.web}" target="_blank" rel="noopener">🌐 Sitio oficial</a>`);
+  if (datos.web) links.push(`<a class="def-link" href="${datos.web}" target="_blank" rel="noopener">🌐 ${campos.web}</a>`);
   if (datos.uri) links.push(`<a class="def-link" href="${datos.uri}" target="_blank" rel="noopener">🔗 Ver en DBpedia</a>`);
   if (links.length) html += `<div class="def-links">${links.join('')}</div>`;
 
-  const campos = [
-    ['Desarrollador', datos.desarrollador], ['Año lanzamiento', datos.anio],
-    ['Versión actual', datos.version],      ['Licencia', datos.licencia],
-    ['Tipo de kernel', datos.tipoKernel],   ['Familia', datos.familia],
-    ['Plataformas', datos.plataformas],     ['Lenguaje', datos.lenguaje],
-    ['Predecesores', datos.predecesores],   ['Sucesores', datos.sucesores],
-    ['Influencias', datos.influencias],
-  ].filter(([, v]) => !!v);
-
-  if (campos.length) {
-    html += `<div class="def-meta">`;
-    campos.forEach(([k, v]) => {
+  const meta = buildMetaCampos(datos);
+  if (meta.length) {
+    html += `<div class="def-section-label">⚙️ ${t().tech_specs}</div><div class="def-meta">`;
+    meta.forEach(([k,v]) => {
       html += `<div class="def-meta-item"><div class="def-meta-key">${k}</div><div class="def-meta-val">${v}</div></div>`;
     });
     html += `</div>`;
   }
 
-  inner.innerHTML = html || `<div class="def-notfound">Datos parciales encontrados en DBpedia.</div>`;
+  inner.innerHTML = html || `<div class="def-notfound">${t().not_found} "${termino}".</div>`;
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// RENDER — TARJETA FUSEKI
+// ══════════════════════════════════════════════════════════════════════════════
 function crearTarjeta(e, idx) {
   const div = document.createElement('div');
   div.className = 'card';
-  div.style.animationDelay = `${idx * 50}ms`;
+  div.style.animationDelay = `${idx*50}ms`;
   let html = `
   <div class="card-head">
     <div class="card-title-row">
       <div class="os-icon">${icono(e.titulo)}</div>
       <div class="card-title">${e.titulo}</div>
     </div>
-    ${e.modo ? `<span class="badge-modo">${labelModo(e.modo)}</span>` : ''}
+    ${e.modo?`<span class="badge-modo">${labelModo(e.modo)}</span>`:''}
   </div>
-  <div class="sec-head">ontología local — fuseki</div>
+  <div class="sec-head">${t().fuente_local}</div>
   <table class="props"><tbody>`;
-
   if (!e.atributos.length) {
-    html += `<tr><td colspan="2" style="color:var(--text3);padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px">sin propiedades registradas</td></tr>`;
+    html += `<tr><td colspan="2" style="color:var(--text3);padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px">—</td></tr>`;
   } else {
-    e.artifacts = [];
     e.atributos.forEach(a => {
-      const cls = a.Valor === 'Sí' ? 'val-si' : a.Valor === 'No' ? 'val-no' : '';
+      const cls = a.Valor==='Sí'?'val-si':a.Valor==='No'?'val-no':'';
       html += `<tr><th>${a.Atributo}</th><td class="${cls}">${a.Valor}</td></tr>`;
     });
   }
-
   html += `</tbody></table>
   <div class="dbp-wrap" id="dbp-${idx}">
-    <div class="dbp-loading"><div class="mini-spin"></div>consultando dbpedia…</div>
+    <div class="dbp-loading"><div class="mini-spin"></div>${t().consulting_dbpedia}</div>
   </div>`;
   div.innerHTML = html;
   return div;
 }
 
-function crearTablaComparacion(resultados) {
-  const allAttrs = new Set();
-  resultados.forEach(e => e.atributos.forEach(a => allAttrs.add(a.Atributo)));
-  const mapa = {};
-  allAttrs.forEach(a => { mapa[a] = {}; });
-  resultados.forEach(e => { e.atributos.forEach(a => { mapa[a.Atributo][e.titulo] = a.Valor; }); });
+// ══════════════════════════════════════════════════════════════════════════════
+// RENDER — COMPARACIÓN
+// ══════════════════════════════════════════════════════════════════════════════
+async function renderComparacion(data) {
+  const { resultados, termino_a, termino_b } = data;
 
-  let html = `<div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Atributo</th>`;
-  resultados.forEach(e => { html += `<th class="col-so">${icono(e.titulo)} ${e.titulo}</th>`; });
-  html += `</tr></thead><tbody>`;
-  [...allAttrs].forEach(a => {
-    html += `<tr><td>${a}</td>`;
-    resultados.forEach(e => {
-      const v = mapa[a][e.titulo] || '—';
-      const cls = v === 'Sí' ? 'val-si' : v === 'No' ? 'val-no' : '';
-      html += `<td class="${cls}">${v}</td>`;
-    });
-    html += `</tr>`;
-  });
-  html += `</tbody></table></div>`;
-  return html;
-}
+  if (resultados && resultados.length >= 2) {
+    const wrap = document.createElement('div');
+    wrap.className = 'card';
+    const allAttrs = new Set();
+    resultados.forEach(e => e.atributos.forEach(a => allAttrs.add(a.Atributo)));
+    const mapa = {};
+    allAttrs.forEach(a => { mapa[a] = {}; });
+    resultados.forEach(e => e.atributos.forEach(a => { mapa[a.Atributo][e.titulo] = a.Valor; }));
 
-function renderComparacion(resultados) {
-  const wrap = document.createElement('div');
-  wrap.className = 'card';
-  let html = `
-  <div class="card-head">
-    <div class="card-title-row"><div class="os-icon">⚖️</div><div class="card-title">Comparación lado a lado</div></div>
-    <span class="badge-modo">comparación</span>
-  </div>
-  <div class="sec-head">atributos de la ontología — fuseki</div>`;
-  html += crearTablaComparacion(resultados);
-  wrap.innerHTML = html;
-
-  const dbpWrap = document.createElement('div');
-  resultados.forEach((e, i) => {
-    const blk = document.createElement('div');
-    blk.innerHTML = `
-      <div class="sec-head" style="background:var(--grn-dim);color:var(--green);border-top:1px solid var(--grn-bdr)">
-        ${icono(e.titulo)} ${e.titulo} — dbpedia enrichment
+    let html = `
+    <div class="card-head">
+      <div class="card-title-row"><div class="os-icon">⚖️</div>
+        <div class="card-title">${icono(termino_a)} ${termino_a} &nbsp;vs&nbsp; ${icono(termino_b)} ${termino_b}</div>
       </div>
-      <div class="dbp-wrap" id="dbp-${i}"><div class="dbp-loading"><div class="mini-spin"></div>consultando dbpedia…</div></div>`;
-    dbpWrap.appendChild(blk);
-  });
-  wrap.appendChild(dbpWrap);
-  return wrap;
+      <span class="badge-modo">${t().comparacion}</span>
+    </div>
+    <div class="sec-head">${t().fuente_local}</div>
+    <div class="cmp-wrap"><table class="cmp-side-table"><thead><tr><th>Atributo</th>`;
+    resultados.forEach(e => { html += `<th class="col-so">${icono(e.titulo)} ${e.titulo}</th>`; });
+    html += `</tr></thead><tbody>`;
+    [...allAttrs].forEach(a => {
+      html += `<tr><td>${a}</td>`;
+      resultados.forEach(e => {
+        const v = mapa[a][e.titulo] || '—';
+        const cls = v==='Sí'?'val-si':v==='No'?'val-no':'';
+        html += `<td class="${cls}">${v}</td>`;
+      });
+      html += `</tr>`;
+    });
+    html += `</tbody></table></div>`;
+    wrap.innerHTML = html;
+
+    resultados.forEach((e,i) => {
+      const blk = document.createElement('div');
+      blk.innerHTML = `
+        <div class="sec-head" style="background:var(--grn-dim);color:var(--green);border-top:1px solid var(--grn-bdr)">
+          ${icono(e.titulo)} ${e.titulo} — ${t().fuente_dbpedia}
+        </div>
+        <div class="dbp-wrap" id="dbp-${i}"><div class="dbp-loading"><div class="mini-spin"></div>${t().consulting_dbpedia}</div></div>`;
+      wrap.appendChild(blk);
+    });
+    out.appendChild(wrap);
+    resultados.forEach((e,i) => llenarDBpedia(e.nombre_dbpedia || e.titulo, i));
+    return;
+  }
+
+  const loadCard = document.createElement('div');
+  loadCard.className = 'cmp-dbp-card';
+  loadCard.innerHTML = `
+    <div class="cmp-dbp-head">
+      <div class="cmp-dbp-title">⚖️ ${icono(termino_a)} ${termino_a} &nbsp;vs&nbsp; ${icono(termino_b)} ${termino_b}</div>
+      <span class="badge-modo">${t().comparacion} · DBpedia</span>
+    </div>
+    <div id="cmp-inner"><div class="def-loading"><div class="def-spin"></div>${t().consulting_dbpedia}</div></div>`;
+  out.appendChild(loadCard);
+
+  const cmpData = await compararDBpedia(termino_a, termino_b);
+  const inner = document.getElementById('cmp-inner');
+  if (!inner) return;
+
+  if (!cmpData || (!cmpData.a.datos && !cmpData.b.datos)) {
+    inner.innerHTML = `<div class="def-notfound">${t().not_found} "${termino_a}" / "${termino_b}".</div>`;
+    return;
+  }
+
+  const da = cmpData.a.datos;
+  const db = cmpData.b.datos;
+  const campos = t().campos;
+  const KEYS = ['desarrollador','anio','version','licencia','tipoKernel','familia','plataformas','lenguaje','predecesores','sucesores','kernel'];
+  const LABELS = [campos.desarrollador,campos.anio,campos.version,campos.licencia,campos.tipoKernel,campos.familia,campos.plataformas,campos.lenguaje,campos.predecesores,campos.sucesores,campos.kernel];
+
+  let html = `<div class="cmp-dbp-cols">`;
+
+  html += `<div class="cmp-dbp-col">
+    <div class="cmp-col-head">${icono(termino_a)} ${da?.nombre || termino_a}</div>`;
+  if (da) {
+    if (da.resumen) {
+      const largo = da.resumen.length > 300;
+      html += `<div style="padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div class="dbp-resumen${largo?' dbp-resumen--clamped':''}" id="cmp-abs-a">${da.resumen}</div>
+        ${largo?`<button class="ver-mas-btn" onclick="expandir('cmp-abs-a',this)" style="margin-top:8px">▼ ver más</button>`:''}
+      </div>`;
+    }
+    html += `<table class="cmp-table">`;
+    KEYS.forEach((k,i) => { if(da[k]) html += `<tr><td>${LABELS[i]}</td><td>${da[k]}</td></tr>`; });
+    if (da.web) html += `<tr><td>${campos.web}</td><td><a href="${da.web}" target="_blank" rel="noopener" style="color:var(--accent)">${da.web}</a></td></tr>`;
+    html += `</table>`;
+  } else {
+    html += `<div class="def-notfound">${t().not_found} "${termino_a}".</div>`;
+  }
+  html += `</div>`;
+
+  html += `<div class="cmp-dbp-col">
+    <div class="cmp-col-head">${icono(termino_b)} ${db?.nombre || termino_b}</div>`;
+  if (db) {
+    if (db.resumen) {
+      const largo = db.resumen.length > 300;
+      html += `<div style="padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div class="dbp-resumen${largo?' dbp-resumen--clamped':''}" id="cmp-abs-b">${db.resumen}</div>
+        ${largo?`<button class="ver-mas-btn" onclick="expandir('cmp-abs-b',this)" style="margin-top:8px">▼ ver más</button>`:''}
+      </div>`;
+    }
+    html += `<table class="cmp-table">`;
+    KEYS.forEach((k,i) => { if(db[k]) html += `<tr><td>${LABELS[i]}</td><td>${db[k]}</td></tr>`; });
+    if (db.web) html += `<tr><td>${campos.web}</td><td><a href="${db.web}" target="_blank" rel="noopener" style="color:var(--accent)">${db.web}</a></td></tr>`;
+    html += `</table>`;
+  } else {
+    html += `<div class="def-notfound">${t().not_found} "${termino_b}".</div>`;
+  }
+  html += `</div></div>`;
+
+  const dbpLinks = [];
+  if (da?.uri) dbpLinks.push(`<a class="dbp-link" href="${da.uri}" target="_blank">🔗 ${da.nombre||termino_a}</a>`);
+  if (db?.uri) dbpLinks.push(`<a class="dbp-link" href="${db.uri}" target="_blank">🔗 ${db.nombre||termino_b}</a>`);
+  if (dbpLinks.length) html += `<div class="dbp-links" style="border-top:1px solid var(--border)">${dbpLinks.join('')}</div>`;
+
+  inner.innerHTML = html;
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// RENDER — RANKING
+// ══════════════════════════════════════════════════════════════════════════════
 function renderRanking(resultados, params) {
-  const campoLabel = { ram_en_reposo_mb: 'RAM en reposo (MB)', version_so: 'Versión' }[params?.campo] || params?.campo || 'valor';
+  const campoLabel = {ram_en_reposo_mb:'RAM en reposo (MB)',version_so:'Versión'}[params?.campo] || params?.campo || 'valor';
   const getVal = e => {
     for (const a of e.atributos)
-      if (a.Atributo.toLowerCase().replace(/\s/g, '_').includes((params?.campo || '').replace(/_/g, ' ')))
+      if (a.Atributo.toLowerCase().replace(/\s/g,'_').includes((params?.campo||'').replace(/_/g,' ')))
         return a.Valor;
     return null;
   };
-
   const div = document.createElement('div');
   div.className = 'ranking-box';
   let html = `<div class="ranking-head">
-    <div class="ranking-title">📊 Ranking por ${campoLabel}</div>
-    <div class="ranking-sub">orden: ${params?.orden === 'ASC' ? 'menor → mayor' : 'mayor → menor'} · ${resultados.length} resultados</div>
+    <div class="ranking-title">📊 Ranking — ${campoLabel}</div>
+    <div class="ranking-sub">${params?.orden==='ASC'?'menor → mayor':'mayor → menor'} · ${resultados.length} resultados</div>
   </div><ul class="rank-list">`;
-
-  resultados.slice(0, 20).forEach((e, i) => {
+  resultados.slice(0,20).forEach((e,i) => {
     const val = getVal(e);
-    const cls = i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
+    const cls = i===0?'top1':i===1?'top2':i===2?'top3':'';
     html += `<li class="rank-item">
-      <span class="rank-num ${cls}">${i + 1}</span>
+      <span class="rank-num ${cls}">${i+1}</span>
       <span class="rank-name">${icono(e.titulo)} ${e.titulo}</span>
-      ${val ? `<span class="rank-val">${val}</span>` : ''}
+      ${val?`<span class="rank-val">${val}</span>`:''}
     </li>`;
   });
   html += `</ul>`;
@@ -541,10 +743,19 @@ function renderRanking(resultados, params) {
   return div;
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// INIT 
+// ══════════════════════════════════════════════════════════════════════════════
+const inp = document.getElementById('q');
+const out = document.getElementById('out');
+inp.addEventListener('keydown', e => { if(e.key==='Enter') buscar(); });
+
+function doSearch(txt) { inp.value = txt; buscar(); }
+
 async function buscar() {
   const termino = inp.value.trim();
   if (!termino) return;
-  out.innerHTML = `<div class="loading-state"><div class="spinner-ring"></div><div class="loading-text">buscando…</div></div>`;
+  out.innerHTML = `<div class="loading-state"><div class="spinner-ring"></div><div class="loading-text">${t().loading}</div></div>`;
 
   try {
     const res  = await fetch('/buscar?q=' + encodeURIComponent(termino));
@@ -561,42 +772,41 @@ async function buscar() {
     }
 
     if (data.tipo === 'definicion') {
-      out.innerHTML = `<p class="meta-line"><strong>definición</strong> · "<strong>${data.termino_buscar}</strong>" <span class="badge-intent">definición</span></p>`;
+      out.innerHTML = `<p class="meta-line"><strong>📖 ${data.termino_buscar}</strong> <span class="badge-intent">definición</span></p>`;
       await renderDefinicion(data.termino_buscar, data.resultados);
+      return;
+    }
+
+    if (data.tipo === 'comparar') {
+      out.innerHTML = `<p class="meta-line"><strong>⚖️ ${data.termino_a}</strong> vs <strong>${data.termino_b}</strong> <span class="badge-intent">${t().comparacion.toLowerCase()}</span></p>`;
+      await renderComparacion(data);
       return;
     }
 
     const total = (data.resultados || []).length;
 
     if (total === 0) {
-      out.innerHTML = `<p class="meta-line">Sin resultados locales para "<strong>${termino}</strong>" — consultando DBpedia…</p>`;
+      out.innerHTML = `<p class="meta-line">${t().no_results} · "<strong>${termino}</strong>"</p>`;
       await renderDefinicion(data.termino_buscar || termino, []);
       return;
     }
 
-    out.innerHTML = `<p class="meta-line">
-      <strong>${total}</strong> resultado${total !== 1 ? 's' : ''} · "<strong>${termino}</strong>"
-      <span class="badge-intent">${labelModo(data.intencion)}</span>
-    </p>`;
-
-    if (data.intencion === 'comparar' && total >= 2) {
-      out.appendChild(renderComparacion(data.resultados));
-      data.resultados.forEach((e, i) => llenarDBpedia(e, i));
-      return;
-    }
+    out.innerHTML = `<p class="meta-line">${t().resultados_label(total, termino)} <span class="badge-intent">${labelModo(data.intencion)}</span></p>`;
 
     if (data.intencion === 'ranking') {
       out.appendChild(renderRanking(data.resultados, data.params));
       return;
     }
 
-    data.resultados.forEach((e, i) => { out.appendChild(crearTarjeta(e, i)); });
-    data.resultados.forEach((e, i) => { llenarDBpedia(e, i); });
+    data.resultados.forEach((e,i) => { out.appendChild(crearTarjeta(e, i)); });
+    data.resultados.forEach((e,i) => { llenarDBpedia(e.nombre_dbpedia || e.titulo, i); });
 
-  } catch (err) {
-    out.innerHTML = `<div class="error-msg">⚠ Error al conectar con el servidor: ${err.message}</div>`;
+  } catch(err) {
+    out.innerHTML = `<div class="error-msg">⚠ ${err.message}</div>`;
   }
 }
+
+setLang('es');
 </script>
 </body>
 </html>
