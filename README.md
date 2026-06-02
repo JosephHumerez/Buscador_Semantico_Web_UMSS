@@ -140,7 +140,7 @@ Proyecto Semestral/
 
 ---
 
-## 🔧 Solución de Problemas Comunes
+## 🔧 Solución de Problemas Comunes dentro del sistema
 
 ### ❌ Error: "No se ha podido resolver la importación de flask"
 **Solución**: Instala las dependencias:
