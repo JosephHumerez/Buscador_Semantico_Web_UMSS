@@ -7,8 +7,19 @@ app = Flask(__name__)
 
 FUSEKI_URL  = "http://localhost:3030/ws_buscador_so/sparql"
 PREFIX_URI  = "http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#"
-DBP_SPARQL  = "https://dbpedia.org/sparql"
 DBP_LOOKUP  = "https://lookup.dbpedia.org/api/search"
+
+# Endpoints localizados de DBpedia por idioma
+DBP_SPARQL_ENDPOINTS = {
+    "es": "https://es.dbpedia.org/sparql",
+    "en": "https://dbpedia.org/sparql",
+    "pt": "https://pt.dbpedia.org/sparql",
+    "fr": "https://fr.dbpedia.org/sparql",
+}
+
+def get_dbp_endpoint(lang="en"):
+    """Retorna el endpoint de DBpedia según el idioma"""
+    return DBP_SPARQL_ENDPOINTS.get(lang, "https://dbpedia.org/sparql")
 
 fuseki = SPARQLWrapper(FUSEKI_URL)
 fuseki.setReturnFormat(JSON)
@@ -334,16 +345,17 @@ WHERE {{
 }}"""
 
 
-def _run_dbpedia_sparql(query, timeout=25):
+def _run_dbpedia_sparql(query, lang="en", timeout=25):
     try:
+        endpoint = get_dbp_endpoint(lang)
         resp = requests.get(
-            DBP_SPARQL,
+            endpoint,
             params={"query": query, "format": "application/sparql-results+json"},
             headers=DBP_HEADERS,
             timeout=timeout
         )
         if not resp.ok:
-            app.logger.warning(f"[SPARQL] HTTP {resp.status_code}")
+            app.logger.warning(f"[SPARQL] HTTP {resp.status_code} from {endpoint}")
             return None
         bindings = resp.json().get("results", {}).get("bindings", [])
         return bindings[0] if bindings else None
@@ -400,7 +412,7 @@ def _enriquecer_con_extra(datos, lang="es"):
     if not uri:
         return
     try:
-        row = _run_dbpedia_sparql(_sparql_extra(uri, lang), timeout=20)
+        row = _run_dbpedia_sparql(_sparql_extra(uri, lang), lang=lang, timeout=20)
         if not row:
             return
 
@@ -439,7 +451,7 @@ def consultar_dbpedia(nombre, lang="es"):
 def _consultar_dbpedia_interno(nombre, lang="es"):
     uri_lookup = _lookup_uri(nombre)
     if uri_lookup:
-        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri_lookup}> AS ?r)", lang))
+        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri_lookup}> AS ?r)", lang), lang=lang)
         datos = _parsear_row(row)
         if datos:
             datos["uri"] = datos.get("uri") or uri_lookup
@@ -448,7 +460,7 @@ def _consultar_dbpedia_interno(nombre, lang="es"):
 
     for cand in _uri_candidatos(nombre)[:5]:
         uri = f"http://dbpedia.org/resource/{requests.utils.quote(cand, safe='')}"
-        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri}> AS ?r)", lang))
+        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri}> AS ?r)", lang), lang=lang)
         datos = _parsear_row(row)
         if datos:
             datos["uri"] = datos.get("uri") or uri
@@ -490,7 +502,7 @@ WHERE {{
   OPTIONAL {{ ?r dbp:logo ?logoV }}
 }} GROUP BY ?r LIMIT 1"""
 
-    row2 = _run_dbpedia_sparql(query_tl)
+    row2 = _run_dbpedia_sparql(query_tl, lang=lang)
     datos2 = _parsear_row(row2)
     if datos2:
         if not datos2.get("uri") and row2 and "r" in row2:
