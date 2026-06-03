@@ -10,13 +10,20 @@ PREFIX_URI  = "http://www.semanticweb.org/administrator/ontologies/2026/2/untitl
 DBP_LOOKUP  = "https://lookup.dbpedia.org/api/search"
 
 # Endpoints localizados de DBpedia por idioma
+# Nota: Algunos endpoints localizados (pt, fr) pueden estar deprecados
+# Por eso se implementó fallback a inglés en _run_dbpedia_sparql()
 DBP_SPARQL_ENDPOINTS = {
     "es": "https://es.dbpedia.org/sparql",
     "en": "https://dbpedia.org/sparql",
-    "pt": "https://pt.dbpedia.org/sparql",
-    "fr": "https://fr.dbpedia.org/sparql",
+    "pt": "https://pt.dbpedia.org/sparql",  # Fallback a 'en' si falla
+    "fr": "https://fr.dbpedia.org/sparql",  # Fallback a 'en' si falla
 }
-
+DBP_SPARQL_ENDPOINTS = {
+    "es": "https://es.dbpedia.org/sparql",
+    "en": "https://dbpedia.org/sparql",
+    "pt": "https://dbpedia.org/sparql",  # Directo a inglés
+    "fr": "https://dbpedia.org/sparql",  # Directo a inglés
+}
 def get_dbp_endpoint(lang="en"):
     """Retorna el endpoint de DBpedia según el idioma"""
     return DBP_SPARQL_ENDPOINTS.get(lang, "https://dbpedia.org/sparql")
@@ -346,22 +353,39 @@ WHERE {{
 
 
 def _run_dbpedia_sparql(query, lang="en", timeout=25):
-    try:
-        endpoint = get_dbp_endpoint(lang)
-        resp = requests.get(
-            endpoint,
-            params={"query": query, "format": "application/sparql-results+json"},
-            headers=DBP_HEADERS,
-            timeout=timeout
-        )
-        if not resp.ok:
-            app.logger.warning(f"[SPARQL] HTTP {resp.status_code} from {endpoint}")
+    """
+    Intenta ejecutar SPARQL en el idioma solicitado.
+    Si falla o no retorna resultados, usa inglés como fallback.
+    """
+    def intentar_endpoint(idioma):
+        try:
+            endpoint = get_dbp_endpoint(idioma)
+            resp = requests.get(
+                endpoint,
+                params={"query": query, "format": "application/sparql-results+json"},
+                headers=DBP_HEADERS,
+                timeout=timeout
+            )
+            if not resp.ok:
+                app.logger.warning(f"[SPARQL] HTTP {resp.status_code} from {endpoint}")
+                return None
+            bindings = resp.json().get("results", {}).get("bindings", [])
+            return bindings[0] if bindings else None
+        except Exception as e:
+            app.logger.warning(f"[SPARQL] {e} with lang={idioma}")
             return None
-        bindings = resp.json().get("results", {}).get("bindings", [])
-        return bindings[0] if bindings else None
-    except Exception as e:
-        app.logger.warning(f"[SPARQL] {e}")
-        return None
+    
+    # Intenta con el idioma solicitado primero
+    resultado = intentar_endpoint(lang)
+    if resultado:
+        return resultado
+    
+    # Si falla y no es inglés, intenta con inglés como fallback
+    if lang != "en":
+        app.logger.info(f"[SPARQL] Fallback a inglés (idioma original: {lang})")
+        return intentar_endpoint("en")
+    
+    return None
 
 
 def _clean_val(v):
