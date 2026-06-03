@@ -77,6 +77,8 @@ PROP_MAP = {
     "multiplataforma":"arquitectura_soportada","multiplatform":"arquitectura_soportada",
 }
 
+
+#Holaaaa
 # Propiedades cuyo valor en la ontología NO es booleano sino texto (ej. "Movil", "x86_64").
 # Para estas se usa query_filtro_valor en vez de query_booleano.
 PROP_VALOR_MAP = {
