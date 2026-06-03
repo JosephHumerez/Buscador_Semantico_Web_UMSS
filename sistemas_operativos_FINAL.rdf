@@ -961,6 +961,7 @@
         <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cumple_estandar_posix>
         <desarrollador>Google</desarrollador>
         <descripcion>Sistema operativo móvil líder en el mercado.</descripcion>
+        <proposito>Movil</proposito>
         <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
         <entorno_escritorio_default>Material You</entorno_escritorio_default>
         <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
@@ -1597,6 +1598,7 @@
         <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
         <desarrollador>Apple Inc.</desarrollador>
         <descripcion>Sistema operativo móvil exclusivo para iPhone.</descripcion>
+        <proposito>Movil</proposito>
         <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
         <entorno_escritorio_default>SpringBoard</entorno_escritorio_default>
         <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>

@@ -21,12 +21,20 @@ STOP_WORDS = {
     "por","más","mas","entre","cuando","donde","cómo","cuándo","dónde",
     "qué","información","info","sobre","define","explica","cuéntame",
     "dime","háblame","habla","explícame","significa","significado",
+    "sirven","sirve","usado","usados","usadas","usada","pensado","pensados",
+    "diseñado","diseñados","orientado","orientados","hecho","hechos",
+    "funciona","funcionan","corre","corren","ejecuta","ejecutan",
+    "instala","instalan","existe","existen","puedo","puedes",
     # EN
     "what","is","are","the","a","an","of","for","and","or","in","on","at",
     "tell","me","about","explain","define","show","find","search","how",
+    "serve","served","used","designed","made","built","meant","which","can","do",
+    "run","runs","work","works","install","installed",
     # PT
     "o","a","os","as","um","uma","de","para","que","com","é","são","me",
     "qual","quais","mostrar","buscar","encontrar","sobre","explica","define",
+    "quantos","quantas","quantidade","total","numero","número","so","sos",
+    "sistema","operacional","sistemas","operacionais",
     # FR
     "le","la","les","un","une","des","est","sont","de","du","pour","que",
     "quoi","quel","quelle","montre","cherche","trouve","sur","explique","définit",
@@ -42,9 +50,10 @@ PREFIX_STR = (
 CLASE_FILTRO = "FILTER (?tipo IN (onto:Sistema_Operativo, onto:Distribucion))"
 
 PROP_MAP = {
+    # ── Booleanos (true/false) ──────────────────────────────────────────────────
     "open_source":"es_open_source","abierto":"es_open_source","libre":"es_open_source","open":"es_open_source",
     "gratuito":"es_gratuito_freeware","gratis":"es_gratuito_freeware","freeware":"es_gratuito_freeware",
-    "free":"es_gratuito_freeware","gratuit":"es_gratuito_freeware","gratuito":"es_gratuito_freeware",
+    "free":"es_gratuito_freeware","gratuit":"es_gratuito_freeware",
     "pago":"es_comercial_de_pago","comercial":"es_comercial_de_pago","privativo":"es_comercial_de_pago",
     "paid":"es_comercial_de_pago","commercial":"es_comercial_de_pago","proprietary":"es_comercial_de_pago",
     "posix":"cumple_estandar_posix","modificable":"permite_modificacion",
@@ -52,21 +61,56 @@ PROP_MAP = {
     "principiantes":"orientado_a_principiantes","principiante":"orientado_a_principiantes",
     "beginner":"orientado_a_principiantes","beginners":"orientado_a_principiantes",
     "iniciante":"orientado_a_principiantes","débutant":"orientado_a_principiantes",
-    "movil":"proposito","móvil":"proposito","mobile":"proposito","móvel":"proposito",
-    "servidor":"proposito","server":"proposito","serveur":"proposito","escritorio":"proposito",
-    "desktop":"proposito","bureau":"proposito",
-    "multiplataforma":"arquitectura_soportada","multiplatform":"arquitectura_soportada",
     "kernel_modificado":"es_kernel_modificado","cifrado":"cifrado_disco_por_defecto",
     "encryption":"cifrado_disco_por_defecto","chiffrement":"cifrado_disco_por_defecto",
+    "multiusuario":"es_multiusuario","multitarea":"es_multitarea",
+    # ── Propiedades de valor (no booleanas) ─────────────────────────────────────
     "kernel":"se_basa_en_kernel","nucleo":"se_basa_en_kernel","núcleo":"se_basa_en_kernel",
     "licencia":"utiliza_licencia","license":"utiliza_licencia","licence":"utiliza_licencia",
     "arquitectura":"arquitectura_soportada","architecture":"arquitectura_soportada",
     "entorno":"entorno_escritorio_default","gestor":"gestor_paquetes_default",
     "paquetes":"gestor_paquetes_default","packages":"gestor_paquetes_default",
     "desarrollador":"desarrollador","developer":"desarrollador","développeur":"desarrollador",
-    "version":"version_so","versión":"version_so","version":"version_so",
+    "version":"version_so","versión":"version_so",
     "familia":"familia_base","family":"familia_base","famille":"familia_base",
     "proposito":"proposito","propósito":"proposito","purpose":"proposito",
+    "multiplataforma":"arquitectura_soportada","multiplatform":"arquitectura_soportada",
+}
+
+# Propiedades cuyo valor en la ontología NO es booleano sino texto (ej. "Movil", "x86_64").
+# Para estas se usa query_filtro_valor en vez de query_booleano.
+PROP_VALOR_MAP = {
+    "movil":"proposito","moviles":"proposito","móvil":"proposito","móviles":"proposito",
+    "mobile":"proposito","móvel":"proposito","móveis":"proposito",
+    "celular":"proposito","celulares":"proposito",
+    "smartphone":"proposito","smartphones":"proposito",
+    "telefono":"proposito","teléfono":"proposito","telefonos":"proposito","teléfonos":"proposito",
+    "phone":"proposito","phones":"proposito","handheld":"proposito",
+    "servidor":"proposito","servidores":"proposito","server":"proposito","servers":"proposito","serveur":"proposito",
+    "escritorio":"proposito","escritorios":"proposito","desktop":"proposito","desktops":"proposito","bureau":"proposito",
+    "embebido":"proposito","embebidos":"proposito","embedded":"proposito","iot":"proposito",
+    "x86":"arquitectura_soportada","x64":"arquitectura_soportada",
+    "arm":"arquitectura_soportada","aarch64":"arquitectura_soportada","mips":"arquitectura_soportada",
+    "linux":"se_basa_en_kernel","unix":"se_basa_en_kernel","xnu":"se_basa_en_kernel",
+    "nt":"se_basa_en_kernel","bsd":"se_basa_en_kernel","monolitico":"se_basa_en_kernel",
+    "debian":"familia_base","arch":"familia_base","fedora":"familia_base",
+    "rpm":"gestor_paquetes_default","apt":"gestor_paquetes_default",
+    "pacman":"gestor_paquetes_default","dnf":"gestor_paquetes_default",
+    "gnome":"entorno_escritorio_default","kde":"entorno_escritorio_default",
+    "xfce":"entorno_escritorio_default","mate":"entorno_escritorio_default",
+}
+
+# Valor canónico a buscar en la ontología para cada palabra clave de PROP_VALOR_MAP
+PROP_VALOR_VALOR = {
+    "movil":"Movil","móvil":"Movil","moviles":"Movil","móviles":"Movil",
+    "mobile":"Movil","móvel":"Movil","móveis":"Movil",
+    "celular":"Movil","celulares":"Movil",
+    "smartphone":"Movil","smartphones":"Movil",
+    "telefono":"Movil","teléfono":"Movil","telefonos":"Movil","teléfonos":"Movil",
+    "phone":"Movil","phones":"Movil","handheld":"Movil",
+    "servidor":"Servidor","servidores":"Servidor","server":"Servidor","servers":"Servidor","serveur":"Servidor",
+    "escritorio":"Escritorio","escritorios":"Escritorio","desktop":"Escritorio","desktops":"Escritorio","bureau":"Escritorio",
+    "embebido":"Embebido","embebidos":"Embebido","embedded":"Embebido","iot":"Embebido",
 }
 
 DBP_HEADERS = {
@@ -87,9 +131,9 @@ def detectar_idioma(texto):
     tl = texto.lower()
     if re.search(r'\b(what is|what are|how|explain|tell me|compare|vs|versus|show|find|search|which)\b', tl):
         return "en"
-    if re.search(r'\b(qu[eé] [eé]|como|qual|quais|mostrar|buscar|comparar|versus|explica)\b', tl):
-        if re.search(r'\b(qual|quais|buscar|mostrar|sistema operacional)\b', tl):
-            return "pt"
+    if re.search(r'\b(quantos|quantas|quantidade|m[oó]veis|qual|quais|buscar|mostrar|sistema\s+operacional|fala\s+sobre)\b', tl):
+        return "pt"
+    if re.search(r'\b(qu[eé]\s+[eé]s?|como|mostrar|buscar|comparar|versus|explica)\b', tl):
         return "es"
     if re.search(r'\b(qu\'est|c\'est|quoi|quel|quelle|montre|cherche|compare|versus|expliquer)\b', tl):
         return "fr"
@@ -489,6 +533,54 @@ def detectar_intencion(texto):
     if m_k:
         return "filtro_kernel", {"kernel": m_k.group(1).strip(), "lang": lang}
 
+    # ── Preguntas de PROPÓSITO/USO: "sirven para X", "usados en X", "para celulares", etc. ──
+    PATRON_PROPOSITO = re.compile(
+        r'(?:sirven|usado[s]?|pensado[s]?|dise[nñ]ado[s]?|orientado[s]?|enfocado[s]?|hecho[s]?|'
+        r'serve[sd]?|used|designed|made|built|meant)\s+'
+        r'(?:para|en|for|on|in)?\s*'
+        r'(?:celulares?|smartphones?|tel[eé]fonos?\s*m[oó]viles?|dispositivos?\s*m[oó]viles?|'
+        r'm[oó]viles?|mobile\s*devices?|phones?|handheld|'
+        r'servidores?|servers?|'
+        r'escritorio[s]?|desktops?|pcs?|'
+        r'embebido[s]?|embedded|iot)',
+        re.IGNORECASE
+    )
+    PATRON_PARA_TIPO = re.compile(
+        r'(?:^|\s)para\s+'
+        r'(?:celulares?|smartphones?|tel[eé]fonos?\s*m[oó]viles?|dispositivos?\s*m[oó]viles?|'
+        r'm[oó]viles?|mobile\s*devices?|phones?|handheld|'
+        r'servidores?|servers?|'
+        r'escritorio[s]?|desktops?|pcs?|'
+        r'embebido[s]?|embedded|iot)',
+        re.IGNORECASE
+    )
+    PATRON_FUNCIONA_EN = re.compile(
+        r'(?:funciona[n]?|corre[n]?|corren|ejecuta[n]?|run[s]?|work[s]?|instala[n]?)\s+'
+        r'(?:en|on|in)\s+'
+        r'(?:celulares?|smartphones?|tel[eé]fonos?|dispositivos?\s*m[oó]viles?|'
+        r'm[oó]viles?|mobile|phones?|handheld|'
+        r'servidores?|servers?|escritorio[s]?|desktops?)',
+        re.IGNORECASE
+    )
+
+    for pat in (PATRON_PROPOSITO, PATRON_PARA_TIPO, PATRON_FUNCIONA_EN):
+        m_p = pat.search(tl)
+        if m_p:
+            fragmento = m_p.group(0).lower()
+            # Determinar el valor canónico de propósito
+            val_proposito = None
+            for kw, val in PROP_VALOR_VALOR.items():
+                if re.search(kw, fragmento):
+                    val_proposito = val
+                    break
+            if val_proposito:
+                return "filtro_valor", {
+                    "propiedad": "proposito",
+                    "valor": val_proposito,
+                    "lang": lang,
+                    "palabras": list(palabras),
+                }
+
     m_prop = re.search(
         r'qu[eé]\s+(?:so|sistemas?)(?:\s+\w+)?\s+(?:tienen?|usan?|soportan?|incluyen?|permiten?)\s+(.+)|'
         r'(?:so|sistemas?)\s+(?:con|que\s+tengan?|que\s+usen?)\s+(.+)|'
@@ -506,11 +598,32 @@ def detectar_intencion(texto):
                  r'não\s+(?:livre|gratuito)|propriét', tl):
         return "booleano_false", {"palabras": list(palabras), "lang": lang}
 
+    # ── Palabras clave de propiedades con valor de texto ─────────────────────────
+    import unicodedata as _ud
+    for kw in palabras:
+        kw_norm = _ud.normalize("NFKD", kw).encode("ascii", "ignore").decode().lower()
+        kw_check = kw if kw in PROP_VALOR_MAP else kw_norm
+        if kw_check in PROP_VALOR_MAP:
+            prop = PROP_VALOR_MAP[kw_check]
+            val  = PROP_VALOR_VALOR.get(kw_check)
+            if val:
+                return "filtro_valor", {
+                    "propiedad": prop,
+                    "valor": val,
+                    "lang": lang,
+                    "palabras": list(palabras),
+                }
+            return "filtro_valor", {
+                "propiedad": prop,
+                "valor": kw_check,
+                "lang": lang,
+                "palabras": list(palabras),
+            }
+
     bool_kw = {"abierto","open","gratuito","gratis","libre","free","multiplataforma",
-               "multiusuario","multitarea","movil","móvil","mobile","escritorio","desktop",
-               "servidor","server","posix","sandboxing","sandbox","principiantes","beginner",
-               "cifrado","encryption","freeware","gratuit","bureau","serveur","débutant",
-               "móvel","gratuito","aberto","iniciante"}
+               "multiusuario","multitarea","posix","sandboxing","sandbox","principiantes","beginner",
+               "cifrado","encryption","freeware","gratuit","débutant","aberto","iniciante",
+               "multiusuario","multitarea","kernel_modificado"}
     if palabras & bool_kw:
         return "booleano_true", {"palabras": list(palabras), "lang": lang}
 
@@ -529,15 +642,31 @@ SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
 
 def query_nombre(termino, palabras):
     tf = termino.replace(" ", "_")
-    filtros = " || ".join(
-        [f'regex(str(?v), "{p}", "i") || regex(str(?sujeto), "{p}", "i")' for p in palabras]
-    ) if palabras else f'regex(str(?sujeto), "{tf}", "i")'
+    # Primero buscar por nombre exacto o URI del SO (mayor precisión)
+    # Luego como fallback en cualquier propiedad
+    if palabras:
+        filtros_nombre = " || ".join(
+            [f'regex(str(?sujeto), "{p}", "i") || regex(str(?nom), "{p}", "i")' for p in palabras]
+        )
+        filtros_general = " || ".join(
+            [f'regex(str(?v), "{p}", "i") || regex(str(?sujeto), "{p}", "i")' for p in palabras]
+        )
+    else:
+        filtros_nombre  = f'regex(str(?sujeto), "{tf}", "i")'
+        filtros_general = f'regex(str(?sujeto), "{tf}", "i")'
     return f"""
 {PREFIX_STR}
 SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
     ?sujeto rdf:type ?tipo . {CLASE_FILTRO}
-    ?sujeto ?p_match ?v .
-    FILTER ( {filtros} )
+    {{
+        # Prioridad 1: match en nombre o URI del SO
+        OPTIONAL {{ ?sujeto onto:nombre ?nom }}
+        FILTER ( {filtros_nombre} )
+    }} UNION {{
+        # Prioridad 2: match en cualquier propiedad de texto
+        ?sujeto ?p_match ?v .
+        FILTER ( isLiteral(?v) && ( {filtros_general} ) )
+    }}
     ?sujeto ?propiedad ?valor .
 }} LIMIT 2000"""
 
@@ -590,6 +719,44 @@ SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
     ?sujeto ?propiedad ?valor .
 }} LIMIT 2000"""
 
+def query_filtro_valor(propiedad, valor, palabras_extra=None):
+    """Busca SO donde onto:<propiedad> coincide con <valor>.
+    También busca en onto:descripcion como fallback para cubrir
+    casos donde la propiedad no está definida pero la descripción la menciona."""
+    onto_prop = f"onto:{propiedad}"
+
+    # Variantes de búsqueda para manejar acentos y sinónimos
+    VARIANTES = {
+        "Movil":      ["m.vil", "mobile", "celular", "smartphone", "tel.fono"],
+        "Móvil":      ["m.vil", "mobile", "celular", "smartphone", "tel.fono"],
+        "movil":      ["m.vil", "mobile", "celular", "smartphone", "tel.fono"],
+        "Servidor":   ["servidor", "server"],
+        "servidor":   ["servidor", "server"],
+        "Escritorio": ["escritorio", "desktop"],
+        "escritorio": ["escritorio", "desktop"],
+        "Embebido":   ["embebido", "embedded", "iot"],
+        "embebido":   ["embebido", "embedded", "iot"],
+        "Legado":     ["legado", "legacy"],
+    }
+    variantes_val = VARIANTES.get(valor, [valor.lower()])
+    regex_val = "|".join(variantes_val)
+
+    return f"""
+{PREFIX_STR}
+SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
+    ?sujeto rdf:type ?tipo . {CLASE_FILTRO}
+    {{
+        # Búsqueda principal: en la propiedad exacta
+        ?sujeto {onto_prop} ?obj_v .
+        FILTER ( regex(str(?obj_v), "{regex_val}", "i") )
+    }} UNION {{
+        # Fallback: en la descripción del SO
+        ?sujeto onto:descripcion ?desc_v .
+        FILTER ( regex(str(?desc_v), "{regex_val}", "i") )
+    }}
+    ?sujeto ?propiedad ?valor .
+}} LIMIT 2000"""
+
 def query_comparar(a, b):
     a_f, b_f = a.replace(" ", "_"), b.replace(" ", "_")
     return f"""
@@ -604,7 +771,75 @@ SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
     ?sujeto ?propiedad ?valor .
 }} LIMIT 2000"""
 
+def query_filtro_valor_desde_palabras(palabras):
+    """Dado un conjunto de palabras del query de conteo, devuelve la query SPARQL
+    para listar los SOs correspondientes."""
+    import unicodedata
+    # Mapea palabra normalizada -> (propiedad, valor_canonico)
+    VARIANTES_LISTA = {
+        # ES
+        "movil":("proposito","Movil"),"moviles":("proposito","Movil"),
+        "celular":("proposito","Movil"),"celulares":("proposito","Movil"),
+        "smartphone":("proposito","Movil"),"smartphones":("proposito","Movil"),
+        "servidor":("proposito","Servidor"),"servidores":("proposito","Servidor"),
+        "escritorio":("proposito","Escritorio"),
+        # EN
+        "mobile":("proposito","Movil"),"mobiles":("proposito","Movil"),
+        "phone":("proposito","Movil"),"phones":("proposito","Movil"),
+        "server":("proposito","Servidor"),"servers":("proposito","Servidor"),
+        "desktop":("proposito","Escritorio"),"desktops":("proposito","Escritorio"),
+        # PT
+        "movel":("proposito","Movil"),"moveis":("proposito","Movil"),
+        # FR
+        "serveur":("proposito","Servidor"),"bureau":("proposito","Escritorio"),
+    }
+    for p in (palabras or []):
+        p_norm = unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode().lower()
+        if p_norm in VARIANTES_LISTA:
+            prop, val = VARIANTES_LISTA[p_norm]
+            return query_filtro_valor(prop, val, [])
+    return None
+
 def query_contar(palabras):
+    # Si las palabras incluyen clave de propósito, filtrar semánticamente
+    import unicodedata
+    VARIANTES_CONTAR = {
+        "movil":      ("proposito", "m.vil|mobile|celular|smartphone"),
+        "moviles":    ("proposito", "m.vil|mobile|celular|smartphone"),
+        "movel":      ("proposito", "m.vil|mobile|celular|smartphone"),
+        "moveis":     ("proposito", "m.vil|mobile|celular|smartphone"),
+        "celular":    ("proposito", "m.vil|mobile|celular|smartphone"),
+        "celulares":  ("proposito", "m.vil|mobile|celular|smartphone"),
+        "smartphone": ("proposito", "m.vil|mobile|celular|smartphone"),
+        "smartphones":("proposito", "m.vil|mobile|celular|smartphone"),
+        "mobile":     ("proposito", "m.vil|mobile|celular|smartphone"),
+        "servidor":   ("proposito", "servidor|server"),
+        "servidores": ("proposito", "servidor|server"),
+        "server":     ("proposito", "servidor|server"),
+        "servers":    ("proposito", "servidor|server"),
+        "serveur":    ("proposito", "servidor|server"),
+        "escritorio": ("proposito", "escritorio|desktop"),
+        "desktop":    ("proposito", "escritorio|desktop"),
+        "desktops":   ("proposito", "escritorio|desktop"),
+        "bureau":     ("proposito", "escritorio|desktop"),
+    }
+    for p in (palabras or []):
+        p_norm = unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode().lower()
+        if p_norm in VARIANTES_CONTAR:
+            prop, regex_val = VARIANTES_CONTAR[p_norm]
+            return f"""
+{PREFIX_STR}
+SELECT (COUNT(DISTINCT ?sujeto) AS ?total) WHERE {{
+    ?sujeto rdf:type ?tipo . {CLASE_FILTRO}
+    {{
+        ?sujeto onto:{prop} ?obj_v .
+        FILTER ( regex(str(?obj_v), "{regex_val}", "i") )
+    }} UNION {{
+        ?sujeto onto:descripcion ?desc_v .
+        FILTER ( regex(str(?desc_v), "{regex_val}", "i") )
+    }}
+}}"""
+
     if palabras:
         filtros = " || ".join(
             [f'regex(str(?v), "{p}", "i") || regex(str(?s), "{p}", "i")' for p in palabras]
@@ -617,6 +852,7 @@ def query_contar(palabras):
 SELECT (COUNT(DISTINCT ?sujeto) AS ?total) WHERE {{
     ?sujeto rdf:type ?tipo . {CLASE_FILTRO}{bloque_filtro}
 }}"""
+
 
 def query_ranking(campo, orden, palabras):
     onto_campo = f"onto:{campo}"
@@ -678,7 +914,11 @@ def armar_resultado(titulo, attrs, modo):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    from flask import make_response
+    resp = make_response(render_template('index.html'))
+    resp.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate'
+    resp.headers['Pragma'] = 'no-cache'
+    return resp
 
 
 @app.route('/dbpedia')
@@ -724,13 +964,32 @@ def buscar():
     palabras_router = set(re.sub(r'[^\w\s]', '', tl).split())
     lang = detectar_idioma(tl)
 
-    if "todos" in palabras_router or "all" in palabras_router or (
-        re.search(r'\b(so|sistemas?|systems?|systèmes?|sistemas?)\b', tl)
-        and len(palabras_router - STOP_WORDS) <= 3
+    # Palabras que indican intención específica — nunca tratar como "todos"
+    PALABRAS_INTENCION = {
+        "sirven","sirve","movil","moviles","celular","celulares",
+        "smartphone","smartphones","servidor","servidores",
+        "escritorio","desktop","open","gratuito","gratis","libre","free",
+        "sandboxing","sandbox","cifrado","principiantes","beginner","posix",
+        "kernel","nucleo","comparar","vs","versus","cuantos",
+        "mobile","server","embedded","embebido","iot","funciona","funcionan",
+        "usado","usados","diseñado","diseñados","orientado",
+    }
+    # normalizar sin acentos para comparar
+    import unicodedata
+    palabras_norm = {unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode() for p in palabras_router}
+    tiene_intencion = bool(palabras_norm & PALABRAS_INTENCION)
+
+    if not tiene_intencion and (
+        "todos" in palabras_router or "all" in palabras_router or (
+            re.search(r'\b(so|sistemas?|systems?|systèmes?)\b', tl)
+            and len(palabras_router - STOP_WORDS) <= 3
+        )
     ):
         intencion, params = "todos", {"lang": lang}
     else:
         intencion, params = detectar_intencion(termino)
+
+
 
     try:
         if intencion == "contar":
@@ -742,9 +1001,21 @@ def buscar():
                 "pt": f"Foram encontrados {total} sistemas operacionais.",
                 "fr": f"{total} systèmes d'exploitation trouvés.",
             }
+            # También obtener la lista de SOs para mostrarlos bajo el conteo
+            try:
+                q_lista = query_filtro_valor_desde_palabras(params.get("palabras", []))
+                if q_lista:
+                    bindings_lista = run_fuseki(q_lista)
+                    agrupado_lista = agrupar_bindings(bindings_lista) if bindings_lista else {}
+                    resultados_lista = [armar_resultado(t, a, "contar") for t, a in agrupado_lista.items()]
+                else:
+                    resultados_lista = []
+            except Exception:
+                resultados_lista = []
             return jsonify({
                 "tipo": "conteo", "total": total, "intencion": "contar",
-                "mensaje": msgs.get(lang, msgs["es"])
+                "mensaje": msgs.get(lang, msgs["es"]),
+                "resultados": resultados_lista
             })
 
         if intencion == "definicion":
@@ -785,6 +1056,8 @@ def buscar():
             q = query_ranking(params["campo"], params["orden"], params.get("palabras", []))
         elif intencion == "filtro_kernel":
             q = query_filtro_kernel(params.get("kernel", ""))
+        elif intencion == "filtro_valor":
+            q = query_filtro_valor(params["propiedad"], params["valor"], params.get("palabras", []))
         elif intencion == "filtro_propiedad":
             q = query_filtro_propiedad(params.get("palabras", []), params.get("objeto", termino))
         elif intencion in ("booleano_true", "booleano_false"):
@@ -794,7 +1067,7 @@ def buscar():
             q = query_nombre(termino, params.get("palabras", []))
 
         bindings = run_fuseki(q)
-        if not bindings and intencion not in ("todos",):
+        if not bindings and intencion not in ("todos", "filtro_valor", "filtro_kernel", "filtro_propiedad", "booleano_true", "booleano_false", "ranking"):
             bindings = run_fuseki(query_nombre(termino, params.get("palabras", [])))
 
         agrupado = agrupar_bindings(bindings) if bindings else {}
