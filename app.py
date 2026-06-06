@@ -7,26 +7,8 @@ app = Flask(__name__)
 
 FUSEKI_URL  = "http://localhost:3030/ws_buscador_so/sparql"
 PREFIX_URI  = "http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#"
+DBP_SPARQL  = "https://dbpedia.org/sparql"
 DBP_LOOKUP  = "https://lookup.dbpedia.org/api/search"
-
-# Endpoints localizados de DBpedia por idioma
-# Nota: Algunos endpoints localizados (pt, fr) pueden estar deprecados
-# Por eso se implementó fallback a inglés en _run_dbpedia_sparql()
-DBP_SPARQL_ENDPOINTS = {
-    "es": "https://es.dbpedia.org/sparql",
-    "en": "https://dbpedia.org/sparql",
-    "pt": "https://pt.dbpedia.org/sparql",  # Fallback a 'en' si falla
-    "fr": "https://fr.dbpedia.org/sparql",  # Fallback a 'en' si falla
-}
-DBP_SPARQL_ENDPOINTS = {
-    "es": "https://es.dbpedia.org/sparql",
-    "en": "https://dbpedia.org/sparql",
-    "pt": "https://dbpedia.org/sparql",  # Directo a inglés
-    "fr": "https://dbpedia.org/sparql",  # Directo a inglés
-}
-def get_dbp_endpoint(lang="en"):
-    """Retorna el endpoint de DBpedia según el idioma"""
-    return DBP_SPARQL_ENDPOINTS.get(lang, "https://dbpedia.org/sparql")
 
 fuseki = SPARQLWrapper(FUSEKI_URL)
 fuseki.setReturnFormat(JSON)
@@ -51,8 +33,6 @@ STOP_WORDS = {
     # PT
     "o","a","os","as","um","uma","de","para","que","com","é","são","me",
     "qual","quais","mostrar","buscar","encontrar","sobre","explica","define",
-    "quantos","quantas","quantidade","total","numero","número","so","sos",
-    "sistema","operacional","sistemas","operacionais",
     # FR
     "le","la","les","un","une","des","est","sont","de","du","pour","que",
     "quoi","quel","quelle","montre","cherche","trouve","sur","explique","définit",
@@ -95,12 +75,11 @@ PROP_MAP = {
     "multiplataforma":"arquitectura_soportada","multiplatform":"arquitectura_soportada",
 }
 
-
 # Propiedades cuyo valor en la ontología NO es booleano sino texto (ej. "Movil", "x86_64").
 # Para estas se usa query_filtro_valor en vez de query_booleano.
 PROP_VALOR_MAP = {
     "movil":"proposito","moviles":"proposito","móvil":"proposito","móviles":"proposito",
-    "mobile":"proposito","móvel":"proposito","móveis":"proposito",
+    "mobile":"proposito","móvel":"proposito",
     "celular":"proposito","celulares":"proposito",
     "smartphone":"proposito","smartphones":"proposito",
     "telefono":"proposito","teléfono":"proposito","telefonos":"proposito","teléfonos":"proposito",
@@ -122,7 +101,7 @@ PROP_VALOR_MAP = {
 # Valor canónico a buscar en la ontología para cada palabra clave de PROP_VALOR_MAP
 PROP_VALOR_VALOR = {
     "movil":"Movil","móvil":"Movil","moviles":"Movil","móviles":"Movil",
-    "mobile":"Movil","móvel":"Movil","móveis":"Movil",
+    "mobile":"Movil","móvel":"Movil",
     "celular":"Movil","celulares":"Movil",
     "smartphone":"Movil","smartphones":"Movil",
     "telefono":"Movil","teléfono":"Movil","telefonos":"Movil","teléfonos":"Movil",
@@ -150,9 +129,9 @@ def detectar_idioma(texto):
     tl = texto.lower()
     if re.search(r'\b(what is|what are|how|explain|tell me|compare|vs|versus|show|find|search|which)\b', tl):
         return "en"
-    if re.search(r'\b(quantos|quantas|quantidade|m[oó]veis|qual|quais|buscar|mostrar|sistema\s+operacional|fala\s+sobre)\b', tl):
-        return "pt"
-    if re.search(r'\b(qu[eé]\s+[eé]s?|como|mostrar|buscar|comparar|versus|explica)\b', tl):
+    if re.search(r'\b(qu[eé] [eé]|como|qual|quais|mostrar|buscar|comparar|versus|explica)\b', tl):
+        if re.search(r'\b(qual|quais|buscar|mostrar|sistema operacional)\b', tl):
+            return "pt"
         return "es"
     if re.search(r'\b(qu\'est|c\'est|quoi|quel|quelle|montre|cherche|compare|versus|expliquer)\b', tl):
         return "fr"
@@ -352,40 +331,22 @@ WHERE {{
 }}"""
 
 
-def _run_dbpedia_sparql(query, lang="en", timeout=25):
-    """
-    Intenta ejecutar SPARQL en el idioma solicitado.
-    Si falla o no retorna resultados, usa inglés como fallback.
-    """
-    def intentar_endpoint(idioma):
-        try:
-            endpoint = get_dbp_endpoint(idioma)
-            resp = requests.get(
-                endpoint,
-                params={"query": query, "format": "application/sparql-results+json"},
-                headers=DBP_HEADERS,
-                timeout=timeout
-            )
-            if not resp.ok:
-                app.logger.warning(f"[SPARQL] HTTP {resp.status_code} from {endpoint}")
-                return None
-            bindings = resp.json().get("results", {}).get("bindings", [])
-            return bindings[0] if bindings else None
-        except Exception as e:
-            app.logger.warning(f"[SPARQL] {e} with lang={idioma}")
+def _run_dbpedia_sparql(query, timeout=25):
+    try:
+        resp = requests.get(
+            DBP_SPARQL,
+            params={"query": query, "format": "application/sparql-results+json"},
+            headers=DBP_HEADERS,
+            timeout=timeout
+        )
+        if not resp.ok:
+            app.logger.warning(f"[SPARQL] HTTP {resp.status_code}")
             return None
-    
-    # Intenta con el idioma solicitado primero
-    resultado = intentar_endpoint(lang)
-    if resultado:
-        return resultado
-    
-    # Si falla y no es inglés, intenta con inglés como fallback
-    if lang != "en":
-        app.logger.info(f"[SPARQL] Fallback a inglés (idioma original: {lang})")
-        return intentar_endpoint("en")
-    
-    return None
+        bindings = resp.json().get("results", {}).get("bindings", [])
+        return bindings[0] if bindings else None
+    except Exception as e:
+        app.logger.warning(f"[SPARQL] {e}")
+        return None
 
 
 def _clean_val(v):
@@ -436,7 +397,7 @@ def _enriquecer_con_extra(datos, lang="es"):
     if not uri:
         return
     try:
-        row = _run_dbpedia_sparql(_sparql_extra(uri, lang), lang=lang, timeout=20)
+        row = _run_dbpedia_sparql(_sparql_extra(uri, lang), timeout=20)
         if not row:
             return
 
@@ -475,7 +436,7 @@ def consultar_dbpedia(nombre, lang="es"):
 def _consultar_dbpedia_interno(nombre, lang="es"):
     uri_lookup = _lookup_uri(nombre)
     if uri_lookup:
-        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri_lookup}> AS ?r)", lang), lang=lang)
+        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri_lookup}> AS ?r)", lang))
         datos = _parsear_row(row)
         if datos:
             datos["uri"] = datos.get("uri") or uri_lookup
@@ -484,7 +445,7 @@ def _consultar_dbpedia_interno(nombre, lang="es"):
 
     for cand in _uri_candidatos(nombre)[:5]:
         uri = f"http://dbpedia.org/resource/{requests.utils.quote(cand, safe='')}"
-        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri}> AS ?r)", lang), lang=lang)
+        row = _run_dbpedia_sparql(_sparql_basico(f"BIND(<{uri}> AS ?r)", lang))
         datos = _parsear_row(row)
         if datos:
             datos["uri"] = datos.get("uri") or uri
@@ -526,7 +487,7 @@ WHERE {{
   OPTIONAL {{ ?r dbp:logo ?logoV }}
 }} GROUP BY ?r LIMIT 1"""
 
-    row2 = _run_dbpedia_sparql(query_tl, lang=lang)
+    row2 = _run_dbpedia_sparql(query_tl)
     datos2 = _parsear_row(row2)
     if datos2:
         if not datos2.get("uri") and row2 and "r" in row2:
@@ -636,13 +597,10 @@ def detectar_intencion(texto):
         return "booleano_false", {"palabras": list(palabras), "lang": lang}
 
     # ── Palabras clave de propiedades con valor de texto ─────────────────────────
-    import unicodedata as _ud
     for kw in palabras:
-        kw_norm = _ud.normalize("NFKD", kw).encode("ascii", "ignore").decode().lower()
-        kw_check = kw if kw in PROP_VALOR_MAP else kw_norm
-        if kw_check in PROP_VALOR_MAP:
-            prop = PROP_VALOR_MAP[kw_check]
-            val  = PROP_VALOR_VALOR.get(kw_check)
+        if kw in PROP_VALOR_MAP:
+            prop = PROP_VALOR_MAP[kw]
+            val  = PROP_VALOR_VALOR.get(kw)       # puede ser None para arm, apt, etc.
             if val:
                 return "filtro_valor", {
                     "propiedad": prop,
@@ -650,9 +608,10 @@ def detectar_intencion(texto):
                     "lang": lang,
                     "palabras": list(palabras),
                 }
+            # Sin valor canónico → buscar la palabra literalmente
             return "filtro_valor", {
                 "propiedad": prop,
-                "valor": kw_check,
+                "valor": kw,
                 "lang": lang,
                 "palabras": list(palabras),
             }
@@ -700,9 +659,15 @@ SELECT DISTINCT ?sujeto ?propiedad ?valor WHERE {{
         OPTIONAL {{ ?sujeto onto:nombre ?nom }}
         FILTER ( {filtros_nombre} )
     }} UNION {{
-        # Prioridad 2: match en cualquier propiedad de texto
+        # Prioridad 2: match en cualquier propiedad
         ?sujeto ?p_match ?v .
-        FILTER ( isLiteral(?v) && ( {filtros_general} ) )
+        FILTER ( {filtros_general} )
+        # Excluir SOs que solo matchean por familia_base o propiedades secundarias
+        # cuando el término es corto (probable nombre de SO)
+        FILTER NOT EXISTS {{
+            ?sujeto onto:nombre ?n2 .
+            FILTER ( !regex(str(?n2), "{tf.split('_')[0]}", "i") )
+        }}
     }}
     ?sujeto ?propiedad ?valor .
 }} LIMIT 2000"""
@@ -814,21 +779,17 @@ def query_filtro_valor_desde_palabras(palabras):
     import unicodedata
     # Mapea palabra normalizada -> (propiedad, valor_canonico)
     VARIANTES_LISTA = {
-        # ES
-        "movil":("proposito","Movil"),"moviles":("proposito","Movil"),
-        "celular":("proposito","Movil"),"celulares":("proposito","Movil"),
-        "smartphone":("proposito","Movil"),"smartphones":("proposito","Movil"),
-        "servidor":("proposito","Servidor"),"servidores":("proposito","Servidor"),
-        "escritorio":("proposito","Escritorio"),
-        # EN
-        "mobile":("proposito","Movil"),"mobiles":("proposito","Movil"),
-        "phone":("proposito","Movil"),"phones":("proposito","Movil"),
-        "server":("proposito","Servidor"),"servers":("proposito","Servidor"),
-        "desktop":("proposito","Escritorio"),"desktops":("proposito","Escritorio"),
-        # PT
-        "movel":("proposito","Movil"),"moveis":("proposito","Movil"),
-        # FR
-        "serveur":("proposito","Servidor"),"bureau":("proposito","Escritorio"),
+        "movil":      ("proposito", "Movil"),
+        "moviles":    ("proposito", "Movil"),
+        "celular":    ("proposito", "Movil"),
+        "celulares":  ("proposito", "Movil"),
+        "smartphone": ("proposito", "Movil"),
+        "smartphones":("proposito", "Movil"),
+        "servidor":   ("proposito", "Servidor"),
+        "servidores": ("proposito", "Servidor"),
+        "server":     ("proposito", "Servidor"),
+        "escritorio": ("proposito", "Escritorio"),
+        "desktop":    ("proposito", "Escritorio"),
     }
     for p in (palabras or []):
         p_norm = unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode().lower()
@@ -843,22 +804,14 @@ def query_contar(palabras):
     VARIANTES_CONTAR = {
         "movil":      ("proposito", "m.vil|mobile|celular|smartphone"),
         "moviles":    ("proposito", "m.vil|mobile|celular|smartphone"),
-        "movel":      ("proposito", "m.vil|mobile|celular|smartphone"),
-        "moveis":     ("proposito", "m.vil|mobile|celular|smartphone"),
         "celular":    ("proposito", "m.vil|mobile|celular|smartphone"),
         "celulares":  ("proposito", "m.vil|mobile|celular|smartphone"),
         "smartphone": ("proposito", "m.vil|mobile|celular|smartphone"),
         "smartphones":("proposito", "m.vil|mobile|celular|smartphone"),
-        "mobile":     ("proposito", "m.vil|mobile|celular|smartphone"),
         "servidor":   ("proposito", "servidor|server"),
         "servidores": ("proposito", "servidor|server"),
-        "server":     ("proposito", "servidor|server"),
-        "servers":    ("proposito", "servidor|server"),
-        "serveur":    ("proposito", "servidor|server"),
         "escritorio": ("proposito", "escritorio|desktop"),
         "desktop":    ("proposito", "escritorio|desktop"),
-        "desktops":   ("proposito", "escritorio|desktop"),
-        "bureau":     ("proposito", "escritorio|desktop"),
     }
     for p in (palabras or []):
         p_norm = unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode().lower()
@@ -994,14 +947,17 @@ def dbpedia_comparar():
 @app.route('/buscar')
 def buscar():
     termino = request.args.get('q', '').strip().replace('"', '')
+    lang_param = request.args.get('lang', '').strip() # <-- Recibe el idioma del botón
+
     if not termino:
         return jsonify({"error": "Escribe algo para buscar"})
 
     tl = termino.lower()
     palabras_router = set(re.sub(r'[^\w\s]', '', tl).split())
-    lang = detectar_idioma(tl)
 
-    # Palabras que indican intención específica — nunca tratar como "todos"
+    # 1. Definimos el idioma (usamos el del botón; si no hay, lo adivinamos)
+    lang = lang_param if lang_param else detectar_idioma(tl)
+
     PALABRAS_INTENCION = {
         "sirven","sirve","movil","moviles","celular","celulares",
         "smartphone","smartphones","servidor","servidores",
@@ -1011,7 +967,6 @@ def buscar():
         "mobile","server","embedded","embebido","iot","funciona","funcionan",
         "usado","usados","diseñado","diseñados","orientado",
     }
-    # normalizar sin acentos para comparar
     import unicodedata
     palabras_norm = {unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode() for p in palabras_router}
     tiene_intencion = bool(palabras_norm & PALABRAS_INTENCION)
@@ -1025,8 +980,7 @@ def buscar():
         intencion, params = "todos", {"lang": lang}
     else:
         intencion, params = detectar_intencion(termino)
-
-
+        params["lang"] = lang # <-- ¡MAGIA! Forzamos a la intención a usar el idioma del botón
 
     try:
         if intencion == "contar":

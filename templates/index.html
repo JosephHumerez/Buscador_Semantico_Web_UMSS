@@ -197,8 +197,8 @@ input::placeholder{color:var(--text3);font-weight:400}
 
   <div class="hero">
     <div class="hero-eyebrow"><span class="live-dot"></span>Ontología Fuseki + DBpedia — Linked Open Data</div>
-    <h1>Buscador de<br><span class="hi">Sistemas Operativos</span></h1>
-    <p class="hero-sub">sparql · semantic_search · multilingual · definiciones · comparaciones</p>
+    <h1 id="main-title">Buscador de<br><span class="hi">Sistemas Operativos</span></h1>
+    <p class="hero-sub" id="main-subtitle">sparql · semantic_search · multilingüe · definiciones · comparaciones</p>
   </div>
 
   <div class="lang-bar">
@@ -237,6 +237,8 @@ input::placeholder{color:var(--text3);font-weight:400}
 // ══════════════════════════════════════════════════════════════════════════════
 const I18N = {
   es: {
+    title: 'Buscador de<br><span class="hi">Sistemas Operativos</span>',
+    subtitle: 'sparql · semantic_search · multilingüe · definiciones · comparaciones',
     search: 'Buscar', suggestions: 'Búsquedas sugeridas', empty: 'Escribe una búsqueda para comenzar',
     placeholder: 'qué es Linux · linux vs windows · cuántos son open source · más ligero en RAM…',
     loading: 'buscando…', no_results: 'Sin resultados en la ontología local',
@@ -250,8 +252,6 @@ const I18N = {
       licencia:'Licencia', tipoKernel:'Tipo kernel', familia:'Familia', plataformas:'Plataformas',
       lenguaje:'Lenguaje prog.', predecesores:'Predecesores', sucesores:'Sucesores',
       kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Sitio oficial' },
-
-    props: {ejecuta_binarios_exe_nativamente:'Ejecuta Binarios EXE',ram_minima_recomendada_mb:'RAM Mínima (MB)',soporta_lectura_nativa_fs:'Sistema Archivos',tipo_arquitectura_nucleo:'Arq. Núcleo',es_open_source:'Open Source',se_descarga_desde:'Descarga',tiene_asistente_instalacion:'Asistente Instalación',gestor_paquetes_default:'Gestor Paquetes',permite_gestion_prioridad_cpu:'Gestión CPU',proposito:'Propósito',familia_base:'Familia Base',se_basa_en_kernel:'Kernel Base',arquitectura_soportada:'Arquitectura',licencia_tipo:'Licencia',version_actual:'Versión Actual',desarrollador_principal:'Desarrollador',anio_lanzamiento:'Año Lanzamiento',tiene_sandboxing:'Sandboxing',entorno_escritorio_default:'Entorno Escritorio',ram_en_reposo_mb:'RAM Reposo (MB)',version_so:'Versión'},
     chips: [
       ['📋','todos los SO','Todos'],['📖','qué es Linux','¿Qué es Linux?'],
       ['📖','qué es FreeBSD','¿Qué es FreeBSD?'],['📖','qué es Solaris','¿Qué es Solaris?'],
@@ -264,6 +264,8 @@ const I18N = {
     ]
   },
   en: {
+    title: 'Operating Systems<br><span class="hi">Search Engine</span>',
+    subtitle: 'sparql · semantic_search · multilingual · definitions · comparisons',
     search: 'Search', suggestions: 'Suggested searches', empty: 'Type something to start searching',
     placeholder: 'what is Linux · linux vs windows · how many are open source · lightest in RAM…',
     loading: 'searching…', no_results: 'No results in local ontology',
@@ -277,8 +279,6 @@ const I18N = {
       licencia:'License', tipoKernel:'Kernel type', familia:'Family', plataformas:'Platforms',
       lenguaje:'Prog. language', predecesores:'Predecessors', sucesores:'Successors',
       kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Official site' },
-
-    props: {ejecuta_binarios_exe_nativamente:'Runs EXE Binaries',ram_minima_recomendada_mb:'Min RAM (MB)',soporta_lectura_nativa_fs:'Native Filesystem',tipo_arquitectura_nucleo:'Kernel Architecture',es_open_source:'Open Source',se_descarga_desde:'Download',tiene_asistente_instalacion:'Install Wizard',gestor_paquetes_default:'Package Manager',permite_gestion_prioridad_cpu:'CPU Priority Mgmt',proposito:'Purpose',familia_base:'Base Family',se_basa_en_kernel:'Kernel Base',arquitectura_soportada:'Architecture',licencia_tipo:'License',version_actual:'Current Version',desarrollador_principal:'Developer',anio_lanzamiento:'Release Year',tiene_sandboxing:'Sandboxing',entorno_escritorio_default:'Desktop Environment',ram_en_reposo_mb:'Idle RAM (MB)',version_so:'Version'},
     chips: [
       ['📋','all','All OS'],['📖','what is Linux','What is Linux?'],
       ['📖','what is FreeBSD','What is FreeBSD?'],['📖','what is Solaris','What is Solaris?'],
@@ -291,6 +291,8 @@ const I18N = {
     ]
   },
   pt: {
+    title: 'Buscador de<br><span class="hi">Sistemas Operacionais</span>',
+    subtitle: 'sparql · semantic_search · multilíngue · definições · comparações',
     search: 'Buscar', suggestions: 'Buscas sugeridas', empty: 'Digite algo para começar',
     placeholder: 'o que é Linux · linux vs windows · quantos são open source · mais leve em RAM…',
     loading: 'buscando…', no_results: 'Sem resultados na ontologia local',
@@ -304,8 +306,6 @@ const I18N = {
       licencia:'Licença', tipoKernel:'Tipo kernel', familia:'Família', plataformas:'Plataformas',
       lenguaje:'Linguagem prog.', predecesores:'Predecessores', sucesores:'Sucessores',
       kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Site oficial' },
-
-    props: {ejecuta_binarios_exe_nativamente:'Executa Binários EXE',ram_minima_recomendada_mb:'RAM Mínima (MB)',soporta_lectura_nativa_fs:'Sistema Arquivos',tipo_arquitectura_nucleo:'Arq. Núcleo',es_open_source:'Open Source',se_descarga_desde:'Download',tiene_asistente_instalacion:'Assistente Instalação',gestor_paquetes_default:'Gerenciador Pacotes',permite_gestion_prioridad_cpu:'Gestão CPU',proposito:'Propósito',familia_base:'Família Base',se_basa_en_kernel:'Kernel Base',arquitectura_soportada:'Arquitetura',licencia_tipo:'Licença',version_actual:'Versão Atual',desarrollador_principal:'Desenvolvedor',anio_lanzamiento:'Ano Lançamento',tiene_sandboxing:'Sandboxing',entorno_escritorio_default:'Ambiente Desktop',ram_en_reposo_mb:'RAM Repouso (MB)',version_so:'Versão'},
     chips: [
       ['📋','todos os sistemas','Todos'],['📖','o que é Linux','O que é Linux?'],
       ['📖','o que é FreeBSD','O que é FreeBSD?'],['📖','o que é Solaris','O que é Solaris?'],
@@ -318,6 +318,8 @@ const I18N = {
     ]
   },
   fr: {
+    title: 'Moteur de recherche de<br><span class="hi">Systèmes d\'Exploitation</span>',
+    subtitle: 'sparql · semantic_search · multilingue · définitions · comparaisons',
     search: 'Chercher', suggestions: 'Recherches suggérées', empty: 'Tapez quelque chose pour commencer',
     placeholder: "qu'est-ce que Linux · linux vs windows · combien sont open source · plus léger en RAM…",
     loading: 'recherche…', no_results: 'Aucun résultat dans l\'ontologie locale',
@@ -331,8 +333,6 @@ const I18N = {
       licencia:'Licence', tipoKernel:'Type kernel', familia:'Famille', plataformas:'Plateformes',
       lenguaje:'Langage prog.', predecesores:'Prédécesseurs', sucesores:'Successeurs',
       kernel:'Kernel', logo:'Logo', uri:'DBpedia', web:'Site officiel' },
-
-    props: {ejecuta_binarios_exe_nativamente:'Exécute Binaires EXE',ram_minima_recomendada_mb:'RAM Min (Mo)',soporta_lectura_nativa_fs:'Système Fichiers',tipo_arquitectura_nucleo:'Arch. Noyau',es_open_source:'Open Source',se_descarga_desde:'Téléchargement',tiene_asistente_instalacion:'Assistant Installation',gestor_paquetes_default:'Gestionnaire Paquets',permite_gestion_prioridad_cpu:'Priorité CPU',proposito:'Objectif',familia_base:'Famille Base',se_basa_en_kernel:'Noyau Base',arquitectura_soportada:'Architecture',licencia_tipo:'Licence',version_actual:'Version Actuelle',desarrollador_principal:'Développeur',anio_lanzamiento:'Année Sortie',tiene_sandboxing:'Sandboxing',entorno_escritorio_default:'Env. Bureau',ram_en_reposo_mb:'RAM Repos (Mo)',version_so:'Version'},
     chips: [
       ['📋','tous les systèmes','Tous'],["📖","qu'est-ce que Linux","Qu'est-ce que Linux?"],
       ["📖","qu'est-ce que FreeBSD","Qu'est-ce que FreeBSD?"],["📖","qu'est-ce que Solaris","Qu'est-ce que Solaris?"],
@@ -352,34 +352,38 @@ const t = () => I18N[currentLang];
 function setLang(lang) {
   currentLang = lang;
   const tx = I18N[lang];
+  
+  // 1. Actualiza botones y textos estáticos al instante
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.textContent.toLowerCase().includes(lang));
   });
   document.getElementById('q').placeholder = tx.placeholder;
   document.getElementById('btn').textContent = tx.search;
-  const sugEl = document.querySelector('[data-i18n="suggestions"]');
-  if (sugEl) sugEl.textContent = tx.suggestions;
-  document.getElementById('q').value = '';
-  document.getElementById('out').innerHTML =
-    `<div class="empty"><div class="empty-glyph">— ∅ —</div><div class="empty-text">${tx.empty}</div></div>`;
-  buildChips(tx.chips);
-}
-
-function buildChips(chipsArr) {
+  document.querySelector('[data-i18n="suggestions"]').textContent = tx.suggestions;
+  document.getElementById('main-title').innerHTML = tx.title;
+  document.getElementById('main-subtitle').innerHTML = tx.subtitle;
+  
   const c = document.getElementById('chips-container');
-  c.innerHTML = '';
-  chipsArr.forEach(([e, q, l]) => {
-    const span = document.createElement('span');
-    span.className = 'chip';
-    span.textContent = e + ' ' + l;
-    span.dataset.q = q;
-    span.addEventListener('click', () => doSearch(span.dataset.q));
-    c.appendChild(span);
-  });
-}
+  c.innerHTML = tx.chips.map(([e,q,l]) =>
+    `<span class="chip" onclick="doSearch('${q.replace(/'/g,"\\'")}')">${e} ${l}</span>`
+  ).join('');
 
+  // 2. LA MAGIA: Si hay algo buscado, actualiza en segundo plano
+  const currentTerm = document.getElementById('q').value.trim();
+  if (currentTerm !== '') {
+    buscar(true); // <--- Le pasamos 'true' para hacer la recarga silenciosa
+  } else {
+    document.querySelector('[data-i18n="empty"]').textContent = tx.empty;
+    document.getElementById('out').innerHTML =
+      `<div class="empty"><div class="empty-glyph">— ∅ —</div><div class="empty-text" data-i18n="empty">${tx.empty}</div></div>`;
+  }
+}
 function renderChips() {
-  buildChips(I18N[currentLang].chips);
+  const tx2 = I18N[currentLang];
+  const c = document.getElementById('chips-container');
+  c.innerHTML = tx2.chips.map(([e,q,l]) =>
+    `<span class="chip" onclick="doSearch('${q.replace(/'/g,"\'")}')">${e} ${l}</span>`
+  ).join('');
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -413,13 +417,12 @@ function icono(n) {
 }
 
 function labelModo(m) {
-  const L = {
-    es:{comparar:'comparación',booleano_true:'filtro·activo',booleano_false:'filtro·exclusión',nombre:'búsqueda',todos:'catálogo',filtro_propiedad:'filtro·propiedad',filtro_kernel:'filtro·kernel',ranking:'ranking',contar:'conteo',definicion:'definición'},
-    en:{comparar:'comparison',booleano_true:'filter·active',booleano_false:'filter·exclude',nombre:'search',todos:'catalog',filtro_propiedad:'filter·property',filtro_kernel:'filter·kernel',ranking:'ranking',contar:'count',definicion:'definition'},
-    pt:{comparar:'comparação',booleano_true:'filtro·ativo',booleano_false:'filtro·exclusão',nombre:'busca',todos:'catálogo',filtro_propiedad:'filtro·propriedade',filtro_kernel:'filtro·kernel',ranking:'ranking',contar:'contagem',definicion:'definição'},
-    fr:{comparar:'comparaison',booleano_true:'filtre·actif',booleano_false:'filtre·exclusion',nombre:'recherche',todos:'catalogue',filtro_propiedad:'filtre·propriété',filtro_kernel:'filtre·kernel',ranking:'classement',contar:'décompte',definicion:'définition'},
+  const map = {
+    comparar: t().comparacion, booleano_true:'filtro·activo', booleano_false:'filtro·exclusión',
+    nombre:'búsqueda', todos:'catálogo', filtro_propiedad:'filtro·propiedad',
+    filtro_kernel:'filtro·kernel', ranking:'ranking', contar:'conteo', definicion:'definición'
   };
-  return (L[currentLang]||L.es)[m] || m || '';
+  return map[m] || m || '';
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -598,15 +601,8 @@ function crearTarjeta(e, idx) {
     html += `<tr><td colspan="2" style="color:var(--text3);padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px">—</td></tr>`;
   } else {
     e.atributos.forEach(a => {
-      const propKey4 = a.Atributo.toLowerCase().replace(/\s+/g,'_');
-      const propLabel = (t().props && t().props[propKey4]) ? t().props[propKey4] : a.Atributo;
-      const SI_MAP = {es:'Sí',en:'Yes',pt:'Sim',fr:'Oui'};
-      const NO_MAP = {es:'No',en:'No',pt:'Não',fr:'Non'};
-      let val = a.Valor;
-      if (val==='Sí'||val==='Si') val = SI_MAP[currentLang]||val;
-      else if (val==='No') val = NO_MAP[currentLang]||val;
-      const cls = (val===SI_MAP[currentLang])?'val-si':(val===NO_MAP[currentLang])?'val-no':'';
-      html += `<tr><th>${propLabel}</th><td class="${cls}">${val}</td></tr>`;
+      const cls = a.Valor==='Sí'?'val-si':a.Valor==='No'?'val-no':'';
+      html += `<tr><th>${a.Atributo}</th><td class="${cls}">${a.Valor}</td></tr>`;
     });
   }
   html += `</tbody></table>
@@ -782,22 +778,36 @@ inp.addEventListener('keydown', e => { if(e.key==='Enter') buscar(); });
 
 function doSearch(txt) { inp.value = txt; buscar(); }
 
-async function buscar() {
+async function buscar(silent = false) {
   const termino = inp.value.trim();
   if (!termino) return;
-  out.innerHTML = `<div class="loading-state"><div class="spinner-ring"></div><div class="loading-text">${t().loading}</div></div>`;
+
+  // Si es una búsqueda normal, mostramos el cargando gigante
+  if (!silent) {
+    out.innerHTML = `<div class="loading-state"><div class="spinner-ring"></div><div class="loading-text">${t().loading}</div></div>`;
+  } else {
+    // Si es un cambio de idioma, NO borramos la pantalla.
+    // Solo difuminamos las tarjetas un 50% para que el usuario sepa que está traduciendo.
+    out.style.opacity = '0.5';
+    out.style.pointerEvents = 'none'; // Evitamos que haga clics mientras traduce
+    out.style.transition = 'opacity 0.3s ease';
+  }
 
   try {
-    const res  = await fetch('/buscar?q=' + encodeURIComponent(termino));
+    const res  = await fetch('/buscar?q=' + encodeURIComponent(termino) + '&lang=' + currentLang);
     const data = await res.json();
+
+    // Cuando llegan los datos traducidos, restauramos el brillo de la pantalla
+    out.style.opacity = '1';
+    out.style.pointerEvents = 'auto';
 
     if (data.error) {
       out.innerHTML = `<div class="error-msg">⚠ ${data.error}</div>`;
       return;
-    }
+    } 
 
     if (data.tipo === 'conteo') {
-      out.innerHTML = `<p class="meta-line"><strong>${data.mensaje}</strong> <span class="badge-intent">${labelModo("contar")}</span></p>`;
+      out.innerHTML = `<p class="meta-line"><strong>${data.mensaje}</strong> <span class="badge-intent">conteo</span></p>`;
       if (data.resultados && data.resultados.length > 0) {
         data.resultados.forEach((e,i) => { out.appendChild(crearTarjeta(e, i)); });
         data.resultados.forEach((e,i) => { llenarDBpedia(e.nombre_dbpedia || e.titulo, i); });
@@ -806,7 +816,7 @@ async function buscar() {
     }
 
     if (data.tipo === 'definicion') {
-      out.innerHTML = `<p class="meta-line"><strong>📖 ${data.termino_buscar}</strong> <span class="badge-intent">${labelModo("definicion")}</span></p>`;
+      out.innerHTML = `<p class="meta-line"><strong>📖 ${data.termino_buscar}</strong> <span class="badge-intent">definición</span></p>`;
       await renderDefinicion(data.termino_buscar, data.resultados);
       return;
     }
