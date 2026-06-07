@@ -286,6 +286,7 @@ PREFIX dbo:  <http://dbpedia.org/ontology/>
 PREFIX dbp:  <http://dbpedia.org/property/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 SELECT
   (SAMPLE(?absLang) AS ?resumen)
   (SAMPLE(?absEn)   AS ?resumenEn)
@@ -296,11 +297,16 @@ SELECT
   (SAMPLE(?page)    AS ?web)
   (SAMPLE(?logoV)   AS ?logo)
   (SAMPLE(?r)       AS ?uri)
+  (SAMPLE(?enlaceLocal) AS ?uriLocal)
 WHERE {{
   {bind_clause}
   OPTIONAL {{ ?r rdfs:label ?lbl . FILTER(LANG(?lbl)="{lang}" || LANG(?lbl)="en") }}
   OPTIONAL {{ ?r dbo:abstract ?absLang . FILTER(LANG(?absLang)="{lang}") }}
   OPTIONAL {{ ?r dbo:abstract ?absEn   . FILTER(LANG(?absEn)="en") }}
+  OPTIONAL {{
+    ?r owl:sameAs ?enlaceLocal .
+    FILTER(STRSTARTS(STR(?enlaceLocal), "http://{lang}.dbpedia.org"))
+  }}
   OPTIONAL {{
     ?r dbo:developer|dbp:developer ?dev .
     OPTIONAL {{ ?dev rdfs:label ?devL . FILTER(LANG(?devL)="en" || LANG(?devL)="{lang}") }}
@@ -406,7 +412,7 @@ def _parsear_row(row):
     result = {
         "resumen":       g("resumen") or g("resumenEn"),
         "nombre":        g("nombre"),
-        "uri":           g("uri"),
+        "uri":           g("uriLocal") or g("uri"), # <--- ¡MAGIA AQUÍ! Prioriza el link nativo
         "desarrollador": gsplit("desarrolladores"),
         "anio":          anio[:4] if anio else None,
         "licencia":      gsplit("licencias"),
