@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from SPARQLWrapper import SPARQLWrapper, JSON
 import re
 import requests
+from translation_dict import TRANSLATION_DICT_EXPANDED as TRANSLATION_DICT
 
 app = Flask(__name__)
 
@@ -111,154 +112,8 @@ PROP_VALOR_VALOR = {
     "embebido":"Embebido","embebidos":"Embebido","embedded":"Embebido","iot":"Embebido",
 }
 
-# ─── DICCIONARIO DE TRADUCCIONES (Atributos y Valores) ──────────────────────────
-# Traduce nombres de propiedades (Atributo) y valores comunes a múltiples idiomas
-TRANSLATION_DICT = {
-    "es": {  # Español (original)
-        "atributos": {
-            "Nombre": "Nombre",
-            "Es Open Source": "Es Open Source",
-            "Es Gratuito Freeware": "Es Gratuito/Freeware",
-            "Es Comercial De Pago": "Es Comercial/De Pago",
-            "Cumple Estandar Posix": "Cumple Estándar POSIX",
-            "Permite Modificacion": "Permite Modificación",
-            "Tiene Sandboxing Nativo": "Tiene Sandboxing Nativo",
-            "Orientado A Principiantes": "Orientado a Principiantes",
-            "Es Kernel Modificado": "Es Kernel Modificado",
-            "Cifrado Disco Por Defecto": "Cifrado Disco por Defecto",
-            "Es Multiusuario": "Es Multiusuario",
-            "Es Multitarea": "Es Multitarea",
-            "Se Basa En Kernel": "Se Basa en Kernel",
-            "Utiliza Licencia": "Utiliza Licencia",
-            "Arquitectura Soportada": "Arquitectura Soportada",
-            "Entorno Escritorio Default": "Entorno Escritorio por Defecto",
-            "Gestor Paquetes Default": "Gestor de Paquetes por Defecto",
-            "Desarrollador": "Desarrollador",
-            "Version So": "Versión SO",
-            "Familia Base": "Familia Base",
-            "Proposito": "Propósito",
-            "Descripcion": "Descripción",
-            "Ram En Reposo Mb": "RAM en Reposo (MB)",
-        },
-        "valores": {
-            "Sí": "Sí",
-            "No": "No",
-            "Movil": "Móvil",
-            "Servidor": "Servidor",
-            "Escritorio": "Escritorio",
-            "Embebido": "Embebido",
-            "Legado": "Legado",
-        }
-    },
-    "en": {  # English
-        "atributos": {
-            "Nombre": "Name",
-            "Es Open Source": "Is Open Source",
-            "Es Gratuito Freeware": "Is Free/Freeware",
-            "Es Comercial De Pago": "Is Commercial/Paid",
-            "Cumple Estandar Posix": "Complies with POSIX Standard",
-            "Permite Modificacion": "Allows Modification",
-            "Tiene Sandboxing Nativo": "Has Native Sandboxing",
-            "Orientado A Principiantes": "Beginner-Oriented",
-            "Es Kernel Modificado": "Is Modified Kernel",
-            "Cifrado Disco Por Defecto": "Disk Encryption by Default",
-            "Es Multiusuario": "Is Multi-user",
-            "Es Multitarea": "Is Multitasking",
-            "Se Basa En Kernel": "Based on Kernel",
-            "Utiliza Licencia": "Uses License",
-            "Arquitectura Soportada": "Supported Architecture",
-            "Entorno Escritorio Default": "Default Desktop Environment",
-            "Gestor Paquetes Default": "Default Package Manager",
-            "Desarrollador": "Developer",
-            "Version So": "OS Version",
-            "Familia Base": "Base Family",
-            "Proposito": "Purpose",
-            "Descripcion": "Description",
-            "Ram En Reposo Mb": "RAM at Rest (MB)",
-        },
-        "valores": {
-            "Sí": "Yes",
-            "No": "No",
-            "Movil": "Mobile",
-            "Servidor": "Server",
-            "Escritorio": "Desktop",
-            "Embebido": "Embedded",
-            "Legado": "Legacy",
-        }
-    },
-    "pt": {  # Português
-        "atributos": {
-            "Nombre": "Nome",
-            "Es Open Source": "É Open Source",
-            "Es Gratuito Freeware": "É Gratuito/Freeware",
-            "Es Comercial De Pago": "É Comercial/Pago",
-            "Cumple Estandar Posix": "Está em Conformidade com Padrão POSIX",
-            "Permite Modificacion": "Permite Modificação",
-            "Tiene Sandboxing Nativo": "Tem Sandboxing Nativo",
-            "Orientado A Principiantes": "Orientado para Iniciantes",
-            "Es Kernel Modificado": "É Kernel Modificado",
-            "Cifrado Disco Por Defecto": "Criptografia de Disco por Padrão",
-            "Es Multiusuario": "É Multiusuário",
-            "Es Multitarea": "É Multitarefa",
-            "Se Basa En Kernel": "Baseado em Kernel",
-            "Utiliza Licencia": "Utiliza Licença",
-            "Arquitectura Soportada": "Arquitetura Suportada",
-            "Entorno Escritorio Default": "Ambiente Desktop Padrão",
-            "Gestor Paquetes Default": "Gerenciador de Pacotes Padrão",
-            "Desarrollador": "Desenvolvedor",
-            "Version So": "Versão SO",
-            "Familia Base": "Família Base",
-            "Proposito": "Propósito",
-            "Descripcion": "Descrição",
-            "Ram En Reposo Mb": "RAM em Repouso (MB)",
-        },
-        "valores": {
-            "Sí": "Sim",
-            "No": "Não",
-            "Movil": "Móvel",
-            "Servidor": "Servidor",
-            "Escritorio": "Área de Trabalho",
-            "Embebido": "Embarcado",
-            "Legado": "Legado",
-        }
-    },
-    "fr": {  # Français
-        "atributos": {
-            "Nombre": "Nom",
-            "Es Open Source": "Est Open Source",
-            "Es Gratuito Freeware": "Est Gratuit/Freeware",
-            "Es Comercial De Pago": "Est Commercial/Payant",
-            "Cumple Estandar Posix": "Conforme à la Norme POSIX",
-            "Permite Modificacion": "Permet la Modification",
-            "Tiene Sandboxing Nativo": "A Sandboxing Natif",
-            "Orientado A Principiantes": "Orienté pour Débutants",
-            "Es Kernel Modificado": "Est Kernel Modifié",
-            "Cifrado Disco Por Defecto": "Chiffrement de Disque par Défaut",
-            "Es Multiusuario": "Est Multi-utilisateur",
-            "Es Multitarea": "Est Multitâche",
-            "Se Basa En Kernel": "Basé sur Kernel",
-            "Utiliza Licencia": "Utilise Licence",
-            "Arquitectura Soportada": "Architecture Supportée",
-            "Entorno Escritorio Default": "Environnement Bureau par Défaut",
-            "Gestor Paquetes Default": "Gestionnaire de Paquets par Défaut",
-            "Desarrollador": "Développeur",
-            "Version So": "Version SE",
-            "Familia Base": "Famille de Base",
-            "Proposito": "Objectif",
-            "Descripcion": "Description",
-            "Ram En Reposo Mb": "RAM au Repos (MB)",
-        },
-        "valores": {
-            "Sí": "Oui",
-            "No": "Non",
-            "Movil": "Mobile",
-            "Servidor": "Serveur",
-            "Escritorio": "Bureau",
-            "Embebido": "Intégré",
-            "Legado": "Hérité",
-        }
-    }
-}
+# TRANSLATION_DICT está importado desde translation_dict.py
+
 
 def traducir_resultado(resultado, lang="es"):
     """Traduce los atributos y valores de un resultado según el idioma especificado."""
@@ -285,6 +140,9 @@ def traducir_resultado(resultado, lang="es"):
     
     resultado["atributos"] = atributos_traducidos
     return resultado
+
+
+# ─── DBpedia headers ──────────────────────────────────────────────────────
 
 DBP_HEADERS = {
     "Accept": "application/sparql-results+json",
