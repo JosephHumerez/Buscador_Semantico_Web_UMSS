@@ -1670,6 +1670,824 @@
         <url_servidor>https://apple.com/macos</url_servidor>
         <version_so>14.0</version_so>
     </owl:NamedIndividual>
+
+    <!-- ─── Kernels de soporte nuevos ──────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FreeBSD_Kernel_14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+
+    <!-- ─── Repositorios nuevos ─────────────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#DNF_Fedora_Repo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Zypper_openSUSE_Repo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FreeBSD_Ports_Repo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+
+    <!-- ─── Licencias nuevas ────────────────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#BSD_2_Clause_License">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Licencia_Software"/>
+        <tipo_licencia>BSD Permisiva</tipo_licencia>
+    </owl:NamedIndividual>
+
+    <!-- ─── Sistemas de archivos nuevos ─────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_journaling>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#UFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Archivos"/>
+        <soporta_journaling rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</soporta_journaling>
+    </owl:NamedIndividual>
+
+    <!-- ─── Recursos de memoria nuevos ──────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_BSD">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Recurso_Memoria_Almacenamiento"/>
+    </owl:NamedIndividual>
+
+    <!-- ─── Componentes de software nuevos ──────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Cinnamon_Shell">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#KDE_Plasma_Shell">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Xfce_Shell">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Componente_Software_Base"/>
+    </owl:NamedIndividual>
+
+    <!-- ─── Estructuras de datos nuevas ─────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZFS_Dataset">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Estructura_De_Datos_Interna"/>
+    </owl:NamedIndividual>
+
+    <!-- ─── Soporte gaming ──────────────────────────────────────────────────── -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Holo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kernel_Nucleo"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Steam_Repo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Flatpak_Store">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Repositorio_De_Software"/>
+    </owl:NamedIndividual>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- ══  NUEVOS SISTEMAS OPERATIVOS                                       ══ -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SteamOS_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SteamOS_3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#KDE_Plasma_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Holo"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Steam_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Valve Corporation</desarrollador>
+        <descripcion>Sistema operativo Linux de Valve optimizado para gaming, usado en Steam Deck y PCs de salón.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>KDE Plasma (modo escritorio) / Big Picture</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>Flatpak / pacman (solo lectura)</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>STEAMOS-3</id_entidad>
+        <incluye_subsistema_compatibilidad rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</incluye_subsistema_compatibilidad>
+        <libreria_grafica_nativa>Vulkan / Proton</libreria_grafica_nativa>
+        <nombre>SteamOS</nombre>
+        <nombre_clave>Holo</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Gaming</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8192</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Steam Deck Recovery / Clover</tipo_instalador_default>
+        <tipo_lanzamiento>Rolling Release</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://store.steampowered.com/steamos</url_servidor>
+        <version_so>3.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Bazzite -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Bazzite">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#KDE_Plasma_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_9"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Flatpak_Store"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Universal Blue / Comunidad</desarrollador>
+        <descripcion>Distribución Linux inmutable basada en Fedora, diseñada específicamente para gaming en PC y Steam Deck.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>KDE Plasma / GNOME</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>Flatpak / rpm-ostree</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>BAZZITE-40</id_entidad>
+        <libreria_grafica_nativa>Vulkan / Proton / Wine</libreria_grafica_nativa>
+        <nombre>Bazzite</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Gaming</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8192</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Anaconda</tipo_instalador_default>
+        <tipo_lanzamiento>Rolling Release</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://bazzite.gg</url_servidor>
+        <version_so>40.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Nobara_Linux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Nobara_Linux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#KDE_Plasma_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_9"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#DNF_Fedora_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>GloriousEggroll</desarrollador>
+        <descripcion>Distribución Linux basada en Fedora con parches de gaming, Proton-GE y optimizaciones para Steam y Wine.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>KDE Plasma / GNOME</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>DNF / Flatpak</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>NOBARA-40</id_entidad>
+        <libreria_grafica_nativa>Vulkan / Proton-GE / Wine</libreria_grafica_nativa>
+        <nombre>Nobara Linux</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <proposito>Gaming</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8192</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Anaconda</tipo_instalador_default>
+        <tipo_lanzamiento>Semestral</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://nobaraproject.org</url_servidor>
+        <version_so>40.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Debian_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Debian_12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNOME_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_6"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64, i386, mips64el, ppc64el, s390x, riscv64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Software in the Public Interest</desarrollador>
+        <descripcion>Distribución Linux universal, base de Ubuntu y muchas otras distros.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>GNOME</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>APT</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>DEB-12</id_entidad>
+        <incluye_subsistema_compatibilidad rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</incluye_subsistema_compatibilidad>
+        <modulo_seguridad_mac_integrado>AppArmor</modulo_seguridad_mac_integrado>
+        <nombre>Debian</nombre>
+        <nombre_clave>Bookworm</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Servidor y Escritorio</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <protocolo_seguridad_default>TLS/SSL</protocolo_seguridad_default>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">350</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</ram_minima_recomendada_mb>
+        <rama>Stable</rama>
+        <requiere_autenticacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiere_autenticacion>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Debian Installer</tipo_instalador_default>
+        <tipo_lanzamiento>Estable</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://debian.org</url_servidor>
+        <version_kernel>6.6</version_kernel>
+        <version_so>12.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Fedora_40 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Fedora_40">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNOME_Shell"/>
+        <integra_modulo_seguridad rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SELinux"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_9"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#DNF_Fedora_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Fedora Project / Red Hat Inc.</desarrollador>
+        <descripcion>Distribución Linux de vanguardia, upstream de Red Hat Enterprise Linux.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>GNOME</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>DNF</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>FED-40</id_entidad>
+        <modulo_seguridad_mac_integrado>SELinux</modulo_seguridad_mac_integrado>
+        <nombre>Fedora</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio y Servidor</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <protocolo_seguridad_default>TLS/SSL</protocolo_seguridad_default>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</ram_minima_recomendada_mb>
+        <requiere_autenticacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiere_autenticacion>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Anaconda</tipo_instalador_default>
+        <tipo_lanzamiento>Semestral</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://fedoraproject.org</url_servidor>
+        <version_kernel>6.9</version_kernel>
+        <version_so>40.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Mint_21_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Mint_21_3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Cinnamon_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_8"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Linux Mint Team</desarrollador>
+        <descripcion>Distribución Linux basada en Ubuntu orientada a usuarios que migran desde Windows.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>Cinnamon</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>APT</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>MINT-21-3</id_entidad>
+        <nombre>Linux Mint</nombre>
+        <nombre_clave>Virginia</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">700</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</ram_minima_recomendada_mb>
+        <requiere_autenticacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</requiere_autenticacion>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Calamares</tipo_instalador_default>
+        <tipo_lanzamiento>LTS</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://linuxmint.com</url_servidor>
+        <version_kernel>6.8</version_kernel>
+        <version_so>21.3</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kali_Linux_2024 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Kali_Linux_2024">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Xfce_Shell"/>
+        <integra_modulo_seguridad rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#AppArmor"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_6"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64, armhf</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Offensive Security</desarrollador>
+        <descripcion>Distribución Linux especializada en ciberseguridad y pruebas de penetración.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>Xfce</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>APT</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>KALI-2024</id_entidad>
+        <nombre>Kali Linux</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <proposito>Seguridad y Auditoría</proposito>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tiene_sandboxing_nativo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tiene_sandboxing_nativo>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Calamares</tipo_instalador_default>
+        <tipo_lanzamiento>Rolling Release</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://kali.org</url_servidor>
+        <version_kernel>6.6</version_kernel>
+        <version_so>2024.1</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FreeBSD_14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FreeBSD_14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_BSD"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FreeBSD_Kernel_14"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FreeBSD_Ports_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#UFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#UFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZFS"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#ZFS_Dataset"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#BSD_2_Clause_License"/>
+        <arquitectura_soportada>amd64, arm64, i386, riscv64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>FreeBSD Project</desarrollador>
+        <descripcion>Sistema operativo Unix-like de alto rendimiento orientado a servidores y appliances de red.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>BSD / UNIX</familia_base>
+        <gestor_paquetes_default>pkg / Ports</gestor_paquetes_default>
+        <id_entidad>FBSD-14</id_entidad>
+        <nombre>FreeBSD</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <proposito>Servidor</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <protocolo_seguridad_default>TLS/SSL</protocolo_seguridad_default>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>bsdinstall</tipo_instalador_default>
+        <tipo_lanzamiento>Estable</tipo_lanzamiento>
+        <tipo_licencia>BSD Permisiva</tipo_licencia>
+        <url_servidor>https://freebsd.org</url_servidor>
+        <version_so>14.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#openSUSE_Leap_15_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#openSUSE_Leap_15_6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#KDE_Plasma_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_6"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Zypper_openSUSE_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>openSUSE Project / SUSE LLC</desarrollador>
+        <descripcion>Distribución Linux empresarial conocida por su herramienta YaST de configuración.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>KDE Plasma</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>Zypper / YaST</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>SUSE-15-6</id_entidad>
+        <nombre>openSUSE Leap</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio y Servidor</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>YaST Installer</tipo_instalador_default>
+        <tipo_lanzamiento>Estable</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://opensuse.org</url_servidor>
+        <version_kernel>6.6</version_kernel>
+        <version_so>15.6</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Manjaro_24 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Manjaro_24">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#KDE_Plasma_Shell"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_Zen"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Arch_User_Repository_AUR"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Btrfs_Subvolume"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Manjaro GmbH &amp; Co. KG</desarrollador>
+        <descripcion>Distribución Linux basada en Arch con experiencia de usuario amigable y acceso al AUR.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>KDE Plasma</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>Pacman / Pamac</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>MANJARO-24</id_entidad>
+        <nombre>Manjaro</nombre>
+        <nombre_clave>Wynsdey</nombre_clave>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Calamares</tipo_instalador_default>
+        <tipo_lanzamiento>Rolling Release</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://manjaro.org</url_servidor>
+        <version_so>24.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Raspberry_Pi_OS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Raspberry_Pi_OS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Systemd_Init"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_6"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#APT_Main_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>arm64, armhf</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Raspberry Pi Foundation</desarrollador>
+        <descripcion>Distribución Linux oficial para la placa Raspberry Pi, basada en Debian Bookworm.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>LXDE / Wayfire</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>APT</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>RPIOS-12</id_entidad>
+        <nombre>Raspberry Pi OS</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <proposito>Embebido y Escritorio</proposito>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</restringe_hardware_especifico>
+        <soporta_placas_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</soporta_placas_desarrollo>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Raspberry Pi Imager</tipo_instalador_default>
+        <tipo_lanzamiento>Estable</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://raspberrypi.com/software</url_servidor>
+        <version_kernel>6.6</version_kernel>
+        <version_so>12.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Sistema_Operativo"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Pagefile_sys"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Explorador_De_Archivos"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Windows_NT_10_0"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_Store"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#exFAT"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#NTFS"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#MFT_Master_File_Table"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Microsoft_EULA"/>
+        <arquitectura_soportada>amd64, arm64, i386</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cumple_estandar_posix>
+        <desarrollador>Microsoft Corporation</desarrollador>
+        <descripcion>Sistema operativo privativo de escritorio de la familia Windows NT, predecesor de Windows 11.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>Windows Desktop</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>Windows NT</familia_base>
+        <gestor_paquetes_default>Winget</gestor_paquetes_default>
+        <id_entidad>WIN-10</id_entidad>
+        <incluye_subsistema_compatibilidad rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</incluye_subsistema_compatibilidad>
+        <libreria_grafica_nativa>DirectX 12</libreria_grafica_nativa>
+        <nombre>Windows 10</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</orientado_a_principiantes>
+        <permite_gestion_prioridad_cpu rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_gestion_prioridad_cpu>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_modificacion>
+        <permite_reemplazo_entorno_escritorio rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</permite_reemplazo_entorno_escritorio>
+        <proposito>Escritorio General</proposito>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2500</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <restringe_instalacion_a_tienda rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_instalacion_a_tienda>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Híbrido</tipo_arquitectura_nucleo>
+        <tipo_licencia>Comercial Privativa</tipo_licencia>
+        <url_servidor>https://microsoft.com/windows</url_servidor>
+        <version_so>10.0</version_so>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#CentOS_Stream_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#CentOS_Stream_9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Distribucion"/>
+        <administra_recurso rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Particion_Swap_Linux"/>
+        <ejecuta_componente rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNOME_Shell"/>
+        <integra_modulo_seguridad rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#SELinux"/>
+        <se_basa_en_kernel rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Linux_Kernel_6_6"/>
+        <se_descarga_desde rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#DNF_Fedora_Repo"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <soporta_escritura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#FAT16"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <soporta_lectura_nativa_fs rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Ext4"/>
+        <tiene_sistema_archivos_por_defecto rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#XFS"/>
+        <utiliza_estructura_datos rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#Inodo_Ext4"/>
+        <utiliza_licencia rdf:resource="http://www.semanticweb.org/administrator/ontologies/2026/2/untitled-ontology-2#GNU_GPL_v2"/>
+        <arquitectura_soportada>amd64, arm64, ppc64le, s390x</arquitectura_soportada>
+        <cifrado_disco_por_defecto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</cifrado_disco_por_defecto>
+        <cumple_estandar_posix rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</cumple_estandar_posix>
+        <desarrollador>Red Hat / CentOS Community</desarrollador>
+        <descripcion>Distribución Linux empresarial upstream de Red Hat Enterprise Linux, orientada a servidores.</descripcion>
+        <ejecuta_binarios_exe_nativamente rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ejecuta_binarios_exe_nativamente>
+        <entorno_escritorio_default>GNOME</entorno_escritorio_default>
+        <es_comercial_de_pago rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_comercial_de_pago>
+        <es_gratuito_freeware rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_gratuito_freeware>
+        <es_kernel_modificado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</es_kernel_modificado>
+        <es_open_source rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</es_open_source>
+        <esta_cifrado rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</esta_cifrado>
+        <familia_base>LINUX</familia_base>
+        <gestor_paquetes_default>DNF</gestor_paquetes_default>
+        <gestor_red_default>NetworkManager</gestor_red_default>
+        <id_entidad>CENTOS-S9</id_entidad>
+        <modulo_seguridad_mac_integrado>SELinux</modulo_seguridad_mac_integrado>
+        <nombre>CentOS Stream</nombre>
+        <orientado_a_principiantes rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</orientado_a_principiantes>
+        <permite_modificacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</permite_modificacion>
+        <proposito>Servidor</proposito>
+        <protocolo_red>TCP/IP</protocolo_red>
+        <protocolo_seguridad_default>TLS/SSL</protocolo_seguridad_default>
+        <ram_en_reposo_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</ram_en_reposo_mb>
+        <ram_minima_recomendada_mb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</ram_minima_recomendada_mb>
+        <restringe_hardware_especifico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</restringe_hardware_especifico>
+        <tamaño_instalacion_gb rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</tamaño_instalacion_gb>
+        <tiene_asistente_instalacion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</tiene_asistente_instalacion>
+        <tipo_arquitectura_nucleo>Monolítico</tipo_arquitectura_nucleo>
+        <tipo_instalador_default>Anaconda</tipo_instalador_default>
+        <tipo_lanzamiento>Rolling Release</tipo_lanzamiento>
+        <tipo_licencia>GPL</tipo_licencia>
+        <url_servidor>https://centos.org</url_servidor>
+        <version_kernel>6.6</version_kernel>
+        <version_so>9.0</version_so>
+    </owl:NamedIndividual>
+
 </rdf:RDF>
 
 

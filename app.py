@@ -88,6 +88,13 @@ PROP_VALOR_MAP = {
     "servidor":"proposito","servidores":"proposito","server":"proposito","servers":"proposito","serveur":"proposito",
     "escritorio":"proposito","escritorios":"proposito","desktop":"proposito","desktops":"proposito","bureau":"proposito",
     "embebido":"proposito","embebidos":"proposito","embedded":"proposito","iot":"proposito",
+    "hackear":"proposito","hacking":"proposito","hack":"proposito","pentest":"proposito",
+    "pentesting":"proposito","seguridad":"proposito","ciberseguridad":"proposito",
+    "auditoria":"proposito","auditoría":"proposito","penetracion":"proposito","penetración":"proposito",
+    "security":"proposito","hacker":"proposito","ethical":"proposito","forense":"proposito","forensic":"proposito",
+    "jugar":"proposito","juegos":"proposito","gaming":"proposito","gamer":"proposito","gamers":"proposito",
+    "steam":"proposito","videojuegos":"proposito","games":"proposito","game":"proposito","videogames":"proposito",
+    "jouer":"proposito","jogar":"proposito","spielen":"proposito","juego":"proposito",
     "x86":"arquitectura_soportada","x64":"arquitectura_soportada",
     "arm":"arquitectura_soportada","aarch64":"arquitectura_soportada","mips":"arquitectura_soportada",
     "linux":"se_basa_en_kernel","unix":"se_basa_en_kernel","xnu":"se_basa_en_kernel",
@@ -110,6 +117,13 @@ PROP_VALOR_VALOR = {
     "servidor":"Servidor","servidores":"Servidor","server":"Servidor","servers":"Servidor","serveur":"Servidor",
     "escritorio":"Escritorio","escritorios":"Escritorio","desktop":"Escritorio","desktops":"Escritorio","bureau":"Escritorio",
     "embebido":"Embebido","embebidos":"Embebido","embedded":"Embebido","iot":"Embebido",
+    "hackear":"Seguridad","hacking":"Seguridad","hack":"Seguridad","pentest":"Seguridad",
+    "pentesting":"Seguridad","seguridad":"Seguridad","ciberseguridad":"Seguridad",
+    "auditoria":"Seguridad","auditoría":"Seguridad","penetracion":"Seguridad","penetración":"Seguridad",
+    "security":"Seguridad","hacker":"Seguridad","ethical":"Seguridad","forense":"Seguridad","forensic":"Seguridad",
+    "jugar":"Gaming","juegos":"Gaming","gaming":"Gaming","gamer":"Gaming","gamers":"Gaming",
+    "steam":"Gaming","videojuegos":"Gaming","games":"Gaming","game":"Gaming","videogames":"Gaming",
+    "jouer":"Gaming","jogar":"Gaming","spielen":"Gaming","juego":"Gaming",
 }
 
 # TRANSLATION_DICT está importado desde translation_dict.py
@@ -778,6 +792,8 @@ def query_filtro_valor(propiedad, valor, palabras_extra=None):
         "Embebido":   ["embebido", "embedded", "iot"],
         "embebido":   ["embebido", "embedded", "iot"],
         "Legado":     ["legado", "legacy"],
+        "Seguridad":  ["seguridad", "security", "auditoria", "auditoría", "pentest", "hacking", "hackear", "forense", "penetraci"],
+        "Gaming":     ["gaming", "juegos", "jugar", "gamer", "steam", "videojuegos", "game"],
     }
     variantes_val = VARIANTES.get(valor, [valor.lower()])
     regex_val = "|".join(variantes_val)
@@ -1005,6 +1021,9 @@ def buscar():
         "kernel","nucleo","comparar","vs","versus","cuantos",
         "mobile","server","embedded","embebido","iot","funciona","funcionan",
         "usado","usados","diseñado","diseñados","orientado",
+        "hackear","hacking","hack","pentest","pentesting","seguridad","ciberseguridad",
+        "auditoria","forense","forensic","security","hacker","ethical",
+        "jugar","juegos","gaming","gamer","steam","videojuegos","games","game",
     }
     import unicodedata
     palabras_norm = {unicodedata.normalize("NFKD", p).encode("ascii","ignore").decode() for p in palabras_router}
